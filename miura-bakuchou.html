@@ -1,0 +1,1776 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>三浦半島爆釣作戦</title>
+<meta name="description" content="2026年10月3日、三浦半島（観音山・ヤギ島周辺・盗人狩）の潮・釣り場・魚・仕掛けをまとめたフィールドガイド。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Unbounded:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --blue:#176BFF; --blue-d:#0F55D8; --blue-50:#EAF2FF; --sky:#67C9F5; --aqua:#CDEFFD;
+  --bg:#FFFFFF; --bg2:#F4FAFF; --ink:#152E49; --ink2:#465C75; --ink3:#5B728C;
+  --line:#DCE7F1; --line2:#C6D8EA;
+  --warn:#8F4700; --warn-bg:#FFF7EC; --warn-line:#F8D8AE; --warn-ic:#DD8418;
+  --danger:#C22F2F; --danger-bg:#FFF2F1; --danger-line:#F5C6C2;
+  --f-disp:"Dela Gothic One","Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP",sans-serif;
+  --f-body:"Zen Kaku Gothic New","Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",system-ui,sans-serif;
+  --f-num:"Unbounded","Zen Kaku Gothic New","Hiragino Sans",system-ui,sans-serif;
+  --shadow:0 1px 2px rgba(21,46,73,.04),0 14px 36px -18px rgba(21,46,73,.16);
+  --ease:cubic-bezier(.2,.7,.2,1);
+  --gut:16px;
+  color-scheme:light;
+}
+@media (min-width:768px){:root{--gut:32px}}
+@media (min-width:1200px){:root{--gut:48px}}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-behavior:smooth;background:var(--bg)}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.75;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+main{overflow-x:clip;padding-bottom:calc(104px + env(safe-area-inset-bottom,0px))}
+button{font:inherit;color:inherit}
+a{color:var(--blue)}
+.u{font-family:var(--f-num);font-variant-numeric:tabular-nums;letter-spacing:.01em}
+.sr{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.wrap{width:100%;max-width:1180px;margin-inline:auto;padding-inline:var(--gut)}
+:focus-visible{outline:2px solid var(--blue);outline-offset:3px;border-radius:6px}
+h1,h2,h3,h4{text-wrap:balance;margin:0}
+p{margin:0}
+
+/* ───────── HERO ───────── */
+.hero{position:relative;isolation:isolate;min-height:calc(100vh - 40px);min-height:min(calc(100svh - 40px),940px);display:flex;flex-direction:column;overflow:hidden;--dive:0}
+.hero-ocean{position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,#F3FBFF 0%,#D2F0FD 20%,#98DBF8 52%,#5DBBF3 82%,#43A4F1 100%)}
+.hero-deep{position:absolute;inset:0;background:linear-gradient(180deg,rgba(23,107,255,0) 0%,rgba(23,107,255,.18) 45%,rgba(15,85,216,.55) 100%);opacity:var(--dive)}
+.hero-sheen{position:absolute;inset:0 0 auto;height:34%;background:radial-gradient(120% 90% at 50% -20%,rgba(255,255,255,.95),rgba(255,255,255,0) 70%)}
+.rays{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:calc(1 - var(--dive)*.75)}
+.rays i{position:absolute;top:-12%;left:var(--x);width:var(--w);height:125%;background:linear-gradient(180deg,rgba(255,255,255,.9),rgba(255,255,255,.25) 45%,rgba(255,255,255,0) 82%);transform-origin:50% 0;transform:rotate(var(--r));filter:blur(9px);opacity:.5;animation:ray var(--d) ease-in-out infinite alternate}
+@keyframes ray{from{transform:rotate(var(--r)) translateX(-16px);opacity:.28}to{transform:rotate(calc(var(--r) + 3deg)) translateX(16px);opacity:.7}}
+.ripples{position:absolute;inset:0 0 auto;width:100%;height:46%;pointer-events:none}
+.ripples ellipse{fill:none;stroke:#fff;stroke-width:1.2;transform-box:fill-box;transform-origin:center;animation:rip 7s var(--ease) infinite;opacity:0}
+@keyframes rip{0%{transform:scale(.15);opacity:.7}100%{transform:scale(1.7);opacity:0}}
+.fxcanvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-fish{position:absolute;inset:0;pointer-events:none;transform:translateY(calc(var(--dive)*-60px));color:#1E4A78}
+.hero-fish .fa svg{opacity:.2}
+.hero-top{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:16px;position:relative;z-index:2}
+.hero-loc{font-size:12.5px;font-weight:700;letter-spacing:.06em;color:var(--ink2);display:flex;align-items:center;gap:8px}
+@media (max-width:480px){.hero-loc .hl-x{display:none}}
+.hero-loc::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px rgba(23,107,255,.16)}
+.glass{background:rgba(255,255,255,.55);-webkit-backdrop-filter:blur(16px) saturate(140%);backdrop-filter:blur(16px) saturate(140%);border:1px solid rgba(255,255,255,.8)}
+.motion-btn{display:inline-flex;align-items:center;gap:8px;min-height:44px;white-space:nowrap;flex:none;padding:0 16px 0 12px;border-radius:999px;font-size:12.5px;font-weight:700;cursor:pointer;color:var(--ink);transition:background .2s,transform .2s}
+.motion-btn:hover{background:rgba(255,255,255,.85)}
+.motion-btn:active{transform:scale(.96)}
+.motion-btn svg{width:18px;height:18px}
+.motion-btn .ic-play{display:none}
+html.still .motion-btn .ic-play{display:block}
+html.still .motion-btn .ic-pause{display:none}
+.hero-body{flex:1;display:grid;align-content:center;gap:26px;padding-block:28px 88px;position:relative;z-index:1}
+.hero-titlewrap{transform:translateY(calc(var(--dive)*90px));opacity:calc(1 - var(--dive)*.55)}
+.h-date{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px;margin-bottom:14px}
+.h-date .u{font-size:clamp(17px,4.6vw,24px);font-weight:600;color:var(--ink)}
+.h-date .sat{color:#fff;background:var(--blue);font-size:12px;padding:3px 9px 4px;border-radius:999px;letter-spacing:.08em;align-self:center}
+.h-date .place{font-size:15px;font-weight:700;color:var(--ink2)}
+.hero h1{font-family:var(--f-disp);font-weight:400;color:var(--ink);font-size:clamp(60px,19.6vw,158px);line-height:1.02;letter-spacing:-.02em;text-shadow:0 2px 40px rgba(255,255,255,.4)}
+.hero h1 .ln{display:block;white-space:nowrap}
+.hero h1 .ch{display:inline-block;animation:chIn 1s var(--ease) both;animation-delay:calc(var(--i)*55ms + 120ms)}
+.hero h1 .ln:last-child{color:var(--blue)}
+@keyframes chIn{from{opacity:0;transform:translateY(38%) scale(.96);filter:blur(10px)}to{opacity:1;transform:none;filter:none}}
+.h-spots{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.h-spots span{font-size:13px;font-weight:700;padding:6px 12px;border-radius:999px;background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.8);color:var(--ink)}
+.h-spots b{font-family:var(--f-num);font-weight:600;color:var(--blue);margin-right:6px;font-size:11px}
+.glance{border-radius:24px;padding:16px;display:grid;grid-template-columns:1fr 1fr;gap:14px 12px;max-width:520px;box-shadow:0 20px 50px -30px rgba(15,85,216,.5)}
+.g-item{display:grid;gap:2px}
+.g-k{font-size:12px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.g-v{font-family:var(--f-num);font-size:17px;font-weight:600;color:var(--ink);line-height:1.3}
+.g-v small{font-size:11px;font-weight:500;color:var(--ink2);margin-left:2px}
+.g-main{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;border-radius:16px;background:var(--blue);color:#fff;text-decoration:none;transition:transform .2s,background .2s}
+.g-main:hover{background:var(--blue-d)}
+.g-main:active{transform:scale(.98)}
+.g-main .gm-l{display:grid;gap:0}
+.g-main .gm-k{font-size:11.5px;font-weight:700;opacity:.85}
+.g-main .gm-t{font-family:var(--f-num);font-size:18px;font-weight:600}
+.g-main .gm-d{font-size:13px;font-weight:700;text-align:right;line-height:1.4}
+.hero-scroll{position:absolute;left:var(--gut);bottom:62px;display:flex;align-items:center;gap:10px;font-family:var(--f-num);font-size:10.5px;letter-spacing:.2em;color:var(--ink);text-decoration:none;z-index:2}
+.hero-scroll i{display:block;width:40px;height:1px;background:rgba(21,46,73,.35);position:relative;overflow:hidden}
+.hero-scroll i::after{content:"";position:absolute;inset:0;background:var(--ink);transform:translateX(-100%);animation:scrollcue 2.4s var(--ease) infinite}
+@keyframes scrollcue{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@media (min-width:900px){
+  .hero-body{grid-template-columns:minmax(0,1.35fr) minmax(320px,.8fr);align-items:end;gap:48px;align-content:end;padding-bottom:120px}
+  .glance{justify-self:end;width:100%}
+  .hero h1{font-size:clamp(60px,9.6vw,150px)}
+}
+
+/* ───────── SHEETS / SECTIONS ───────── */
+.sheet{position:relative;z-index:2;background:var(--bg);border-radius:32px 32px 0 0;margin-top:-40px;box-shadow:0 -24px 60px -30px rgba(15,85,216,.35)}
+.sec{padding-block:64px 24px}
+.sec-head{display:grid;gap:10px;margin-bottom:28px}
+.eyebrow{font-family:var(--f-num);font-size:11px;font-weight:600;letter-spacing:.22em;color:var(--blue);display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:22px;height:1px;background:currentColor}
+.sec-head h2{font-family:var(--f-disp);font-weight:400;font-size:clamp(30px,8.4vw,58px);line-height:1.15;letter-spacing:-.01em;color:var(--ink)}
+.lead{color:var(--ink2);font-size:15px;max-width:40em}
+.card{background:#fff;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow)}
+.rv{transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.rv.pre{opacity:0;transform:translateY(26px)}
+html.still .rv.pre{opacity:1;transform:none}
+
+/* ───────── TIDE ───────── */
+.tide-grid{display:grid;gap:16px;grid-template-areas:"tide" "times" "wx"}
+.tide-card{grid-area:tide;padding:20px 16px 18px;overflow:hidden}
+.times{grid-area:times}
+.wx{grid-area:wx}
+@media (min-width:1000px){
+  .tide-grid{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);grid-template-areas:"tide wx" "times times";align-items:start}
+  .tide-card{padding:26px 26px 22px}
+}
+.ro{display:grid;gap:14px;margin-bottom:14px}
+.ro-top{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.ro-time{font-family:var(--f-num);font-weight:600;font-size:clamp(46px,14vw,80px);line-height:.95;letter-spacing:-.02em;color:var(--ink)}
+.ro-chips{display:flex;flex-wrap:wrap;gap:6px;justify-content:flex-end}
+.chip{display:inline-flex;align-items:center;gap:6px;font-size:12px;font-weight:700;padding:5px 10px;border-radius:999px;background:var(--bg2);border:1px solid var(--line);color:var(--ink2);white-space:nowrap}
+.chip.blue{background:var(--blue-50);border-color:#CFE0FF;color:var(--blue-d)}
+.chip.solid{background:var(--blue);border-color:var(--blue);color:#fff}
+.chip.grey{background:#F2F5F8;color:var(--ink2)}
+.chip.warn{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.ro-stats{display:grid;grid-template-columns:1fr 1.25fr;gap:10px}
+.stat{background:var(--bg2);border:1px solid var(--line);border-radius:16px;padding:12px 14px;display:grid;gap:2px;align-content:start}
+.stat .k{font-size:12px;font-weight:700;color:var(--ink2)}
+.stat .v{font-family:var(--f-num);font-size:26px;font-weight:600;line-height:1.2;color:var(--ink)}
+.stat .v small{font-size:13px;font-weight:500;margin-left:3px;color:var(--ink2)}
+.state{font-size:20px;font-weight:700;line-height:1.3;color:var(--ink);display:flex;align-items:center;gap:8px}
+.state .arr{display:inline-grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--blue);color:#fff;font-size:15px;transition:transform .4s var(--ease),background .3s}
+.state[data-s="slack"] .arr{background:#9DB0C4}
+.state[data-s="down"] .arr{transform:rotate(180deg)}
+.rate{font-size:12.5px;color:var(--ink2);font-weight:500}
+.ro-fish{display:flex;flex-wrap:wrap;align-items:center;gap:6px;font-size:13px;color:var(--ink2);font-weight:700}
+.ro-fish button{cursor:pointer;border:1px solid #CFE0FF;background:#fff;color:var(--blue-d);font-size:12.5px;font-weight:700;padding:5px 11px;border-radius:999px;transition:background .2s}
+.ro-fish button:hover{background:var(--blue-50)}
+.ro-fish .none{font-weight:500}
+.chart{position:relative;margin-inline:-6px;touch-action:pan-y;user-select:none;-webkit-user-select:none;cursor:ew-resize}
+.chart svg{display:block;width:100%;height:auto;overflow:visible}
+.chart text{font-family:var(--f-body);font-size:10.5px;fill:var(--ink3)}
+.chart .tx-num{font-family:var(--f-num);font-size:10px}
+.chart .tx-ext{font-family:var(--f-num);font-size:10.5px;font-weight:600;fill:var(--ink)}
+.chart .tx-band{font-size:11px;font-weight:700}
+.chart .cur-line{stroke:var(--blue);stroke-width:1.5}
+.chart .cur-dot{fill:#fff;stroke:var(--blue);stroke-width:3;transition:none}
+.chart .cur-lbl rect{fill:var(--blue)}
+.chart .cur-lbl text{fill:#fff;font-family:var(--f-num);font-size:10.5px;font-weight:600}
+.slider{margin-top:10px;padding-inline:2px}
+.slider-row{display:flex;align-items:center;gap:10px}
+input[type=range].tr{-webkit-appearance:none;appearance:none;width:100%;height:44px;background:transparent;cursor:pointer;margin:0}
+input[type=range].tr::-webkit-slider-runnable-track{height:10px;border-radius:999px;background:var(--track)}
+input[type=range].tr::-moz-range-track{height:10px;border-radius:999px;background:var(--track)}
+input[type=range].tr::-webkit-slider-thumb{-webkit-appearance:none;width:30px;height:30px;margin-top:-10px;border-radius:50%;background:var(--blue);border:4px solid #fff;box-shadow:0 4px 14px rgba(23,107,255,.45),0 0 0 1px rgba(23,107,255,.25);transition:transform .15s}
+input[type=range].tr::-moz-range-thumb{width:22px;height:22px;border-radius:50%;background:var(--blue);border:4px solid #fff;box-shadow:0 4px 14px rgba(23,107,255,.45)}
+input[type=range].tr:active::-webkit-slider-thumb{transform:scale(1.12)}
+.ticks{display:flex;justify-content:space-between;font-family:var(--f-num);font-size:10px;color:var(--ink3);margin-top:-4px;padding-inline:4px}
+.quick{display:flex;gap:8px;overflow-x:auto;padding:12px 2px 4px;scrollbar-width:none}
+.quick::-webkit-scrollbar{display:none}
+.quick button{flex:none;min-height:40px;padding:0 14px;border-radius:999px;border:1px solid var(--line);background:#fff;font-family:var(--f-num);font-size:12px;font-weight:600;color:var(--ink);cursor:pointer;transition:background .2s,border-color .2s,color .2s,transform .15s}
+.quick button:active{transform:scale(.95)}
+.quick button.on{background:var(--blue);border-color:var(--blue);color:#fff}
+.quick button.now{font-family:var(--f-body);font-weight:700}
+.notes{display:grid;gap:6px;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line)}
+.note{font-size:12px;line-height:1.65;color:var(--ink2)}
+.note b{color:var(--ink)}
+.note.src{color:var(--ink3);font-size:11.5px}
+/* time cards */
+.times h3,.wx-h h3{font-size:17px;font-weight:700;display:flex;align-items:center;gap:8px}
+.times-h{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin:8px 2px 12px}
+.times-h p{font-size:12px;color:var(--ink3)}
+.tcards{display:grid;gap:12px}
+@media (min-width:700px){.tcards{grid-template-columns:repeat(3,1fr)}}
+.tcard{position:relative;text-align:left;cursor:pointer;padding:16px;border-radius:20px;border:1px solid var(--line);background:#fff;box-shadow:var(--shadow);display:grid;gap:8px;align-content:start;transition:border-color .3s,box-shadow .3s,transform .2s}
+.tcard:active{transform:scale(.985)}
+.tcard.on{border-color:var(--blue);box-shadow:0 0 0 3px rgba(23,107,255,.14),var(--shadow)}
+.tc-top{display:flex;align-items:center;justify-content:space-between;gap:8px}
+.tc-name{font-family:var(--f-disp);font-size:24px;line-height:1;color:var(--ink)}
+.tc-time{font-family:var(--f-num);font-size:15px;font-weight:600;color:var(--ink)}
+.tc-desc{font-size:13px;color:var(--ink2);line-height:1.7}
+.tc-data{display:flex;gap:14px;flex-wrap:wrap;font-size:12px;color:var(--ink3);font-weight:700}
+.tc-data span b{font-family:var(--f-num);font-weight:600;color:var(--ink);margin-left:4px}
+.tcard.noon .tc-name{color:var(--ink3)}
+.tcard .bar{height:4px;border-radius:4px;background:linear-gradient(90deg,var(--sky),var(--blue))}
+.tcard.noon .bar{background:repeating-linear-gradient(90deg,#C9D6E3 0 6px,transparent 6px 10px)}
+.tcard.pm .bar{background:linear-gradient(90deg,#8FD3F6,#5B8FFF)}
+/* wx */
+.wx{display:grid;gap:12px}
+.wx-h{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:44px;padding:0 18px;border-radius:999px;border:1px solid var(--blue);background:var(--blue);color:#fff;font-weight:700;font-size:14px;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s,box-shadow .2s;box-shadow:0 8px 20px -10px rgba(23,107,255,.7)}
+.btn:hover{background:var(--blue-d)}
+.btn:active{transform:scale(.96)}
+.btn.ghost{background:#fff;color:var(--blue-d);border-color:#CFE0FF;box-shadow:none}
+.btn.ghost:hover{background:var(--blue-50)}
+.btn[aria-busy=true]{opacity:.7;pointer-events:none}
+.btn svg{width:16px;height:16px}
+.wx-cards{display:grid;gap:12px}
+@media (min-width:600px) and (max-width:999px){.wx-cards{grid-template-columns:1fr 1fr}}
+.wxc{padding:16px}
+.wxc-h{display:flex;align-items:baseline;justify-content:space-between;gap:8px;margin-bottom:8px}
+.wxc-h h4{font-size:15px;font-weight:700}
+.wxc-h span{font-size:11.5px;color:var(--ink3);font-family:var(--f-num)}
+.wind-body{display:grid;grid-template-columns:132px 1fr;gap:14px;align-items:center}
+.compass{position:relative;width:132px;aspect-ratio:1}
+.compass svg{width:100%;height:100%;display:block}
+.compass .c-ring{fill:var(--bg2);stroke:var(--line2);stroke-width:1}
+.compass .c-in{fill:#fff;stroke:var(--line);stroke-width:1}
+.compass .c-tick{stroke:var(--line2);stroke-width:1}
+.compass text{font-family:var(--f-num);font-size:10px;font-weight:600;fill:var(--ink3);text-anchor:middle;dominant-baseline:central;transition:fill .3s}
+.compass text.on{fill:var(--blue)}
+.compass .c-arrow{transform-origin:70px 70px;transition:transform 1.1s cubic-bezier(.3,1.35,.4,1),opacity .4s;opacity:0}
+.compass.has .c-arrow{opacity:1}
+.compass .c-arrow path{fill:var(--blue)}
+.compass .c-val{position:absolute;inset:0;display:grid;place-content:center;text-align:center;pointer-events:none}
+.compass .c-val b{font-family:var(--f-num);font-size:19px;font-weight:600;line-height:1;color:var(--ink);background:rgba(255,255,255,.85);border-radius:8px;padding:2px 4px}
+.compass .c-val small{font-size:10px;color:var(--ink3);font-family:var(--f-num)}
+.kv{display:grid;gap:8px}
+.kv div{display:grid;gap:0}
+.kv dt{font-size:11.5px;font-weight:700;color:var(--ink3)}
+.kv dd{margin:0;font-size:15px;font-weight:700;color:var(--ink)}
+.kv dd .u{font-weight:600}
+.dash{color:var(--ink3)!important;font-weight:500!important}
+.gauge{margin-top:10px}
+.gauge-bar{position:relative;height:10px;border-radius:99px;background:linear-gradient(90deg,#CDEFFD 0 33.3%,#FFE3BF 33.3% 50%,#FFD0CB 50% 100%)}
+.gauge-mk{position:absolute;top:50%;width:18px;height:18px;margin:-9px 0 0 -9px;border-radius:50%;background:var(--blue);border:3px solid #fff;box-shadow:0 2px 8px rgba(21,46,73,.3);left:0;opacity:0;transition:left 1s var(--ease),opacity .3s}
+.gauge.has .gauge-mk{opacity:1}
+.gauge-sc{display:flex;justify-content:space-between;font-family:var(--f-num);font-size:9.5px;color:var(--ink3);margin-top:5px;position:relative;height:14px}
+.gauge-sc span{position:absolute;transform:translateX(-50%)}
+.gauge-sc span:first-child{transform:none}
+.gauge-sc span:last-child{transform:translateX(-100%)}
+.gauge-lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:var(--ink3);margin-top:6px}
+.gauge-lg i{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;vertical-align:0}
+.wx-assess{margin-top:10px}
+.wx-msg{font-size:12.5px;line-height:1.7;color:var(--ink2);background:var(--bg2);border:1px solid var(--line);border-radius:14px;padding:12px 14px}
+.wx-msg.err{background:var(--warn-bg);border-color:var(--warn-line);color:var(--warn)}
+.wx-msg a{font-weight:700}
+.wx-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px}
+.wx-links a{font-size:12.5px;font-weight:700;text-decoration:none;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
+.wx-hint{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.65;color:var(--ink2);padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#F4FAFF,#EAF7FE);border:1px solid var(--line)}
+.wx-hint svg{flex:none;width:18px;height:18px;margin-top:2px;color:var(--blue)}
+
+/* ───────── SPOT / MAP ───────── */
+.spot-grid{display:grid;gap:16px}
+@media (min-width:1000px){.spot-grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}.map-col{position:sticky;top:20px}}
+.map-card{padding:10px;overflow:hidden}
+.map{position:relative;aspect-ratio:980/900;border-radius:16px;overflow:hidden;background:#BDE8FA}
+.map svg{position:absolute;inset:0;width:100%;height:100%;display:block}
+.map .route{fill:none;stroke:var(--blue);stroke-width:4;stroke-linecap:round;stroke-dasharray:1 10;opacity:.35;transition:opacity .4s}
+.map .route.on{opacity:1}
+.map .route-mask path{stroke-dashoffset:0;transition:stroke-dashoffset 2.2s var(--ease)}
+.map.pre .route-mask path{stroke-dashoffset:1}
+.pin{position:absolute;transform:translate(-50%,-50%);width:48px;height:48px;border:0;padding:0;background:none;cursor:pointer;display:grid;place-items:center;z-index:3;-webkit-tap-highlight-color:transparent}
+.pin-dot{position:relative;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;background:#fff;color:var(--blue);border:2px solid var(--blue);font-family:var(--f-num);font-size:11px;font-weight:700;box-shadow:0 6px 16px -6px rgba(15,85,216,.6);transition:transform .35s var(--ease),background .3s,color .3s}
+.pin.on .pin-dot{background:var(--blue);color:#fff;transform:scale(1.18)}
+.pin:active .pin-dot{transform:scale(.92)}
+.pin.on::before{content:"";position:absolute;width:34px;height:34px;border-radius:50%;background:rgba(23,107,255,.25);animation:pulse 2.4s ease-out infinite}
+@keyframes pulse{0%{transform:scale(1);opacity:.8}100%{transform:scale(2.4);opacity:0}}
+.pin .rp{position:absolute;width:34px;height:34px;border-radius:50%;border:2px solid var(--blue);animation:ripple .8s ease-out forwards;pointer-events:none}
+@keyframes ripple{from{transform:scale(1);opacity:.9}to{transform:scale(3.4);opacity:0}}
+.pin-lbl{position:absolute;white-space:nowrap;font-size:12px;font-weight:700;color:var(--ink);background:rgba(255,255,255,.92);border:1px solid var(--line);padding:3px 9px;border-radius:999px;pointer-events:none;box-shadow:0 4px 12px -6px rgba(21,46,73,.3)}
+.pin.on .pin-lbl{background:var(--ink);color:#fff;border-color:var(--ink)}
+.pin-lbl.l{right:calc(100% - 4px);top:50%;transform:translateY(-50%)}
+.pin-lbl.t{bottom:calc(100% - 2px);left:50%;transform:translateX(-50%)}
+.mk{position:absolute;transform:translate(-50%,-50%);display:flex;align-items:center;gap:5px;font-size:11px;font-weight:700;color:var(--ink2);pointer-events:none;white-space:nowrap}
+.mk i{font-style:normal;display:grid;place-items:center;min-width:20px;height:20px;padding:0 4px;border-radius:5px;background:var(--ink);color:#fff;font-family:var(--f-num);font-size:9.5px;font-weight:600}
+.mk.lft{transform:translate(0,-50%)}
+.mk.ban{color:var(--danger);transform:translate(-50%,0)}
+.mk.sea{color:#2D6CA8;font-weight:700}
+.mk.dir{left:3%;bottom:4%;transform:none;top:auto;color:#2D6CA8}
+.compass-n{position:absolute;right:4%;top:5%;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.85);border:1px solid var(--line);font-family:var(--f-num);font-size:10px;font-weight:700;color:var(--ink)}
+.compass-n svg{position:absolute;inset:0;width:100%;height:100%}
+.scale{position:absolute;right:4%;bottom:4%;display:grid;gap:3px;justify-items:start;font-family:var(--f-num);font-size:9.5px;color:var(--ink2)}
+.scale i{display:block;height:6px;border:1.5px solid var(--ink2);border-top:0;width:100%}
+.map-legend{display:flex;flex-wrap:wrap;gap:6px 14px;padding:12px 6px 4px;font-size:12px;color:var(--ink2)}
+.map-legend span{display:inline-flex;align-items:center;gap:6px}
+.map-legend svg{width:22px;height:8px}
+.map-note{font-size:11.5px;color:var(--ink3);padding:4px 6px 6px;line-height:1.6}
+.access{margin-top:12px;padding:16px;display:grid;gap:10px;background:var(--bg2);box-shadow:none}
+.access h4{font-size:13px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.access dl{margin:0;display:grid;gap:8px}
+.access dl div{display:grid;grid-template-columns:4.5em 1fr;gap:8px;font-size:13px;line-height:1.6}
+.access dt{font-weight:700;color:var(--ink)}
+.access dd{margin:0;color:var(--ink2)}
+.spot-panel{padding:0;overflow:hidden}
+.tabs{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;padding:6px;background:var(--bg2);border-bottom:1px solid var(--line)}
+.tab{min-height:52px;border:0;border-radius:14px;background:transparent;cursor:pointer;display:grid;gap:0;place-content:center;font-size:13px;font-weight:700;color:var(--ink2);transition:background .3s,color .3s,box-shadow .3s;line-height:1.3}
+.tab .u{font-size:10px;font-weight:600;color:var(--ink3)}
+.tab[aria-selected=true]{background:#fff;color:var(--ink);box-shadow:0 2px 10px -4px rgba(21,46,73,.25)}
+.tab[aria-selected=true] .u{color:var(--blue)}
+.sd{padding:22px 18px 22px;display:grid;gap:18px}
+.sd.swap{animation:sdIn .5s var(--ease)}
+@keyframes sdIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.sd-head{display:flex;gap:14px;align-items:flex-start}
+.sd-no{font-family:var(--f-num);font-weight:700;font-size:40px;line-height:1;color:var(--blue);letter-spacing:-.03em}
+.sd-head h3{font-family:var(--f-disp);font-weight:400;font-size:clamp(28px,7.4vw,38px);line-height:1.1}
+.sd-tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.sd-desc{font-size:14.5px;color:var(--ink2);line-height:1.85}
+.alert{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--danger-bg);border:1px solid var(--danger-line);color:#7D1F1F;font-size:13.5px;line-height:1.7}
+.alert b{display:block;color:var(--danger);font-size:14.5px;margin-bottom:2px}
+.alert svg{flex:none;width:22px;height:22px;color:var(--danger);margin-top:2px}
+.facts{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
+.facts div{display:grid;grid-template-columns:4em 1fr;gap:10px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:13.5px}
+.facts dt{font-weight:700;color:var(--ink3)}
+.facts dd{margin:0;color:var(--ink)}
+.sub-h{font-size:13px;font-weight:700;color:var(--ink2);letter-spacing:.06em;display:flex;align-items:center;gap:8px;margin-bottom:10px}
+.sub-h .u{font-size:10px;color:var(--blue);letter-spacing:.18em}
+.fishgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(96px,1fr));gap:8px}
+.fg{cursor:pointer;border:1px solid var(--line);background:linear-gradient(180deg,#F4FAFF,#fff);border-radius:16px;padding:10px 6px 10px;display:grid;justify-items:center;gap:4px;font-size:13px;font-weight:700;color:var(--ink);transition:transform .2s,border-color .2s,box-shadow .2s}
+.fg:hover{border-color:#B9D2F5;box-shadow:0 8px 20px -14px rgba(23,107,255,.6)}
+.fg:active{transform:scale(.95)}
+.fg svg{width:74px;height:37px}
+.fg small{font-size:10.5px;font-weight:500;color:var(--ink3)}
+.sd-extra{font-size:12.5px;color:var(--ink3);margin-top:8px}
+.safety{border-radius:18px;background:var(--warn-bg);border:1px solid var(--warn-line);padding:16px 14px}
+.safety .sub-h{color:var(--warn)}
+.safety .sub-h svg{width:18px;height:18px;color:var(--warn-ic)}
+.safety ul{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.safety li{display:grid;grid-template-columns:34px 1fr;gap:10px;align-items:start}
+.safety .si{width:34px;height:34px;border-radius:10px;background:#fff;border:1px solid var(--warn-line);display:grid;place-items:center;color:var(--warn-ic)}
+.safety .si svg{width:20px;height:20px}
+.safety .st{font-size:13.5px;font-weight:700;color:#5E3300;line-height:1.4}
+.safety .sx{font-size:12.5px;color:#6F4A1F;line-height:1.65}
+.sd-actions{display:flex;flex-wrap:wrap;gap:8px}
+
+/* ───────── FISH ───────── */
+.fish{position:relative;z-index:1;background:linear-gradient(180deg,#FFFFFF 0%,#EDF9FE 9%,#C6EBFB 21%,#88D0F7 36%,#4FA9F5 52%,#2A86F5 66%,#1B6DF0 82%,#1560E0 100%);padding-top:56px;padding-bottom:120px;color:var(--ink);--q:0}
+.fish-fx{position:sticky;top:0;height:100vh;height:100svh;margin-bottom:-100vh;margin-bottom:-100svh;pointer-events:none;overflow:hidden;z-index:0}
+.fish-fx .rays{opacity:clamp(0,calc(var(--q)*2.4 - .35),.9)}
+.fish-fx .rays i{background:linear-gradient(180deg,rgba(255,255,255,.7),rgba(255,255,255,.12) 50%,rgba(255,255,255,0) 85%)}
+.fish-fx canvas{opacity:clamp(0,calc(var(--q)*2.6 - .3),1)}
+.fish>*:not(.fish-fx){position:relative;z-index:1}
+.fish>.fish-ctl{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:10px;position:sticky;top:calc(10px + env(safe-area-inset-top,0px));z-index:5;margin-bottom:8px}
+.filters{display:flex;gap:4px;padding:4px;border-radius:999px;overflow-x:auto;scrollbar-width:none;max-width:100%;box-shadow:0 10px 30px -18px rgba(15,85,216,.55)}
+.filters::-webkit-scrollbar{display:none}
+.filters button{flex:none;min-height:40px;padding:0 14px;border:0;border-radius:999px;background:transparent;font-size:13px;font-weight:700;color:var(--ink2);cursor:pointer;display:inline-flex;align-items:center;gap:6px;transition:background .3s,color .3s}
+.filters button .u{font-size:10px;font-weight:600;opacity:.7}
+.filters button[aria-pressed=true]{background:var(--blue);color:#fff}
+.fish-ctl .motion-btn{box-shadow:0 10px 30px -18px rgba(15,85,216,.55)}
+.tank{position:relative;height:600px;margin:6px 0 34px;--tq:0}
+@media (min-width:768px){.tank{height:660px}}
+.tank-layer{position:absolute;inset:0;pointer-events:none}
+.tank-back{transform:translateY(calc((var(--q) - .45)*70px))}
+.tank-front{transform:translateY(calc((var(--q) - .45)*-110px))}
+.tank-fish{position:absolute;inset:0;transform:translateY(calc((var(--q) - .45)*22px))}
+.zone{position:absolute;left:0;right:0;border-top:1px dashed rgba(255,255,255,.55)}
+.zone span{position:absolute;left:var(--gut);top:8px;font-size:11.5px;font-weight:700;color:var(--ink);background:rgba(255,255,255,.7);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);padding:3px 10px;border-radius:999px;border:1px solid rgba(255,255,255,.8)}
+.zone span em{font-style:normal;font-family:var(--f-num);font-size:9.5px;color:var(--ink3);margin-left:6px}
+.tank-cap{position:absolute;right:var(--gut);top:10px;font-size:11.5px;font-weight:700;color:var(--ink2)}
+.rocks{position:absolute;left:0;right:0;bottom:0;width:100%;height:150px;-webkit-mask-image:linear-gradient(#000 55%,transparent);mask-image:linear-gradient(#000 55%,transparent)}
+.weed{transform-box:fill-box;transform-origin:50% 100%;animation:weed 6s ease-in-out infinite alternate}
+@keyframes weed{from{transform:skewX(-6deg)}to{transform:skewX(7deg)}}
+.fa{position:absolute;left:0;top:0;padding:0;border:0;background:none;cursor:pointer;will-change:transform;-webkit-tap-highlight-color:transparent;transition:opacity .7s var(--ease),filter .7s}
+.fa .fa-d{display:block;will-change:transform}
+.fa .fa-s{display:block;transition:transform .28s var(--ease)}
+.fa svg{display:block;width:100%;height:auto;overflow:visible;filter:drop-shadow(0 8px 10px rgba(10,50,130,.18))}
+.fa.tap .fa-s{transform:scale(1.28)}
+.fa.is-out{opacity:.1;pointer-events:none;filter:grayscale(1)}
+.hero-fish .fa{cursor:default}
+.hero-fish .fa svg{filter:none}
+.sil path,.sil circle,.sil ellipse,.sil rect{fill:currentColor!important;stroke:none!important;opacity:1!important;fill-opacity:1!important}
+.sil .eye,.sil .ln0{display:none}
+.fish-list{display:grid;gap:10px}
+@media (min-width:640px){.fish-list{grid-template-columns:1fr 1fr}}
+@media (min-width:1100px){.fish-list{grid-template-columns:repeat(7,1fr);gap:10px}}
+.fcard{cursor:pointer;text-align:left;display:grid;grid-template-columns:78px 1fr 20px;gap:12px;align-items:center;padding:12px 14px 12px 10px;border-radius:18px;border:1px solid rgba(255,255,255,.75);background:rgba(255,255,255,.9);-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px);color:var(--ink);box-shadow:0 12px 30px -20px rgba(8,40,110,.6);transition:opacity .5s var(--ease),transform .25s var(--ease),box-shadow .25s}
+.fcard:hover{transform:translateY(-2px);box-shadow:0 18px 36px -20px rgba(8,40,110,.7)}
+.fcard:active{transform:scale(.98)}
+.fcard svg.fsvg{width:78px;height:39px}
+.fc-name{display:block;font-size:16px;font-weight:700;line-height:1.35}
+.fc-sub{display:block;font-size:12px;color:var(--ink2);line-height:1.5}
+.fc-spots{display:flex;flex-wrap:wrap;gap:4px;margin-top:5px}
+.fc-spots span{font-size:10.5px;font-weight:700;color:var(--blue-d);background:var(--blue-50);border-radius:999px;padding:1px 7px}
+.fc-go{color:var(--blue);font-size:16px;font-weight:700}
+.fcard.is-out{opacity:.32}
+@media (min-width:1100px){
+  .fcard{grid-template-columns:1fr;justify-items:start;padding:14px 12px 14px;gap:8px}
+  .fcard svg.fsvg{width:100%;height:auto;max-width:120px}
+  .fc-go{display:none}
+}
+.fish-foot{margin-top:18px;font-size:12.5px;color:rgba(255,255,255,.92);line-height:1.7}
+
+/* ───────── TACKLE ───────── */
+.sheet-t{margin-top:-56px}
+.acc{display:grid;gap:12px}
+.acc-item{border:1px solid var(--line);border-radius:22px;background:#fff;box-shadow:var(--shadow);overflow:hidden;transition:border-color .3s,box-shadow .3s;scroll-margin-top:16px}
+.acc-item.open{border-color:#BCD3F6;box-shadow:0 0 0 3px rgba(23,107,255,.08),var(--shadow)}
+.acc-item.flash{animation:flash 1.4s var(--ease)}
+@keyframes flash{0%,60%{box-shadow:0 0 0 6px rgba(23,107,255,.28)}100%{box-shadow:0 0 0 3px rgba(23,107,255,.08)}}
+.acc-btn{width:100%;display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;padding:16px 16px 16px 18px;min-height:74px;border:0;background:none;cursor:pointer;text-align:left}
+.acc-t{display:grid;gap:4px}
+.acc-t b{font-size:18px;font-weight:700;line-height:1.3;display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.acc-t small{font-size:12.5px;color:var(--ink2);font-weight:500}
+.plus{position:relative;width:40px;height:40px;border-radius:50%;background:var(--blue-50);transition:transform .45s var(--ease),background .3s}
+.plus::before,.plus::after{content:"";position:absolute;left:50%;top:50%;width:14px;height:2px;margin:-1px 0 0 -7px;border-radius:2px;background:var(--blue)}
+.plus::after{transform:rotate(90deg)}
+.acc-item.open .plus{transform:rotate(135deg);background:var(--blue)}
+.acc-item.open .plus::before,.acc-item.open .plus::after{background:#fff}
+.acc-panel{display:grid;grid-template-rows:0fr;transition:grid-template-rows .5s var(--ease)}
+.acc-item.open .acc-panel{grid-template-rows:1fr}
+.acc-in{overflow:hidden;min-height:0}
+.acc-body{padding:0 16px 20px;display:grid;gap:18px}
+@media (min-width:900px){.acc-body{grid-template-columns:minmax(0,380px) 1fr;gap:28px;padding:0 24px 26px;align-items:start}}
+.bp{margin:0;border:1px solid var(--line);border-radius:18px;padding:10px 10px 12px;background-color:#F6FAFF;background-image:linear-gradient(#E4EEF8 1px,transparent 1px),linear-gradient(90deg,#E4EEF8 1px,transparent 1px);background-size:16px 16px;background-position:-1px -1px;position:relative}
+.bp figcaption{display:flex;justify-content:space-between;gap:8px;align-items:center;font-size:11.5px;font-weight:700;color:var(--ink2);padding:2px 4px 6px}
+.bp figcaption .u{font-size:9.5px;letter-spacing:.2em;color:var(--blue)}
+.bp svg{display:block;width:100%;height:auto;max-width:360px;margin-inline:auto;overflow:visible}
+.bp text{font-family:var(--f-body);font-size:11.5px;font-weight:700;fill:var(--ink)}
+.bp text.s{font-size:10.5px;font-weight:500;fill:var(--ink3)}
+.bp text.n{font-family:var(--f-num);font-size:9.5px;font-weight:600;fill:var(--blue)}
+.bp .ln{fill:none;stroke:var(--blue);stroke-width:1.4;stroke-linecap:round;stroke-linejoin:round}
+.bp .ln2{fill:none;stroke:var(--sky);stroke-width:2;stroke-linecap:round}
+.bp .lnf{fill:none;stroke:#9CC7EE;stroke-width:1;stroke-linecap:round}
+.bp .dim{fill:none;stroke:#8FBDE8;stroke-width:1;stroke-dasharray:3 3}
+.bp .rodp{fill:var(--blue)}
+.bp .gd{fill:#fff;stroke:var(--blue);stroke-width:1.2}
+.bp .reel{fill:#fff;stroke:var(--blue);stroke-width:1.4}
+.bp .soft{fill:rgba(23,107,255,.07);stroke:var(--blue);stroke-width:1.4;stroke-linejoin:round}
+.bp .fb{fill:var(--blue)}
+.bp .fbs{fill:rgba(23,107,255,.28);stroke:var(--blue);stroke-width:1.2}
+.bp .sea{fill:none;stroke:var(--sky);stroke-width:1.6}
+.bp .seabed{fill:rgba(21,46,73,.05);stroke:#9DB6CC;stroke-width:1.2}
+.bp .tgt{fill:rgba(23,107,255,.06);stroke:var(--blue);stroke-width:1.2;stroke-dasharray:4 3}
+.bp .mk circle{fill:#fff;stroke:var(--blue);stroke-width:1.4}
+.bp .mk text{font-family:var(--f-num);font-size:9px;font-weight:700;fill:var(--blue);text-anchor:middle;dominant-baseline:central}
+.tk-info{display:grid;gap:16px;align-content:start}
+.tk-dl{margin:0;display:grid;border-top:1px solid var(--line)}
+.tk-dl div{display:grid;grid-template-columns:5.5em 1fr;gap:10px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.65}
+.tk-dl dt{font-weight:700;color:var(--ink3);font-size:13px}
+.tk-dl dd{margin:0;color:var(--ink)}
+.tk-h{font-size:13px;font-weight:700;color:var(--ink2);letter-spacing:.06em}
+.flow{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 4px;align-items:center;counter-reset:f}
+.flow li{counter-increment:f;display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:700;background:var(--bg2);border:1px solid var(--line);padding:6px 11px 6px 6px;border-radius:999px}
+.flow li::before{content:counter(f);display:grid;place-items:center;width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--f-num);font-size:9.5px}
+.flow li:not(:last-child)::after{content:"→";margin-left:6px;color:var(--ink3);font-weight:500}
+.sw{display:inline-block;width:10px;height:10px;border-radius:50%;vertical-align:-1px;margin-right:4px;border:1px solid rgba(21,46,73,.15)}
+.tk-tip{font-size:13.5px;line-height:1.75;color:var(--ink2);padding:12px 14px;border-radius:14px;background:var(--bg2);border:1px solid var(--line)}
+.tk-tip b{color:var(--ink)}
+.pro{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--warn-bg);border:1px solid var(--warn-line);color:#5E3300;font-size:13.5px;line-height:1.7}
+.pro svg{flex:none;width:22px;height:22px;color:var(--warn-ic);margin-top:1px}
+.pro b{display:block;color:var(--warn);font-size:14.5px}
+.foot{padding-block:48px 16px;display:grid;gap:14px;font-size:12px;color:var(--ink3);line-height:1.75}
+.foot h4{font-size:12.5px;color:var(--ink2)}
+.foot ul{margin:0;padding-left:1.2em}
+.foot a{color:var(--ink2)}
+.foot .end{font-family:var(--f-disp);font-size:22px;color:var(--ink);margin-top:10px}
+
+/* ───────── DOCK ───────── */
+.dock{position:fixed;left:50%;bottom:calc(12px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);z-index:60;width:min(440px,calc(100% - 24px));display:grid;grid-template-columns:repeat(4,1fr);padding:6px;border-radius:999px;background:rgba(255,255,255,.8);-webkit-backdrop-filter:blur(18px) saturate(150%);backdrop-filter:blur(18px) saturate(150%);border:1px solid rgba(220,231,241,.95);box-shadow:0 14px 40px -12px rgba(21,46,73,.28)}
+.dock-ind{position:absolute;top:6px;bottom:6px;left:6px;width:calc((100% - 12px)/4);border-radius:999px;background:var(--blue-50);transition:transform .5s var(--ease);z-index:0}
+.dock a{position:relative;z-index:1;display:grid;justify-items:center;gap:1px;padding:7px 0 6px;min-height:50px;text-decoration:none;color:var(--ink3);border-radius:999px;transition:color .3s}
+.dock a svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.dock a span{font-family:var(--f-num);font-size:9.5px;font-weight:600;letter-spacing:.08em}
+.dock a[aria-current=true]{color:var(--blue)}
+
+/* ───────── FISH SHEET (dialog) ───────── */
+dialog.fs{padding:0;border:0;margin:0;position:fixed;inset:auto 0 0 0;width:100%;max-width:100%;max-height:90vh;max-height:90svh;border-radius:26px 26px 0 0;background:#fff;color:var(--ink);overflow:auto;overscroll-behavior:contain;box-shadow:0 -20px 60px -20px rgba(21,46,73,.4)}
+dialog.fs[open]{animation:sheetUp .42s var(--ease)}
+dialog.fs.closing{animation:sheetDown .24s ease-in forwards}
+dialog.fs::backdrop{background:rgba(12,35,70,.38);-webkit-backdrop-filter:blur(3px);backdrop-filter:blur(3px)}
+@keyframes sheetUp{from{transform:translateY(100%)}to{transform:none}}
+@keyframes sheetDown{to{transform:translateY(100%)}}
+@media (min-width:768px){
+  dialog.fs{inset:0;margin:auto;width:min(600px,calc(100% - 48px));max-height:88vh;border-radius:26px}
+  dialog.fs[open]{animation:popIn .38s var(--ease)}
+  dialog.fs.closing{animation:popOut .2s ease-in forwards}
+  @keyframes popIn{from{opacity:0;transform:translateY(20px) scale(.97)}to{opacity:1;transform:none}}
+  @keyframes popOut{to{opacity:0;transform:translateY(12px) scale(.98)}}
+}
+html.modal-open{overflow:hidden}
+.fs-grab{position:sticky;top:0;z-index:3;height:30px;display:grid;place-items:center;touch-action:none;cursor:grab;background:linear-gradient(#fff,rgba(255,255,255,0))}
+.fs-grab i{width:44px;height:5px;border-radius:9px;background:#C9D7E5}
+.fs-close{position:absolute;top:12px;right:12px;z-index:4;width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.9);cursor:pointer;display:grid;place-items:center}
+.fs-close svg{width:18px;height:18px}
+.fs-art{margin:-30px 0 0;height:190px;display:grid;place-items:center;background:radial-gradient(90% 90% at 50% 20%,#E7F7FE,#BFE7FA 55%,#86CDF5);position:relative;overflow:hidden}
+.fs-art::after{content:"";position:absolute;inset:auto 0 0;height:40%;background:linear-gradient(rgba(255,255,255,0),rgba(255,255,255,.45))}
+.fs-art svg{width:min(300px,72%);height:auto;animation:bob 4s ease-in-out infinite alternate;filter:drop-shadow(0 16px 18px rgba(10,50,130,.22));position:relative;z-index:1}
+@keyframes bob{from{transform:translateY(-6px) rotate(-1.5deg)}to{transform:translateY(6px) rotate(1deg)}}
+.fs-art .tail{transform-box:fill-box;transform-origin:100% 50%;animation:wag .9s ease-in-out infinite alternate}
+.fs-art .sp-aori .tail{transform-origin:50% 50%;animation:fin 1.6s ease-in-out infinite alternate}
+.fs-art .arms{transform-box:fill-box;transform-origin:0 50%;animation:arms 2.2s ease-in-out infinite alternate}
+@keyframes wag{from{transform:rotate(-11deg)}to{transform:rotate(11deg)}}
+@keyframes fin{from{transform:scaleY(.9)}to{transform:scaleY(1.06)}}
+@keyframes arms{from{transform:rotate(-3deg)}to{transform:rotate(3deg)}}
+.fs-body{padding:18px 20px 28px;display:grid;gap:16px}
+.fs-name{font-family:var(--f-disp);font-weight:400;font-size:34px;line-height:1.1}
+.fs-sub{font-size:13px;color:var(--ink2);margin-top:4px}
+.fs-season{font-size:14.5px;line-height:1.85;color:var(--ink2);padding:14px 16px;border-radius:16px;background:var(--bg2);border:1px solid var(--line)}
+.fs-season b{display:block;font-size:12px;color:var(--blue);letter-spacing:.06em;margin-bottom:2px}
+.fs-dl{margin:0;display:grid;border-top:1px solid var(--line)}
+.fs-dl div{display:grid;grid-template-columns:6.2em 1fr;gap:10px;padding:11px 2px;border-bottom:1px solid var(--line);font-size:14px;line-height:1.65}
+.fs-dl dt{font-weight:700;color:var(--ink3);font-size:13px}
+.fs-dl dd{margin:0}
+.fs-dl dd .chip{margin:0 4px 4px 0}
+.fs-tip{padding:14px 16px;border-radius:16px;background:linear-gradient(135deg,#EAF2FF,#F4FAFF);border:1px solid #D3E2FB;font-size:14px;line-height:1.8}
+.fs-tip b{display:block;font-size:12px;color:var(--blue);letter-spacing:.06em}
+.fs-actions{display:grid;gap:8px}
+.fs-actions .btn{min-height:52px;font-size:15px}
+
+html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,html.still .weed,html.still .pin.on::before,html.still .fs-art svg,html.still .fs-art .tail,html.still .fs-art .arms,html.still .hero h1 .ch{animation:none!important}
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<main>
+<!-- ═════════ HERO ═════════ -->
+<section class="hero" id="home" aria-label="トップ">
+  <div class="hero-ocean" aria-hidden="true">
+    <div class="hero-sheen"></div>
+    <div class="rays">
+      <i style="--x:6%;--w:70px;--r:14deg;--d:9s"></i>
+      <i style="--x:24%;--w:120px;--r:18deg;--d:12s"></i>
+      <i style="--x:47%;--w:60px;--r:12deg;--d:8s"></i>
+      <i style="--x:63%;--w:140px;--r:20deg;--d:14s"></i>
+      <i style="--x:84%;--w:80px;--r:16deg;--d:10s"></i>
+    </div>
+    <svg class="ripples" viewBox="0 0 400 200" preserveAspectRatio="none">
+      <ellipse cx="80" cy="40" rx="60" ry="10" style="animation-delay:0s"/>
+      <ellipse cx="300" cy="70" rx="70" ry="12" style="animation-delay:2.4s"/>
+      <ellipse cx="190" cy="24" rx="50" ry="8" style="animation-delay:4.6s"/>
+      <ellipse cx="350" cy="20" rx="40" ry="7" style="animation-delay:5.8s"/>
+    </svg>
+    <canvas class="fxcanvas" id="heroFx"></canvas>
+    <div class="hero-fish" id="heroFish"></div>
+    <div class="hero-deep"></div>
+  </div>
+
+  <div class="wrap hero-top">
+    <p class="hero-loc">三浦半島 南部<span class="hl-x">&nbsp;／ 宮川〜盗人狩</span></p>
+    <button class="motion-btn glass" type="button" data-motion aria-pressed="false">
+      <svg class="ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>
+      <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+      <span data-motion-label>アニメーション停止</span>
+    </button>
+  </div>
+
+  <div class="wrap hero-body">
+    <div class="hero-titlewrap">
+      <p class="h-date"><span class="u">2026.10.03</span><span class="u sat">SAT</span><span class="place">三浦半島</span></p>
+      <h1 aria-label="三浦半島爆釣作戦">
+        <span class="ln" aria-hidden="true"><span class="ch" style="--i:0">三</span><span class="ch" style="--i:1">浦</span><span class="ch" style="--i:2">半</span><span class="ch" style="--i:3">島</span></span>
+        <span class="ln" aria-hidden="true"><span class="ch" style="--i:4">爆</span><span class="ch" style="--i:5">釣</span><span class="ch" style="--i:6">作</span><span class="ch" style="--i:7">戦</span></span>
+      </h1>
+      <p class="h-spots"><span><b>01</b>観音山</span><span><b>02</b>ヤギ島周辺</span><span><b>03</b>盗人狩</span></p>
+    </div>
+    <div class="glance glass" aria-label="当日の要点">
+      <a class="g-main" href="#tide">
+        <span class="gm-l"><span class="gm-k">本命の時間</span><span class="gm-t">05:00–09:00</span></span>
+        <span class="gm-d">上げ潮＋<br>朝マズメ</span>
+      </a>
+      <div class="g-item"><span class="g-k">日の出</span><span class="g-v">05:37</span></div>
+      <div class="g-item"><span class="g-k">日の入り</span><span class="g-v">17:24</span></div>
+      <div class="g-item"><span class="g-k">満潮</span><span class="g-v">10:59<small>121cm</small><br>19:15<small>142cm</small></span></div>
+      <div class="g-item"><span class="g-k">干潮</span><span class="g-v">02:45<small>31cm</small><br>13:28<small>119cm</small></span></div>
+    </div>
+  </div>
+  <a class="hero-scroll" href="#tide"><i></i>SCROLL</a>
+</section>
+
+<!-- ═════════ DATA SHEET ═════════ -->
+<div class="sheet">
+<!-- TIDE -->
+<section class="sec" id="tide" aria-labelledby="tide-h">
+  <header class="wrap sec-head rv">
+    <p class="eyebrow">TIDE · WIND · TIME</p>
+    <h2 id="tide-h">潮・風・おすすめ時間</h2>
+    <p class="lead">油壺の予測潮位をもとにした、10月3日の潮の動き。スライダーかグラフを動かすと、その時間の潮位と上げ下げが分かります。</p>
+  </header>
+
+  <div class="wrap tide-grid">
+    <article class="card tide-card rv" aria-label="時間ごとの潮">
+      <div class="ro">
+        <div class="ro-top">
+          <div class="ro-time" id="roTime" aria-live="polite">05:30</div>
+          <div class="ro-chips" id="roChips"></div>
+        </div>
+        <div class="ro-stats">
+          <div class="stat"><span class="k">潮位（油壺）</span><span class="v" id="roLevel">約54<small>cm</small></span></div>
+          <div class="stat"><span class="k">潮の動き</span><span class="state" id="roState" data-s="up"><span class="arr" aria-hidden="true">↑</span><span id="roStateT">上げ潮</span></span><span class="rate" id="roRate">+15cm/時・よく動く</span></div>
+        </div>
+        <div class="ro-fish" id="roFish"></div>
+      </div>
+
+      <div class="chart" id="tideChart"></div>
+
+      <div class="slider">
+        <label class="sr" for="timeRange">時刻を選ぶ</label>
+        <input class="tr" type="range" id="timeRange" min="180" max="1140" step="10" value="330">
+        <div class="ticks" aria-hidden="true"><span>03:00</span><span>07:00</span><span>11:00</span><span>15:00</span><span>19:00</span></div>
+      </div>
+      <div class="quick" id="quick" aria-label="時刻のショートカット"></div>
+
+      <div class="notes">
+        <p class="note">※ <b>潮位の上下と、実際の潮流（潮の流れ）の速さは同じではありません。</b>潮流は地形・風・外洋の流れでも変わるため、現地ではウキやラインの流れ方で確かめてください。</p>
+        <p class="note src">潮位は油壺の予測値（満潮・干潮の4点）をなめらかにつないだ推定曲線で、途中の数値は目安です。日の出・日の入りは三浦半島南部での計算値。</p>
+      </div>
+    </article>
+
+    <div class="times rv">
+      <div class="times-h"><h3>おすすめ時間</h3><p>タップでその時間へ</p></div>
+      <div class="tcards">
+        <button class="tcard am" type="button" data-win="am" data-t="300">
+          <span class="tc-top"><span class="tc-name">朝</span><span class="chip solid">本命</span></span>
+          <span class="tc-time">05:00 – 09:00頃</span>
+          <span class="bar"></span>
+          <span class="tc-desc">上げ潮と朝マズメが重なる、この日いちばん大事な時間。日の出は5:37。</span>
+          <span class="tc-data"><span>潮位<b>47→109cm</b></span><span>変化<b>+62cm</b></span></span>
+        </button>
+        <button class="tcard noon" type="button" data-win="noon" data-t="660">
+          <span class="tc-top"><span class="tc-name">昼</span><span class="chip grey">休憩・移動</span></span>
+          <span class="tc-time">11:00 – 14:00頃</span>
+          <span class="bar"></span>
+          <span class="tc-desc">潮位の変化がごく小さい時間。休憩、場所の移動、エサの補充に。</span>
+          <span class="tc-data"><span>潮位<b>121→119cm</b></span><span>変化<b>ほぼ0</b></span></span>
+        </button>
+        <button class="tcard pm" type="button" data-win="pm" data-t="960">
+          <span class="tc-top"><span class="tc-name">夕</span><span class="chip blue">夕マズメ</span></span>
+          <span class="tc-time">16:00 – 日没前後</span>
+          <span class="bar"></span>
+          <span class="tc-desc">上げ潮は続くが、動きは朝より小さい。日の入り17:24前後の夕マズメを狙う。</span>
+          <span class="tc-data"><span>潮位<b>128→139cm</b></span><span>変化<b>+11cm</b></span></span>
+        </button>
+      </div>
+    </div>
+
+    <div class="wx rv" id="wx">
+      <div class="wx-h">
+        <h3>風・波</h3>
+        <button class="btn" type="button" id="wxBtn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
+          <span>予報を取得</span>
+        </button>
+      </div>
+      <div class="wx-cards">
+        <article class="card wxc" aria-label="風">
+          <div class="wxc-h"><h4>風</h4><span id="windAt">—</span></div>
+          <div class="wind-body">
+            <div class="compass" id="compass">
+              <svg viewBox="0 0 140 140" aria-hidden="true">
+                <circle class="c-ring" cx="70" cy="70" r="68"/>
+                <g id="cTicks"></g>
+                <circle class="c-in" cx="70" cy="70" r="44"/>
+                <g id="cLabels"></g>
+                <g class="c-arrow" id="cArrow"><path d="M70 30 L78 48 L72 45 L72 104 L68 104 L68 45 L62 48 Z"/></g>
+              </svg>
+              <div class="c-val"><b id="windSpd">—</b><small>m/s</small></div>
+            </div>
+            <dl class="kv">
+              <div><dt>風向</dt><dd id="windDir" class="dash">未取得</dd></div>
+              <div><dt>風速</dt><dd id="windSpd2" class="dash">—</dd></div>
+              <div><dt>最大瞬間</dt><dd id="windGst" class="dash">—</dd></div>
+            </dl>
+          </div>
+          <div class="wx-assess" id="windAssess"></div>
+        </article>
+        <article class="card wxc" aria-label="波">
+          <div class="wxc-h"><h4>波</h4><span id="waveAt">—</span></div>
+          <dl class="kv" style="grid-template-columns:1fr 1fr 1fr">
+            <div><dt>波高</dt><dd id="waveH" class="dash">—</dd></div>
+            <div><dt>周期</dt><dd id="waveP" class="dash">—</dd></div>
+            <div><dt>うねり</dt><dd id="swellH" class="dash">—</dd></div>
+          </dl>
+          <div class="gauge" id="gauge">
+            <div class="gauge-bar"><span class="gauge-mk" id="gaugeMk"></span></div>
+            <div class="gauge-sc" aria-hidden="true"><span style="left:0">0</span><span style="left:33.3%">1.0</span><span style="left:50%">1.5</span><span style="left:100%">3.0m</span></div>
+            <div class="gauge-lg"><span><i style="background:#CDEFFD"></i>〜1m 比較的穏やか</span><span><i style="background:#FFE3BF"></i>1〜1.5m 低い磯は注意</span><span><i style="background:#FFD0CB"></i>1.5m〜 地磯は危険</span></div>
+          </div>
+          <div class="wx-assess" id="waveAssess"></div>
+        </article>
+      </div>
+      <div id="wxMsg" role="status"></div>
+      <p class="wx-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 16h15a3 3 0 1 1-3 3M3 12h8"/></svg><span>釣りは潮だけでなく、<b>風・波・うねり</b>が重要。磯では特にうねりと波の高さを、出発前と現地で必ず確認してください。数値は磯釣りの一般的な目安です。</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- SPOT -->
+<section class="sec" id="spot" aria-labelledby="spot-h">
+  <header class="wrap sec-head rv">
+    <p class="eyebrow">SPOT · MAP</p>
+    <h2 id="spot-h">釣り場・マップ</h2>
+    <p class="lead">宮川港の駐車場から磯伝いに歩いて入る3か所。ピンかタブをタップすると、右（スマホでは下）の情報が切り替わります。</p>
+  </header>
+
+  <div class="wrap spot-grid">
+    <div class="map-col rv">
+      <div class="card map-card">
+        <div class="map pre" id="map">
+          <svg viewBox="170 40 980 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+            <defs>
+              <linearGradient id="seaG" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#D9F3FD"/><stop offset=".55" stop-color="#B9E6FA"/><stop offset="1" stop-color="#9ED9F6"/></linearGradient>
+              <pattern id="fieldP" width="18" height="18" patternUnits="userSpaceOnUse" patternTransform="rotate(-9)"><path d="M0 9H18" stroke="#E3ECF4" stroke-width="1.2"/></pattern>
+              <path id="coast" d="M170,350 C190,344 212,336 222,318 C232,296 234,270 240,252 C246,236 262,228 282,230 C300,232 312,240 318,250 L322,268 C344,276 366,290 380,312 C392,332 396,360 398,392 C400,420 396,452 398,480 C400,506 404,528 412,548 C418,562 428,574 442,570 C454,566 460,552 468,540 C478,524 492,512 510,516 C532,522 546,540 556,560 C566,580 576,596 590,604 C606,614 630,612 652,606 C680,598 710,592 750,590 C800,588 860,586 910,590 C950,594 980,600 1006,610 C1020,620 1030,630 1042,630 C1056,630 1066,618 1072,604 C1082,584 1090,566 1104,562 C1120,558 1135,566 1150,572"/>
+              <mask id="routeMask" maskUnits="userSpaceOnUse" x="170" y="40" width="980" height="900">
+                <g class="route-mask" fill="none" stroke="#fff" stroke-width="16" stroke-linecap="round">
+                  <path pathLength="1" stroke-dasharray="1 1" d="M261,128 C272,168 290,206 306,240 C316,260 334,274 356,288 C378,302 392,324 404,352 C418,384 442,410 464,440 C480,462 490,488 498,508"/>
+                  <path pathLength="1" stroke-dasharray="1 1" d="M498,508 C486,522 470,536 458,550 C452,556 448,562 444,566"/>
+                  <path pathLength="1" stroke-dasharray="1 1" d="M498,508 C518,516 536,530 550,548 C562,566 574,586 592,598 C612,606 640,598 680,592 C740,584 800,580 860,580 C920,580 970,588 1004,602 C1020,610 1032,618 1040,624"/>
+                </g>
+              </mask>
+            </defs>
+            <rect x="170" y="40" width="980" height="900" fill="url(#seaG)"/>
+            <g fill="none" stroke-linejoin="round" stroke-linecap="round">
+              <use href="#coast" stroke="#E6F7FE" stroke-width="170" opacity=".35"/>
+              <use href="#coast" stroke="#E6F7FE" stroke-width="96" opacity=".5"/>
+              <use href="#coast" stroke="#F1FBFF" stroke-width="40" opacity=".85"/>
+            </g>
+            <g stroke="#fff" stroke-opacity=".7" stroke-width="2" fill="none" stroke-linecap="round">
+              <path d="M300,800 q12,-7 24,0 t24,0"/><path d="M520,860 q12,-7 24,0 t24,0"/><path d="M760,760 q12,-7 24,0 t24,0"/><path d="M960,850 q12,-7 24,0 t24,0"/><path d="M420,700 q10,-6 20,0 t20,0"/><path d="M880,690 q10,-6 20,0 t20,0"/>
+            </g>
+            <path d="M170,40 L1150,40 L1150,572 C1135,566 1120,558 1104,562 C1090,566 1082,584 1072,604 C1066,618 1056,630 1042,630 C1030,630 1020,620 1006,610 C980,600 950,594 910,590 C860,586 800,588 750,590 C710,592 680,598 652,606 C630,612 606,614 590,604 C576,596 566,580 556,560 C546,540 532,522 510,516 C492,512 478,524 468,540 C460,552 454,566 442,570 C428,574 418,562 412,548 C404,528 400,506 398,480 C396,452 400,420 398,392 C396,360 392,332 380,312 C366,290 344,276 322,268 L318,250 C312,240 300,232 282,230 C262,228 246,236 240,252 C234,270 232,296 222,318 C212,336 190,344 170,350 Z" fill="#F8FBFD"/>
+            <path d="M540,60 L1150,60 L1150,500 C1080,508 1030,540 1000,556 C900,540 760,540 640,556 C600,540 560,500 520,470 C520,340 530,200 540,60 Z" fill="url(#fieldP)"/>
+            <path d="M600,120 L760,110 M820,140 L1000,160 M640,300 L820,320 M880,330 L1120,300 M700,420 L900,440" stroke="#E6EEF5" stroke-width="1.4"/>
+            <path d="M170,96 C300,112 420,94 560,106 C700,118 850,98 1000,116 C1060,124 1110,118 1150,122" fill="none" stroke="#D4E1EE" stroke-width="5" stroke-linecap="round"/>
+            <path d="M261,128 C270,160 286,200 300,232" fill="none" stroke="#D4E1EE" stroke-width="3.5" stroke-linecap="round"/>
+            <path d="M700,106 C706,180 690,260 700,340" fill="none" stroke="#DCE7F1" stroke-width="2.5" stroke-dasharray="6 6"/>
+            <g fill="none" stroke="#DCE7F1" stroke-width="1.4">
+              <ellipse cx="432" cy="470" rx="36" ry="54"/><ellipse cx="434" cy="468" rx="22" ry="34"/><ellipse cx="435" cy="466" rx="9" ry="14"/>
+            </g>
+            <path d="M470,500 C500,478 530,488 560,520 C586,548 620,560 660,556 C720,550 800,546 880,548 C940,550 990,560 1020,576 C1046,588 1062,566 1080,540 C1098,520 1124,520 1150,526" fill="none" stroke="#C8D8E7" stroke-width="10" stroke-dasharray="1.3 6"/>
+            <path d="M310,244 L322,276 L316,312" fill="none" stroke="#C6D8EA" stroke-width="11" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M310,244 L322,276 L316,312" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+            <use href="#coast" fill="none" stroke="#86BDE8" stroke-width="2.2"/>
+            <g fill="#DCE7F1" stroke="#B7D0E6" stroke-width="1">
+              <path d="M428,578 c6,-5 16,-3 18,4 c-4,6 -14,6 -18,-4z"/><path d="M455,568 c5,-4 12,-2 13,3 c-3,5 -10,5 -13,-3z"/>
+              <path d="M570,606 c6,-5 16,-3 18,4 c-4,6 -14,6 -18,-4z"/><path d="M612,616 c5,-4 12,-2 13,3 c-3,5 -10,5 -13,-3z"/>
+              <path d="M1030,640 c6,-5 16,-3 18,4 c-4,6 -14,6 -18,-4z"/><path d="M1060,628 c5,-4 12,-2 13,3 c-3,5 -10,5 -13,-3z"/><path d="M990,616 c5,-4 12,-2 13,3 c-3,5 -10,5 -13,-3z"/>
+            </g>
+            <path d="M600,656 C604,644 624,640 636,650 C644,660 638,676 622,678 C606,680 596,668 600,656 Z" fill="#EEF3F7" stroke="#86BDE8" stroke-width="2"/>
+            <path d="M606,612 L612,646" stroke="#D23A3A" stroke-width="2.4" stroke-dasharray="4 4"/>
+            <path d="M603,623 l12,12 M615,623 l-12,12" stroke="#D23A3A" stroke-width="3" stroke-linecap="round"/>
+            <g mask="url(#routeMask)">
+              <path class="route on" data-r="all" d="M261,128 C272,168 290,206 306,240 C316,260 334,274 356,288 C378,302 392,324 404,352 C418,384 442,410 464,440 C480,462 490,488 498,508"/>
+              <path class="route" data-r="kannon" d="M498,508 C486,522 470,536 458,550 C452,556 448,562 444,566"/>
+              <path class="route" data-r="east" d="M498,508 C518,516 536,530 550,548 C562,566 574,586 592,598 C612,606 640,598 680,592 C740,584 800,580 860,580 C920,580 970,588 1004,602 C1020,610 1032,618 1040,624"/>
+            </g>
+          </svg>
+
+          <span class="mk lft" style="left:7.4%;top:9.8%"><i>P</i>駐車場</span>
+          <span class="mk lft" style="left:15%;top:26.6%"><i>WC</i>トイレ</span>
+          <span class="mk sea" style="left:8.4%;top:34.5%">宮川港</span>
+          <span class="mk ban" style="left:45.9%;top:71.8%">ヤギ島（立入禁止）</span>
+          <span class="mk dir">← 城ヶ島方面</span>
+          <span class="compass-n" aria-hidden="true"><svg viewBox="0 0 34 34"><path d="M17 5 L20 15 L17 13 L14 15 Z" fill="#176BFF"/></svg><span style="margin-top:10px">N</span></span>
+          <span class="scale" aria-hidden="true" style="width:20.4%"><i></i>200m</span>
+
+          <button class="pin" type="button" data-spot="kannon" style="left:26.6%;top:57.4%" aria-label="01 観音山を表示"><span class="pin-dot">01</span><span class="pin-lbl l">観音山</span></button>
+          <button class="pin" type="button" data-spot="yagi" style="left:43.4%;top:61.8%" aria-label="02 ヤギ島周辺を表示"><span class="pin-dot">02</span><span class="pin-lbl t">ヤギ島周辺</span></button>
+          <button class="pin" type="button" data-spot="nusu" style="left:89.4%;top:63.1%" aria-label="03 盗人狩を表示"><span class="pin-dot">03</span><span class="pin-lbl l">盗人狩</span></button>
+        </div>
+        <div class="map-legend" aria-hidden="true">
+          <span><svg viewBox="0 0 22 8"><path d="M1 4H21" stroke="#176BFF" stroke-width="3" stroke-linecap="round" stroke-dasharray="1 5"/></svg>磯道（目安）</span>
+          <span><svg viewBox="0 0 22 8"><path d="M1 4H21" stroke="#C8D8E7" stroke-width="7" stroke-dasharray="1.3 3"/></svg>崖</span>
+          <span><svg viewBox="0 0 22 8"><path d="M1 4H21" stroke="#D23A3A" stroke-width="2.4" stroke-dasharray="4 3"/></svg>渡らない</span>
+        </div>
+        <p class="map-note">簡易図です。位置関係のイメージで、実際の地形・磯道とは異なります。現地の表示と足元を確認してください。</p>
+      </div>
+      <div class="card access">
+        <h4>アクセス（3か所共通）</h4>
+        <dl>
+          <div><dt>駐車場</dt><dd>宮川環境整備施設 第一駐車場（有料）。土日祝 1,040円（2025年時点の掲載情報）</dd></div>
+          <div><dt>トイレ</dt><dd>宮川港の管理棟のみ。釣り場にはありません</dd></div>
+          <div><dt>歩く道</dt><dd>宮川港からヨットハーバーの湾沿いを進み、観音山の東側へ。ワンドで分かれて、右が観音山、左が塩田跡（ヤギ島周辺）と盗人狩</dd></div>
+        </dl>
+      </div>
+    </div>
+
+    <article class="card spot-panel rv" aria-label="釣り場の詳細">
+      <div class="tabs" role="tablist" aria-label="釣り場">
+        <button class="tab" role="tab" type="button" data-spot="kannon" aria-selected="true"><span class="u">01</span>観音山</button>
+        <button class="tab" role="tab" type="button" data-spot="yagi" aria-selected="false"><span class="u">02</span>ヤギ島周辺</button>
+        <button class="tab" role="tab" type="button" data-spot="nusu" aria-selected="false"><span class="u">03</span>盗人狩</button>
+      </div>
+      <div class="sd" id="spotDetail" role="tabpanel"></div>
+    </article>
+  </div>
+</section>
+</div>
+
+<!-- ═════════ FISH ═════════ -->
+<section class="fish" id="fish" aria-labelledby="fish-h">
+  <div class="fish-fx" aria-hidden="true">
+    <div class="rays">
+      <i style="--x:10%;--w:90px;--r:12deg;--d:11s"></i>
+      <i style="--x:34%;--w:140px;--r:16deg;--d:13s"></i>
+      <i style="--x:58%;--w:70px;--r:10deg;--d:9s"></i>
+      <i style="--x:78%;--w:120px;--r:18deg;--d:15s"></i>
+    </div>
+    <canvas class="fxcanvas" id="fishFx"></canvas>
+  </div>
+
+  <header class="wrap sec-head rv">
+    <p class="eyebrow">FISH</p>
+    <h2 id="fish-h">釣れる魚</h2>
+    <p class="lead">10月上旬に狙える7種類。泳いでいる魚か、下の魚名をタップすると詳しい情報が開きます。</p>
+  </header>
+
+  <div class="wrap fish-ctl">
+    <div class="filters glass" role="group" aria-label="場所で絞り込む" id="filters">
+      <button type="button" data-f="all" aria-pressed="true">すべて<span class="u">7</span></button>
+      <button type="button" data-f="kannon" aria-pressed="false">観音山<span class="u">6</span></button>
+      <button type="button" data-f="yagi" aria-pressed="false">ヤギ島周辺<span class="u">2</span></button>
+      <button type="button" data-f="nusu" aria-pressed="false">盗人狩<span class="u">5</span></button>
+    </div>
+    <button class="motion-btn glass" type="button" data-motion aria-pressed="false">
+      <svg class="ic-pause" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 6v12M15 6v12"/></svg>
+      <svg class="ic-play" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13l10.5-6.5z"/></svg>
+      <span data-motion-label>アニメーション停止</span>
+    </button>
+  </div>
+
+  <div class="tank" id="tank">
+    <div class="tank-layer tank-back" aria-hidden="true">
+      <div class="zone" style="top:4%"><span>表層</span></div>
+      <div class="zone" style="top:34%"><span>中層</span></div>
+      <div class="zone" style="top:63%"><span>底層・根まわり</span></div>
+      <svg class="rocks" viewBox="0 0 1200 150" preserveAspectRatio="none">
+        <path d="M0,150 L0,96 C60,80 110,98 170,86 C240,70 280,92 340,98 C420,106 470,74 540,78 C610,82 650,104 720,100 C800,95 850,70 930,76 C1010,82 1060,102 1120,94 C1160,88 1180,90 1200,92 L1200,150 Z" fill="#0F52C9" opacity=".32"/>
+      </svg>
+    </div>
+    <div class="tank-fish" id="tankFish"></div>
+    <div class="tank-layer tank-front" aria-hidden="true">
+      <svg class="rocks" viewBox="0 0 1200 150" preserveAspectRatio="none" style="height:120px">
+        <g fill="none" stroke="#0E4DB8" stroke-opacity=".45" stroke-width="6" stroke-linecap="round">
+          <path class="weed" d="M90,150 C80,120 100,100 88,70"/>
+          <path class="weed" d="M104,150 C112,126 96,108 108,86" style="animation-delay:-2s"/>
+          <path class="weed" d="M880,150 C870,118 892,96 878,60" style="animation-delay:-1s"/>
+          <path class="weed" d="M896,150 C906,124 888,110 900,84" style="animation-delay:-3s"/>
+          <path class="weed" d="M1110,150 C1100,126 1118,104 1106,80" style="animation-delay:-4s"/>
+        </g>
+        <path d="M0,150 L0,122 C80,110 150,126 230,118 C300,112 330,128 400,130 C480,132 520,112 600,116 C680,120 700,134 780,132 C860,130 900,112 980,116 C1060,120 1120,134 1200,126 L1200,150 Z" fill="#0B45B0" opacity=".55"/>
+      </svg>
+    </div>
+    <p class="tank-cap" aria-hidden="true">タナ（泳ぐ層）のイメージ</p>
+  </div>
+
+  <div class="wrap">
+    <div class="fish-list" id="fishList"></div>
+    <p class="fish-foot">魚名の下のタグは狙える釣り場。場所フィルターで対象外の魚は薄く表示されます（釣り場・マップで選んだ場所とも連動）。</p>
+  </div>
+</section>
+
+<!-- ═════════ TACKLE ═════════ -->
+<div class="sheet sheet-t">
+<section class="sec" id="tackle" aria-labelledby="tackle-h">
+  <header class="wrap sec-head rv">
+    <p class="eyebrow">TACKLE</p>
+    <h2 id="tackle-h">仕掛け・餌・ルアー</h2>
+    <p class="lead">6つの釣り方の基本仕掛け。タップで開きます。号数は目安なので、手持ちの道具と釣具店の情報に合わせて調整してください。</p>
+  </header>
+
+  <div class="wrap acc" id="acc">
+
+    <!-- EGING -->
+    <div class="acc-item rv" id="tk-eging">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-eging-p">
+        <span class="acc-t"><b>エギング</b><small>アオリイカ ／ 観音山</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-eging-p" role="region" aria-label="エギング" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>エギングの基本仕掛け</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 392" role="img" aria-label="ロッドからPEライン、FGノット、リーダー、スナップ、エギの順につながる図">
+            <path class="rodp" d="M14,156 L19,158 L113,23 L111,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="3"/><circle class="gd" cx="67" cy="84" r="2.6"/><circle class="gd" cx="88" cy="54" r="2.2"/><circle class="gd" cx="105" cy="31" r="1.8"/>
+            <circle class="reel" cx="24" cy="148" r="9"/><path class="ln" d="M24,148 L16,156"/>
+            <text x="130" y="28">ロッド：エギング用 8ft前後</text>
+            <text x="8" y="182" class="s">リール</text><text x="8" y="196" class="s">2500〜3000番</text>
+            <path class="ln" d="M112,22 V196"/>
+            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 0.6〜0.8号</text><text x="130" y="129" class="s">メインライン</text>
+            <path class="ln" d="M106,194 L118,206 M106,206 L118,194"/>
+            <text x="130" y="204">FGノットなどで結束</text>
+            <path class="ln2" d="M112,206 V300"/>
+            <path class="dim" d="M96,206 V300 M92,206 H100 M92,300 H100"/>
+            <path class="lnf" d="M114,250 H126"/><text x="130" y="248">リーダー フロロ2〜2.5号</text><text x="130" y="263" class="s">長さ 1〜1.5m</text>
+            <ellipse class="ln" cx="112" cy="308" rx="3.5" ry="6"/>
+            <text x="98" y="312" text-anchor="end" class="s">スナップ</text>
+            <path class="soft" d="M112,322 C124,312 184,311 226,320 C238,323 240,333 228,337 C188,347 126,345 112,334 Z"/>
+            <path class="lnf" d="M136,315 C133,322 133,334 138,343 M152,316 L160,342 M168,315 L176,343 M184,315 L192,343 M200,317 L208,341"/>
+            <path class="fbs" d="M114,334 L126,349 L143,343 Z"/>
+            <circle class="fb" cx="124" cy="325" r="3"/>
+            <path class="ln" d="M232,329 L252,314 M232,329 L256,322 M232,329 L256,336 M232,329 L252,344"/>
+            <text x="262" y="318" class="s">カンナ</text>
+            <text x="98" y="356" text-anchor="end" class="s">シンカー</text>
+            <text x="112" y="378">エギ 2.5〜3号（中心）</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>アオリイカ</dd></div>
+            <div><dt>場所</dt><dd>観音山</dd></div>
+            <div><dt>エギ</dt><dd>2.5〜3号を中心に</dd></div>
+            <div><dt>カラー</dt><dd><span class="sw" style="background:#FF7EAD"></span><span class="sw" style="background:#FF9B3F"></span>朝夕はピンク・オレンジ系<br><span class="sw" style="background:#B9A57F"></span>日中はナチュラルカラーも候補</dd></div>
+          </dl>
+          <p class="tk-h">基本動作</p>
+          <ol class="flow"><li>投げる</li><li>沈める</li><li>2〜3回しゃくる</li><li>フォール</li><li>繰り返す</li></ol>
+          <figure class="bp">
+            <figcaption><span>エギの動き（横から見た図）</span><span class="u">MOTION</span></figcaption>
+            <svg viewBox="0 0 320 170" role="img" aria-label="エギを投げて沈め、しゃくって上げ、フォールさせる動きを繰り返す図">
+              <path class="sea" d="M6,30 C36,26 66,34 96,30 S156,26 186,30 S246,34 276,30 S306,27 314,30"/>
+              <path class="seabed" d="M6,150 C40,144 70,154 110,148 S190,152 230,146 S290,152 314,148 L314,170 L6,170 Z"/>
+              <path class="dim" d="M26,30 C30,70 40,112 60,130"/>
+              <path class="ln" d="M60,130 L70,104 L80,116 L90,88 L100,100 L112,72"/>
+              <path class="dim" d="M112,72 C132,76 150,108 168,130"/>
+              <path class="ln" d="M168,130 L178,104 L188,116 L198,88 L208,100 L220,72"/>
+              <path class="dim" d="M220,72 C240,76 258,108 276,130"/>
+              <g class="mk"><circle cx="26" cy="30" r="8"/><text x="26" y="30">1</text></g>
+              <g class="mk"><circle cx="37" cy="96" r="8"/><text x="37" y="96">2</text></g>
+              <g class="mk"><circle cx="84" cy="74" r="8"/><text x="84" y="74">3</text></g>
+              <g class="mk"><circle cx="150" cy="100" r="8"/><text x="150" y="100">4</text></g>
+              <g class="mk"><circle cx="204" cy="62" r="8"/><text x="204" y="62">5</text></g>
+              <text x="314" y="20" text-anchor="end" class="s">水面</text>
+              <text x="314" y="164" text-anchor="end" class="s">底（根掛かりに注意）</text>
+            </svg>
+          </figure>
+          <p class="tk-tip"><b>コツ：</b>イカが抱くのはフォール中が多いので、沈めている間のラインの動きに集中。底を取りすぎると根掛かりしやすい。</p>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- JIG -->
+    <div class="acc-item rv" id="tk-jig">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-jig-p">
+        <span class="acc-t"><b>ショアジギング</b><small>イナダ・ワラサなどの青物 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-jig-p" role="region" aria-label="ショアジギング" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>ショアジギングの基本仕掛け</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 392" role="img" aria-label="ロッドからPEライン、リーダー、スナップ、メタルジグの順につながる図">
+            <path class="rodp" d="M14,156 L19,158 L113,23 L111,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="3.2"/><circle class="gd" cx="67" cy="84" r="2.8"/><circle class="gd" cx="88" cy="54" r="2.3"/><circle class="gd" cx="105" cy="31" r="1.9"/>
+            <circle class="reel" cx="24" cy="148" r="10"/><path class="ln" d="M24,148 L15,157"/>
+            <text x="130" y="28">ロッド：9.6〜10ft前後</text>
+            <text x="8" y="184" class="s">リール</text><text x="8" y="198" class="s">4000〜5000番</text>
+            <path class="ln" d="M112,22 V196"/>
+            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 1.5〜2号</text><text x="130" y="129" class="s">メインライン</text>
+            <path class="ln" d="M106,194 L118,206 M106,206 L118,194"/>
+            <text x="130" y="204">FGノットなどで結束</text>
+            <path class="ln2" d="M112,206 V292"/>
+            <path class="dim" d="M96,206 V292 M92,206 H100 M92,292 H100"/>
+            <path class="lnf" d="M114,248 H126"/><text x="130" y="246">リーダー 30〜40lb</text><text x="130" y="261" class="s">長さ 1〜1.5m</text>
+            <circle class="ln" cx="112" cy="297" r="4"/><ellipse class="ln" cx="112" cy="306" rx="3" ry="5"/>
+            <text x="98" y="303" text-anchor="end" class="s">スナップ＋リング</text>
+            <path class="soft" d="M112,313 C121,319 123,347 118,373 C116,379 108,379 106,373 C101,347 103,319 112,313 Z"/>
+            <path class="lnf" d="M112,322 V368"/>
+            <circle class="fb" cx="112" cy="323" r="2.4"/>
+            <path class="ln" d="M113,313 C123,311 128,321 122,328 C119,331 115,329 116,325"/>
+            <path class="lnf" d="M126,322 H132"/><text x="136" y="326" class="s">アシストフック</text>
+            <text x="136" y="350">メタルジグ 20〜40g</text>
+            <rect x="136" y="360" width="16" height="10" rx="2" fill="#E6ECF2" stroke="#9FB3C7"/><text x="156" y="369" class="s">シルバー</text>
+            <rect x="210" y="360" width="16" height="10" rx="2" fill="#176BFF"/><text x="230" y="369" class="s">ブルー系</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>イナダ・ワラサなどの青物（サバが混じることも）</dd></div>
+            <div><dt>場所</dt><dd>観音山・盗人狩</dd></div>
+            <div><dt>ルアー</dt><dd>メタルジグ 20〜40g が基本</dd></div>
+            <div><dt>カラー</dt><dd><span class="sw" style="background:#E6ECF2"></span>シルバー　<span class="sw" style="background:#176BFF"></span>ブルー系</dd></div>
+            <div><dt>探る層</dt><dd>表層〜中層が中心</dd></div>
+          </dl>
+          <p class="tk-tip"><b>コツ：</b>鳥の群れや水面のざわつき（ナブラ）、潮目を探して投げる。着水後に数秒沈め、速めのただ巻きと時々のジャークで表層〜中層を探る。朝マズメが最優先。</p>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- KAGO -->
+    <div class="acc-item rv" id="tk-kago">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-kago-p">
+        <span class="acc-t"><b>カゴ釣り（遠投）</b><small>アジ・回遊魚 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-kago-p" role="region" aria-label="カゴ釣り" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>遠投カゴ釣りの基本仕掛け</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 446" role="img" aria-label="道糸、ウキ止め、シモリ玉、遠投ウキ、天秤とカゴ、クッションゴム、ハリス、針の順につながる図">
+            <path class="rodp" d="M14,156 L19,158 L113,23 L111,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="3"/><circle class="gd" cx="67" cy="84" r="2.6"/><circle class="gd" cx="88" cy="54" r="2.2"/><circle class="gd" cx="105" cy="31" r="1.8"/>
+            <circle class="reel" cx="24" cy="148" r="9.5"/><path class="ln" d="M24,148 L16,156"/>
+            <text x="130" y="28">ロッド：磯竿 3〜4号 5.3m</text>
+            <text x="8" y="182" class="s">リール</text><text x="8" y="196" class="s">3000〜4000番</text>
+            <path class="ln" d="M112,22 V148"/>
+            <path class="lnf" d="M114,96 H126"/><text x="130" y="100">道糸 ナイロン4〜5号</text>
+            <path class="ln" d="M106,150 H118" stroke-width="3"/><text x="130" y="154" class="s">ウキ止め</text>
+            <circle class="ln" cx="112" cy="160" r="3.5"/><text x="130" y="170" class="s">シモリ玉</text>
+            <path class="ln" d="M112,164 V194"/>
+            <path class="sea" d="M6,210 C40,206 70,214 100,210 S160,206 190,210 S250,214 314,210"/>
+            <text x="8" y="226" class="s">水面</text>
+            <text x="314" y="200" text-anchor="end" class="n">沖の潮目へ遠投 →</text>
+            <path class="soft" d="M112,194 C120,200 120,236 112,244 C104,236 104,200 112,194 Z"/>
+            <path class="ln" d="M112,180 V194"/>
+            <text x="130" y="232">遠投ウキ 8〜10号</text>
+            <path class="ln" d="M112,244 V258 L138,250"/>
+            <text x="146" y="256" class="s">天秤</text>
+            <rect class="soft" x="103" y="262" width="18" height="30" rx="5"/>
+            <path class="lnf" d="M103,272 H121 M103,282 H121 M109,262 V292 M115,262 V292"/>
+            <text x="130" y="282">カゴ（コマセを詰める）</text>
+            <path class="ln" d="M112,292 C116,296 108,300 112,304 C116,308 108,312 112,316"/>
+            <text x="130" y="310" class="s">クッションゴム</text>
+            <path class="ln2" d="M112,316 V408"/>
+            <path class="dim" d="M96,316 V408 M92,316 H100 M92,408 H100"/>
+            <path class="lnf" d="M114,358 H126"/><text x="130" y="356">ハリス 2〜3号</text><text x="130" y="371" class="s">長さ 2〜3m</text>
+            <path class="ln" d="M112,408 V420 C112,428 122,428 123,420"/>
+            <path class="fbs" d="M117,424 C123,416 132,418 132,426 C128,431 121,431 117,424 Z"/>
+            <text x="140" y="428">針＋付け餌（オキアミ）</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>アジ、回遊魚（青物・サバなど）</dd></div>
+            <div><dt>場所</dt><dd>観音山・盗人狩</dd></div>
+            <div><dt>狙う所</dt><dd><b>足元ではなく沖。</b>遠投して沖の潮目や潮の筋を流す</dd></div>
+            <div><dt>餌</dt><dd>付け餌：オキアミ ／ カゴ：アミエビ・オキアミ</dd></div>
+            <div><dt>時間</dt><dd>朝マズメ、夕マズメ（アジは夕方〜が狙い目）</dd></div>
+          </dl>
+          <p class="tk-tip"><b>コツ：</b>ウキの号数とカゴ・オモリの重さ（負荷）を合わせる。同じ場所に投げ続けてコマセを効かせ、アタリがなければウキ下（タナ）を変えていく。暗くなってからは足元と帰り道に注意。</p>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- FUKASE -->
+    <div class="acc-item rv" id="tk-fukase">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-fukase-p">
+        <span class="acc-t"><b>フカセ釣り</b><small>メジナ・クロダイ ／ 3か所すべて</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-fukase-p" role="region" aria-label="フカセ釣り" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>ウキフカセの基本仕掛け</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 446" role="img" aria-label="道糸、ウキ止め、円錐ウキ、からまん棒、サルカン、ハリス、ガン玉、針とオキアミの順につながる図">
+            <path class="rodp" d="M14,156 L19,158 L113,23 L111,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="2.8"/><circle class="gd" cx="67" cy="84" r="2.4"/><circle class="gd" cx="88" cy="54" r="2"/><circle class="gd" cx="105" cy="31" r="1.7"/>
+            <circle class="reel" cx="24" cy="148" r="9"/><path class="ln" d="M24,148 L16,156"/>
+            <text x="130" y="28">ロッド：磯竿 1〜1.5号 5.3m</text>
+            <text x="8" y="172" class="s">レバーブレーキ</text><text x="8" y="186" class="s">リール 2500番</text>
+            <path class="ln" d="M112,22 V140"/>
+            <path class="lnf" d="M114,94 H126"/><text x="130" y="98">道糸 2〜2.5号</text>
+            <path class="ln" d="M106,142 H118" stroke-width="3"/><text x="130" y="146" class="s">ウキ止め（半遊動のとき）</text>
+            <circle class="ln" cx="112" cy="152" r="3.2"/><text x="130" y="162" class="s">シモリ玉</text>
+            <path class="ln" d="M112,156 V172"/>
+            <path class="sea" d="M66,190 C80,186 90,194 100,190 S160,186 190,190 S250,194 314,190"/>
+            <text x="314" y="182" text-anchor="end" class="s">水面</text>
+            <path class="soft" d="M112,172 C125,176 126,192 112,206 C98,192 99,176 112,172 Z"/>
+            <text x="130" y="194">円錐ウキ 0〜B</text>
+            <path class="ln" d="M112,206 V214"/>
+            <rect class="fb" x="109" y="214" width="6" height="8" rx="1.5"/>
+            <text x="130" y="222" class="s">からまん棒</text>
+            <path class="ln" d="M112,222 V238"/>
+            <ellipse class="ln" cx="112" cy="242" rx="3" ry="4"/><ellipse class="ln" cx="112" cy="250" rx="3" ry="4"/>
+            <text x="130" y="250" class="s">サルカン</text>
+            <path class="ln2" d="M112,254 V400"/>
+            <path class="dim" d="M96,254 V400 M92,254 H100 M92,400 H100"/>
+            <path class="lnf" d="M114,296 H126"/><text x="130" y="294">ハリス 1.5〜2号</text><text x="130" y="309" class="s">長さ 約3m</text>
+            <circle class="fb" cx="112" cy="340" r="3.8"/>
+            <text x="130" y="344" class="s">ガン玉（沈め具合の調整）</text>
+            <path class="ln" d="M112,400 V412 C112,420 122,420 123,412"/>
+            <path class="fbs" d="M117,416 C123,408 132,410 132,418 C128,423 121,423 117,416 Z"/>
+            <text x="140" y="418">グレ針5〜7号／チヌ針2〜3号</text>
+            <text x="140" y="434" class="s">＋付け餌（オキアミ）</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>メジナ・クロダイ</dd></div>
+            <div><dt>場所</dt><dd>観音山・ヤギ島周辺・盗人狩</dd></div>
+            <div><dt>ウキ</dt><dd>円錐ウキ（0〜B）。深く探るなら全遊動も</dd></div>
+            <div><dt>ハリス・針</dt><dd>ハリス1.5〜2号（クロダイは〜2.5号）、グレ針5〜7号／チヌ針2〜3号</dd></div>
+            <div><dt>餌</dt><dd>付け餌：オキアミ ／ コマセ：オキアミ＋配合餌</dd></div>
+          </dl>
+          <p class="tk-h">狙う場所</p>
+          <figure class="bp">
+            <figcaption><span>磯際・沈み根・潮目（断面のイメージ）</span><span class="u">SECTION</span></figcaption>
+            <svg viewBox="0 0 320 180" role="img" aria-label="磯の際、沈み根の際、沖の潮目の3つの狙い所を示す断面図">
+              <rect x="0" y="40" width="320" height="140" fill="rgba(103,201,245,.08)"/>
+              <path class="sea" d="M64,40 C100,36 130,44 160,40 S220,36 250,40 S300,44 320,40"/>
+              <path class="seabed" d="M62,168 C110,164 150,170 200,166 S280,170 320,166 L320,180 L62,180 Z"/>
+              <path class="seabed" d="M0,22 L44,22 C54,24 58,32 60,40 L64,78 C66,98 58,120 62,180 L0,180 Z"/>
+              <path class="seabed" d="M128,168 C134,140 168,126 196,138 C210,146 216,158 220,168 Z"/>
+              <path class="lnf" d="M246,36 q6,-4 12,0 M262,36 q6,-4 12,0 M278,36 q6,-4 12,0 M294,36 q6,-4 12,0"/>
+              <path class="dim" d="M270,46 C266,86 276,120 270,160"/>
+              <path class="lnf" d="M226,72 h16 m-4,-4 l4,4 l-4,4 M284,96 h16 m-4,-4 l4,4 l-4,4"/>
+              <ellipse class="tgt" cx="80" cy="98" rx="12" ry="30"/>
+              <ellipse class="tgt" cx="174" cy="120" rx="30" ry="14"/>
+              <ellipse class="tgt" cx="262" cy="84" rx="18" ry="30"/>
+              <path class="dim" d="M80,44 V68 M174,44 V106 M262,44 V54"/>
+              <path class="soft" d="M80,34 C85,36 86,42 80,48 C74,42 75,36 80,34 Z"/>
+              <path class="soft" d="M174,34 C179,36 180,42 174,48 C168,42 169,36 174,34 Z"/>
+              <path class="soft" d="M262,34 C267,36 268,42 262,48 C256,42 257,36 262,34 Z"/>
+              <text x="80" y="18" text-anchor="middle">磯際</text>
+              <text x="174" y="18" text-anchor="middle">沈み根の際</text>
+              <text x="262" y="18" text-anchor="middle">潮目</text>
+            </svg>
+          </figure>
+          <p class="tk-tip"><b>コツ：</b>足元にコマセを撒いてエサ取りを寄せ、少し離れた根際や潮目に仕掛けを入れて本命と分ける。クロダイは底付近をゆっくり流す。</p>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- DOTSUKI -->
+    <div class="acc-item rv" id="tk-dotsuki">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-dotsuki-p">
+        <span class="acc-t"><b>胴突き</b><small>カワハギ ／ 観音山</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-dotsuki-p" role="region" aria-label="胴突き" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>胴突き仕掛け</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 404" role="img" aria-label="道糸、サルカン、枝ス付きの胴突き仕掛け、オモリが底に着いている図">
+            <path class="rodp" d="M14,156 L19,158 L113,23 L111,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="2.8"/><circle class="gd" cx="67" cy="84" r="2.4"/><circle class="gd" cx="88" cy="54" r="2"/><circle class="gd" cx="105" cy="31" r="1.7"/>
+            <circle class="reel" cx="24" cy="148" r="8.5"/><path class="ln" d="M24,148 L16,156"/>
+            <text x="130" y="28">ロッド：小継ぎ竿・万能竿</text>
+            <text x="8" y="182" class="s">小型</text><text x="8" y="196" class="s">スピニング</text>
+            <path class="ln" d="M112,22 V184"/>
+            <path class="lnf" d="M114,100 H126"/><text x="130" y="104">道糸 PE0.8〜1号</text><text x="130" y="119" class="s">ナイロンなら3号前後</text>
+            <ellipse class="ln" cx="112" cy="188" rx="3" ry="4"/><ellipse class="ln" cx="112" cy="196" rx="3" ry="4"/>
+            <text x="130" y="196" class="s">サルカン</text>
+            <path class="ln2" d="M112,200 V338"/>
+            <g>
+              <path class="ln" d="M112,226 C122,226 128,230 132,236 V242 C132,248 140,248 141,242"/>
+              <path class="fbs" d="M134,244 C140,238 148,242 146,248 C142,252 136,250 134,244 Z"/>
+              <path class="ln" d="M112,266 C122,266 128,270 132,276 V282 C132,288 140,288 141,282"/>
+              <path class="fbs" d="M134,284 C140,278 148,282 146,288 C142,292 136,290 134,284 Z"/>
+              <path class="ln" d="M112,306 C122,306 128,310 132,316 V322 C132,328 140,328 141,322"/>
+              <path class="fbs" d="M134,324 C140,318 148,322 146,328 C142,332 136,330 134,324 Z"/>
+            </g>
+            <text x="158" y="246">ハゲ針 4〜5号</text>
+            <text x="158" y="286">アサリのむき身</text>
+            <text x="158" y="326" class="s">枝ス 2〜3号（2〜3本針）</text>
+            <path class="fbs" d="M112,338 C120,346 122,356 116,364 C114,366 110,366 108,364 C102,356 104,346 112,338 Z"/>
+            <text x="98" y="358" text-anchor="end">オモリ 5〜15号</text>
+            <path class="seabed" d="M6,374 C40,368 70,378 110,372 S190,376 230,370 S290,376 314,372 L314,404 L6,404 Z"/>
+            <path class="seabed" d="M150,374 C156,358 176,356 186,372 Z"/>
+            <path class="seabed" d="M238,372 C244,360 262,360 268,371 Z"/>
+            <text x="314" y="396" text-anchor="end" class="n">底付近を探る</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>カワハギ</dd></div>
+            <div><dt>場所</dt><dd>観音山</dd></div>
+            <div><dt>餌</dt><dd>アサリのむき身</dd></div>
+            <div><dt>探る所</dt><dd>底付近。岩礁や沈み根のまわり</dd></div>
+            <div><dt>時間</dt><dd>日中（明るい時間帯）</dd></div>
+          </dl>
+          <p class="tk-tip"><b>コツ：</b>底を取ったら少し誘って止める。アタリは小さく「コツッ」と来るので、聞き合わせてから掛ける。根掛かりしたら無理に引かず、角度を変えて外す。</p>
+        </div>
+      </div></div></div>
+    </div>
+
+    <!-- ISHIDAI -->
+    <div class="acc-item rv" id="tk-ishidai">
+      <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-ishidai-p">
+        <span class="acc-t"><b>イシダイ仕掛け <span class="chip warn">専用仕掛け</span></b><small>イシダイ ／ 盗人狩</small></span><span class="plus" aria-hidden="true"></span>
+      </button></h3>
+      <div class="acc-panel" id="tk-ishidai-p" role="region" aria-label="イシダイ仕掛け" inert><div class="acc-in"><div class="acc-body">
+        <figure class="bp">
+          <figcaption><span>イシダイ仕掛け（構成のイメージ）</span><span class="u">SCHEMATIC</span></figcaption>
+          <svg viewBox="0 0 320 420" role="img" aria-label="太い道糸、サルカン、捨て糸と捨てオモリ、ワイヤーハリス、石鯛針とウニの構成図">
+            <path class="rodp" d="M12,158 L21,160 L114,23 L110,21 Z"/>
+            <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
+            <circle class="gd" cx="44" cy="117" r="3.6"/><circle class="gd" cx="67" cy="84" r="3.2"/><circle class="gd" cx="88" cy="54" r="2.8"/><circle class="gd" cx="105" cy="31" r="2.2"/>
+            <rect class="reel" x="12" y="138" width="24" height="18" rx="7"/><path class="ln" d="M24,156 L20,164"/>
+            <text x="130" y="28">ロッド：石鯛専用竿</text>
+            <text x="8" y="184" class="s">両軸リール</text><text x="8" y="198" class="s">（大型）</text>
+            <path class="ln" d="M112,22 V192" stroke-width="2.4"/>
+            <path class="lnf" d="M114,100 H126"/><text x="130" y="104">太い道糸</text><text x="130" y="119" class="s">専用の太いラインを使う</text>
+            <circle class="ln" cx="112" cy="198" r="5"/>
+            <text x="130" y="202" class="s">サルカン</text>
+            <path class="dim" d="M110,203 L64,296"/>
+            <text x="54" y="250" text-anchor="end" class="s">捨て糸</text>
+            <path class="fbs" d="M64,296 C72,304 74,316 68,326 C66,328 62,328 60,326 C54,316 56,304 64,296 Z"/>
+            <text x="64" y="346" text-anchor="middle" class="s">捨てオモリ</text>
+            <path class="ln" d="M112,204 V352" stroke-width="1.9"/>
+            <path class="lnf" d="M114,262 H126"/><text x="130" y="260">ワイヤーハリス</text><text x="130" y="275" class="s">噛み切られないための金属線</text>
+            <path class="ln" d="M112,352 V368 C112,384 130,384 132,370" stroke-width="2.2"/>
+            <circle cx="140" cy="376" r="7" class="fbs"/>
+            <path class="ln" d="M140,366 V362 M149,368 L152,365 M150,377 H154 M131,368 L128,365 M131,383 L128,386 M149,384 L152,387"/>
+            <text x="160" y="376">石鯛針＋ウニなど</text>
+            <path class="seabed" d="M6,400 C40,394 70,404 110,398 S190,402 230,396 S290,402 314,398 L314,420 L6,420 Z"/>
+            <path class="seabed" d="M176,400 C186,378 222,372 236,398 Z"/>
+            <text x="314" y="414" text-anchor="end" class="n">根の中を狙う</text>
+          </svg>
+        </figure>
+        <div class="tk-info">
+          <div class="pro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.2"/></svg>
+            <span><b>専用の仕掛けが必要な魚です</b>歯と引きが非常に強く、ほかの魚の初心者向け仕掛けでは狙えません。石鯛専用の竿・両軸リール・ワイヤーハリスをそろえるか、経験者と一緒に挑戦してください。</span>
+          </div>
+          <dl class="tk-dl">
+            <div><dt>対象</dt><dd>イシダイ</dd></div>
+            <div><dt>場所</dt><dd>盗人狩</dd></div>
+            <div><dt>構成</dt><dd>石鯛竿＋両軸リール＋太い道糸＋ワイヤーハリス＋石鯛針。根掛かりに備えて捨てオモリ式にする</dd></div>
+            <div><dt>餌</dt><dd>ウニ・サザエ・ヤドカリ・カニなど</dd></div>
+          </dl>
+          <p class="tk-tip"><b>コツ：</b>根の中を狙うので根掛かりは前提。足場の良い釣り座を選び、準備は釣具店で相談するのが確実。</p>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+
+  <footer class="wrap foot">
+    <div>
+      <h4>情報について</h4>
+      <p>潮位は油壺の予測値（代表値4点）をもとにしています。釣り場・魚の情報は公開されている釣り場ガイドなどを参考にまとめたもので、状況は日によって変わります。現地の立入禁止の表示・ルールと、漁業者の作業を優先してください。</p>
+    </div>
+    <div>
+      <h4>参考</h4>
+      <ul>
+        <li><a href="https://isoginpo.com/kannonyamashita/" target="_blank" rel="noopener">いそぎんぽ「観音山下」</a> ／ <a href="https://isoginpo.com/endenatonoiso/" target="_blank" rel="noopener">「塩田跡の磯」</a> ／ <a href="https://isoginpo.com/nusuttogari/" target="_blank" rel="noopener">「盗人狩」</a></li>
+        <li><a href="https://miura-info.ne.jp/sightseeing/nature-14/" target="_blank" rel="noopener">みうら観光ガイド「盗人狩」</a></li>
+        <li><a href="https://bonjourphoto.yokohama/nusuttogari.html" target="_blank" rel="noopener">盗人狩 剱崎周辺 釣り場</a></li>
+      </ul>
+    </div>
+    <p class="end">三浦半島爆釣作戦</p>
+  </footer>
+</section>
+</div>
+</main>
+
+<nav class="dock" aria-label="セクション">
+  <span class="dock-ind" id="dockInd" aria-hidden="true"></span>
+  <a href="#home" data-nav="home" aria-current="true"><svg viewBox="0 0 24 24"><path d="M2.5 15c2.4 0 2.4-2 4.8-2s2.4 2 4.8 2 2.4-2 4.8-2 2.4 2 4.6 2M2.5 19.5c2.4 0 2.4-2 4.8-2s2.4 2 4.8 2 2.4-2 4.8-2 2.4 2 4.6 2"/><circle cx="12" cy="7" r="3"/></svg><span>HOME</span></a>
+  <a href="#spot" data-nav="spot"><svg viewBox="0 0 24 24"><path d="M12 21.5s-6.5-5.8-6.5-11.5a6.5 6.5 0 0 1 13 0c0 5.7-6.5 11.5-6.5 11.5z"/><circle cx="12" cy="10" r="2.4"/></svg><span>SPOT</span></a>
+  <a href="#fish" data-nav="fish"><svg viewBox="0 0 24 24"><path d="M2.5 12c2.8-3.6 6.4-5 10.3-4.2 2.3.5 3.9 2 5 4.2-1.1 2.2-2.7 3.7-5 4.2-3.9.8-7.5-.6-10.3-4.2z"/><path d="M17.8 12 21.5 8.3v7.4z"/><circle cx="7" cy="11.2" r=".6" fill="currentColor"/></svg><span>FISH</span></a>
+  <a href="#tackle" data-nav="tackle"><svg viewBox="0 0 24 24"><circle cx="13" cy="3.5" r="1.4"/><path d="M13 5v10.5a4.5 4.5 0 0 1-9 0V13l2.5 2"/></svg><span>TACKLE</span></a>
+</nav>
+
+<dialog class="fs" id="fishSheet" aria-labelledby="fsName">
+  <div class="fs-grab" id="fsGrab" aria-hidden="true"><i></i></div>
+  <button class="fs-close" type="button" id="fsClose" aria-label="閉じる"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  <div class="fs-art" id="fsArt"></div>
+  <div class="fs-body">
+    <div>
+      <p class="eyebrow" id="fsEy">FISH</p>
+      <h3 class="fs-name" id="fsName">—</h3>
+      <p class="fs-sub" id="fsSub"></p>
+    </div>
+    <p class="fs-season" id="fsSeason"></p>
+    <dl class="fs-dl" id="fsDl"></dl>
+    <p class="fs-tip" id="fsTip"></p>
+    <div class="fs-actions">
+      <button class="btn" type="button" id="fsTackle">仕掛けを見る</button>
+    </div>
+  </div>
+</dialog>
+
+<script>
+(function(){
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+const clamp=(v,a,b)=>Math.max(a,Math.min(b,v)), rand=(a,b)=>a+Math.random()*(b-a);
+const pad=n=>String(n).padStart(2,'0'), fmt=m=>pad(Math.floor(m/60))+':'+pad(Math.round(m%60));
+
+/* ───── DATA ───── */
+const SPOT_ORDER=['kannon','yagi','nusu'];
+const SPOTS={
+ kannon:{no:'01',name:'観音山',type:'地磯',tags:['駐車場から徒歩 約13分','沖は水深10m前後'],lat:35.13848,lon:139.63974,
+  desc:'宮川港から磯伝いに歩いた先、小さな山（観音山）の先端に広がる地磯。潮通しが良く、沖は水深10m前後まで深くなる。秋はアオリイカ、イナダなどの青物、沖を回るアジが狙え、手前の根まわりではメジナ・クロダイ、底付近ではカワハギも。',
+  facts:[['水深','沖は10m前後。沈み根・ハエ根が点在'],['向き','南〜南西。正面に城ヶ島'],['足場','メインの釣り座は足場が良い']],
+  fish:['aori','inada','aji','mejina','kurodai','kawahagi'],extra:'サバやソウダガツオなどの回遊魚が回ってくることもある。',
+  safety:[['slip','足元','磯は濡れると非常に滑る。スパイクシューズとライフジャケットを着用。'],['tide','満潮・うねり','満潮（10:59／19:15）前後や、うねりがある日は低い釣り座に波が上がる。'],['cast','投げる方向','エギング・ショアジギング・カゴ釣りの人が並ぶ。投げる前に左右を確認。'],['dark','帰り道','日の入りは17:24。夕マズメまで粘るならヘッドライトを必ず用意。']]},
+ yagi:{no:'02',name:'ヤギ島周辺',type:'地磯（塩田跡の磯）',tags:['駐車場から徒歩 約14分','水深 3〜5m前後'],lat:35.13813,lon:139.64154,
+  alert:'ヤギ島本体には立ち入らず、陸側の磯から釣るポイントです。ヤギ島へ続くパイプは渡らないでください（立入禁止の柵があります）。',
+  desc:'観音山の東隣、塩田跡と呼ばれる広い磯。沖にヤギ島（ハナレ磯）が浮かぶ。水深は3〜5m前後で根が多く、足元〜近い距離の根際でメジナ・クロダイを狙う。正面にヤギ島があるので、遠投の釣りには向かない。',
+  facts:[['水深','3〜5m前後。根が多く複雑'],['向き','南。沖にヤギ島（ハナレ磯）'],['足場','広い磯。低い所は潮位が上がると波をかぶる']],
+  fish:['mejina','kurodai'],extra:'夕方から良くなる釣り座もある。',
+  safety:[['ban','立入禁止','ヤギ島へは渡らない。柵の先には入らない。'],['tide','満潮','低い磯は潮位が上がると波をかぶりやすい。夕方は19:15の満潮に向けて潮位が上がり続ける。'],['slip','根の荒い足元','取り込みは足元の根に注意。タモ（玉網）があると安心。'],['dark','帰り道','日没後は磯道が暗い。ヘッドライトを用意。']]},
+ nusu:{no:'03',name:'盗人狩',type:'地磯',tags:['駐車場から徒歩 約20分','近場から水深10m以上も','初心者向きではない'],lat:35.13802,lon:139.64649,
+  desc:'塩田跡から崖沿いの磯道を東へ進んだ先。三浦半島でもトップクラスの水深と潮通しがある地磯で、かながわの景勝50選にも選ばれた景勝地。青物（イナダ・ワラサ）、アジ、メジナ、クロダイ、イシダイと狙える魚が多い。',
+  facts:[['水深','近場から10m以上の釣り座も'],['向き','南。南風の日は向かい風'],['足場','人気の釣り座は平らだが、波が這い上がりやすい']],
+  fish:['inada','aji','mejina','kurodai','ishidai'],extra:'サバなどの回遊魚も候補。',
+  safety:[['tide','満潮','19:15の満潮（142cm）はこの日いちばん高い。夕方以降は低い釣り座に波が上がりやすい。'],['wave','高波','波が這い上がりやすい磯。波がある日は先端に出ない。'],['swell','うねり','南寄りのうねりが入ると危険。南風の日は向かい風で釣りにくい。'],['rock','落石','崖沿いの磯道を歩く。崖の真下で休憩したり荷物を置いたりしない。'],['slip','足元','非常に滑りやすい。スパイクシューズとライフジャケットは必須。'],['walk','距離','駐車場から徒歩約20分。トイレは宮川港まで戻る。暗くなる前に撤収を。']]}
+};
+const FISH_ORDER=['aori','inada','aji','mejina','kurodai','kawahagi','ishidai'];
+const FISH={
+ aori:{name:'アオリイカ',sub:'秋の新子シーズン',method:'エギング',tk:'eging',spots:['kannon'],times:[[300,420],[990,1110]],
+  timeText:'朝マズメ（5:00〜7:00頃）・夕マズメ（16:30〜18:30頃）',
+  season:'春に生まれた新子が育ち、秋は数が狙える時期。10月上旬は小〜中型の秋イカが中心で、エギへの反応が良い。',
+  rig:'エギングロッド8ft前後、PE0.6〜0.8号、リーダー（フロロ）2〜2.5号',bait:'エギ2.5〜3号。朝夕はピンク・オレンジ系、日中はナチュラルカラーも候補',
+  tip:'投げて沈め、2〜3回しゃくってフォール。抱くのはフォール中が多いので、ラインの動きに集中する。底を取りすぎると根掛かりしやすい。'},
+ inada:{name:'青物',sub:'イナダ・ワラサなど',method:'ショアジギング／カゴ釣り',tk:'jig',spots:['kannon','nusu'],times:[[300,480],[960,1080]],
+  timeText:'朝マズメ（5:00〜8:00頃）が最優先。夕マズメも',
+  season:'秋は回遊が増える時期。イナダ（ブリの若魚）が中心で、ワラサ級が混じることも。回遊しだいで日によって差が大きい。サバやソウダガツオが一緒に回ることもある。',
+  rig:'ショアジギングロッド9.6〜10ft、PE1.5〜2号、リーダー30〜40lb',bait:'メタルジグ20〜40g（シルバー・ブルー系）。カゴ釣りならオキアミ',
+  tip:'鳥の群れや水面のざわつき（ナブラ）、潮目を探す。表層〜中層を速めに巻いて探る。'},
+ aji:{name:'アジ',sub:'沖を回る群れ',method:'カゴ釣り（遠投）',tk:'kago',spots:['kannon','nusu'],times:[[300,420],[990,1140]],
+  timeText:'夕マズメ（16:30〜）と朝マズメ',
+  season:'秋は沖の潮目にアジの群れが回ることがある。磯では足元ではなく、沖を回る群れを遠投カゴで狙う。',
+  rig:'磯竿3〜4号、道糸ナイロン4〜5号、遠投ウキ＋天秤カゴ、ハリス2〜3号',bait:'付け餌：オキアミ ／ カゴ：アミエビ・オキアミ',
+  tip:'沖の潮目まで投げ、同じ場所に投げ続けてコマセを効かせる。アタリがなければタナ（ウキ下）を変える。'},
+ mejina:{name:'メジナ',sub:'磯の定番',method:'フカセ釣り',tk:'fukase',spots:['kannon','yagi','nusu'],times:[[300,540],[960,1080]],
+  timeText:'朝（5:00〜9:00）と夕方。曇りの日は日中も',
+  season:'水温が高めでエサ取りが多い時期だが、根まわりや沖の潮の中で30cm級も出る。尾長メジナが混じることもある。',
+  rig:'磯竿1〜1.5号5.3m、道糸2〜2.5号、円錐ウキ、ハリス1.5〜2号、グレ針5〜7号',bait:'付け餌：オキアミ ／ コマセ：オキアミ＋配合餌',
+  tip:'足元にコマセを撒いてエサ取りを寄せ、少し離れた根際や潮目に仕掛けを入れて本命と分ける。'},
+ kurodai:{name:'クロダイ',sub:'チヌ',method:'フカセ釣り',tk:'fukase',spots:['kannon','yagi','nusu'],times:[[300,540],[960,1080]],
+  timeText:'朝マズメ・夕マズメ。波が少しある日も狙い目',
+  season:'秋はよく餌を食う時期。磯際や沈み根のまわりを回っている。',
+  rig:'メジナと同じフカセ仕掛け。ハリス1.5〜2.5号、チヌ針2〜3号',bait:'オキアミ。練り餌も有効',
+  tip:'タナを深めに取り、底付近をゆっくり流す。磯際・沈み根の際を丁寧に狙う。'},
+ kawahagi:{name:'カワハギ',sub:'エサ取り名人',method:'胴突き',tk:'dotsuki',spots:['kannon'],times:[[480,900]],
+  timeText:'日中（明るい時間帯）',
+  season:'秋は肝が大きくなり始める時期。岩礁の底付近にいて、餌を器用に取っていく。',
+  rig:'胴突き仕掛け（ハゲ針4〜5号・2〜3本針）、オモリ5〜15号',bait:'アサリのむき身',
+  tip:'底を取ったら少し誘って止める。アタリは小さく「コツッ」と来るので、聞き合わせてから掛ける。'},
+ ishidai:{name:'イシダイ',sub:'磯の大物・専用仕掛け',method:'イシダイ釣り（専用仕掛け）',tk:'ishidai',spots:['nusu'],times:[[360,600]],
+  timeText:'潮がよく動く朝（6:00〜10:00頃）',
+  season:'歯と引きが強い磯の大物。専用の竿・リール・ワイヤー仕掛けが必要で、ほかの魚の初心者向け仕掛けでは狙わない。',
+  rig:'石鯛竿・両軸リール・ワイヤーハリス・石鯛針・捨てオモリの専用仕掛け',bait:'ウニ・サザエ・ヤドカリ・カニなど',
+  tip:'根の中を狙うので根掛かり前提。経験者と行くか、釣具店で相談して専用タックルをそろえてから挑戦する。'}
+};
+
+/* ───── FISH ILLUSTRATIONS ───── */
+let UID=0;
+const EYE=(x,y,r,c='#fff',p='#152E49')=>`<g class="eye"><circle cx="${x}" cy="${y}" r="${r}" fill="${c}"/><circle cx="${x+1}" cy="${y}" r="${r*.56}" fill="${p}"/><circle cx="${x+2.2}" cy="${y-1.6}" r="${r*.18}" fill="#fff"/></g>`;
+function fishSVG(sp,cls=''){
+ const u='f'+(++UID); let b='';
+ switch(sp){
+ case 'aji': b=`<g class="tail"><path d="M44,50 L14,29 C20,40 23,46 25,50 C23,54 20,60 14,71 Z" fill="#4C77A3"/></g>
+<path d="M115,33 L107,25 C93,26 75,31 61,40 C77,36 97,34 115,33 Z" fill="#5A84AE"/><path d="M132,33 L130,21 L137,22 L144,33 Z" fill="#5A84AE"/>
+<path d="M113,67 L105,74 C93,72 77,66 63,59 C79,63 97,66 113,67 Z" fill="#8FB0CF"/>
+<path d="M190,52 C182,40 156,32 124,32 C96,32 70,38 48,47 L40,50 L48,53 C70,62 96,68 124,68 C156,68 182,62 190,52 Z" fill="#5E8CB9"/>
+<path d="M190,52 C176,57 152,59 124,59 C96,59 71,56 48,53 C70,62 96,68 124,68 C156,68 182,62 190,52 Z" fill="#EAF2F8"/>
+<path d="M186,51 C170,47 140,46 110,47 C86,48 64,50 48,51 C64,52 86,54 110,54 C140,54 170,53 186,51 Z" fill="#E7E3A6" opacity=".45"/>
+<path class="ln0" d="M160,44 C140,42 118,44 100,48" stroke="#2F5C8A" stroke-width="1.1" fill="none" opacity=".7"/>
+<path class="ln0" d="M100,48 C84,51 64,51 48,50" stroke="#35628F" stroke-width="3.4" stroke-dasharray="2 1.6" fill="none"/>
+<path class="ln0" d="M160,39 C155,46 155,55 160,62" stroke="#1E3A5A" stroke-opacity=".3" stroke-width="1.2" fill="none"/>
+<circle class="eye" cx="158" cy="41.5" r="2.2" fill="#1D3550"/>
+<path d="M150,53 C140,50 128,52 120,58 C132,58 142,57 150,55 Z" fill="#8FB0CF"/>${EYE(172,47,5.6)}`;break;
+ case 'inada': b=`<g class="tail"><path d="M48,50 L12,25 C21,38 25,46 27,50 C25,54 21,62 12,75 Z" fill="#2D6699"/></g>
+<path d="M130,37 L124,28 L110,29 L104,38 Z" fill="#2D6699"/><path d="M88,39 L82,33 L73,35 L71,41 Z" fill="#2D6699"/>
+<path d="M64,43 l-6,-3 l1,5 z M57,45 l-6,-3 l1,5 z" fill="#2D6699"/><path d="M88,61 L82,67 L72,66 L70,59 Z" fill="#9CB8D2"/>
+<path d="M195,52 C185,42 160,37 128,37 C98,37 70,41 50,48 L42,50 L50,52 C70,59 98,63 128,63 C160,63 185,61 195,52 Z" fill="#2F6FA6"/>
+<path d="M195,52 C178,55 154,56 128,56 C98,56 72,55 50,52 C70,59 98,63 128,63 C160,63 185,61 195,52 Z" fill="#EEF4F9"/>
+<path d="M182,48 C160,47 130,47 100,48 C80,49 62,49 48,50 C62,51.5 80,52 100,52 C130,52 160,51.5 182,50.5 Z" fill="#F4C84A"/>
+<path d="M160,53 C150,51 140,53 134,57 C144,57 152,56 160,54.5 Z" fill="#9CB8D2"/>${EYE(177,47.5,4.6)}`;break;
+ case 'mejina': b=`<g class="tail"><path d="M50,50 L18,29 C25,42 25,58 18,71 Z" fill="#243F5C"/></g>
+<path d="M142,22 C120,11 90,13 62,34 C84,26 112,22 142,25 Z" fill="#243F5C"/><path d="M132,79 C112,88 86,84 64,67 C86,76 110,80 132,79 Z" fill="#2A4868"/>
+<path d="M189,53 C185,35 160,20 124,20 C92,20 66,32 51,46 L45,50 L51,54 C66,69 92,81 124,81 C160,81 185,70 189,53 Z" fill="#33557A"/>
+<path d="M189,53 C176,62 154,67 124,67 C94,67 70,62 51,54 C66,69 92,81 124,81 C160,81 185,70 189,53 Z" fill="#4D7198"/>
+<path class="ln0" d="M150,38 q4,4 8,0 M130,38 q4,4 8,0 M110,39 q4,4 8,0 M90,42 q4,4 8,0 M140,51 q4,4 8,0 M120,51 q4,4 8,0 M100,51 q4,4 8,0 M80,52 q4,4 8,0" stroke="#fff" stroke-opacity=".16" fill="none"/>
+<path class="ln0" d="M160,31 C153,44 153,62 160,72" stroke="#fff" stroke-opacity=".16" fill="none" stroke-width="1.2"/>
+<path d="M152,55 C142,51 130,55 123,63 C135,63 145,61 152,57 Z" fill="#6A8DB2"/>${EYE(171,44,5.6,'#D7E6F2','#0E2238')}`;break;
+ case 'kurodai': b=`<g class="tail"><path d="M46,50 L14,30 C20,40 22,46 22,50 C22,54 20,60 14,70 Z" fill="#5A6B7D"/></g>
+<path d="M160,25 L155,11 L149,22 L143,9 L137,21 L131,8 L125,20 L119,9 L113,21 L107,11 L101,23 L95,14 L89,26 L83,19 L77,31 C100,23 130,19 160,25 Z" fill="#536476"/>
+<path d="M126,81 L120,91 L113,83 L106,90 L100,80 Z" fill="#8797A8"/>
+<path d="M187,62 C189,48 177,28 151,22 C125,16 95,20 71,32 C61,38 53,44 47,48 L41,50 L47,53 C61,64 87,80 121,82 C153,84 181,76 187,62 Z" fill="#74889B"/>
+<path d="M187,62 C171,67 147,69 121,69 C91,69 65,62 47,53 C61,64 87,80 121,82 C153,84 181,76 187,62 Z" fill="#DCE3E9"/>
+<path class="ln0" d="M152,24 L146,72 M128,19 L122,74 M104,23 L99,74 M82,31 L78,70" stroke="#152E49" stroke-opacity=".1" stroke-width="8" fill="none"/>
+<path d="M153,60 C141,56 129,60 121,68 C135,68 147,66 153,62 Z" fill="#A5B3C0"/>${EYE(168,45,5.8)}`;break;
+ case 'ishidai': {const body='M189,56 C189,42 177,26 151,20 C125,14 93,18 69,32 C59,38 51,44 46,48 L40,50 L46,52 C59,62 85,78 119,82 C151,86 181,76 189,64 C191,62 191,58 189,56 Z';
+  const bands=[[175,8],[157,10],[137,10],[116,10],[95,10],[74,10],[55,9]].map(([c,w])=>`<rect x="${c-w/2}" y="0" width="${w}" height="100" fill="#22384F"/>`).join('');
+  b=`<defs><clipPath id="${u}c"><path d="${body}"/></clipPath></defs><g class="tail"><path d="M46,50 L16,30 C22,42 22,58 16,70 Z" fill="#3C546C"/></g>
+<path d="M152,21 C127,10 94,12 69,31 C92,22 124,18 152,23 Z" fill="#3C546C"/><path d="M126,82 C110,90 88,86 72,72 C90,79 108,82 126,82 Z" fill="#56708A"/>
+<path d="${body}" fill="#E6ECF0"/><g clip-path="url(#${u}c)">${bands}</g>
+<path d="M152,58 C140,54 128,58 121,66 C134,66 146,64 152,60 Z" fill="#B8C5D1"/>
+<path class="ln0" d="M189,56 C193,57 193,62 189,64" stroke="#22384F" stroke-width="2.2" fill="none" stroke-linecap="round"/>${EYE(170,42,5.2)}`;}break;
+ case 'kawahagi': b=`<g class="tail"><path d="M50,50 C41,41 31,35 22,34 C19,44 19,56 22,66 C31,65 41,59 50,50 Z" fill="#A98F62"/><path class="ln0" d="M27,37 C25,45 25,55 27,63" stroke="#6B5636" stroke-opacity=".5" stroke-width="3" fill="none"/></g>
+<path d="M112,22 C97,19 81,27 67,39 C81,33 97,27 112,25 Z" fill="#B79E71"/><path d="M112,78 C97,81 81,73 67,61 C81,67 97,73 112,75 Z" fill="#B79E71"/>
+<path d="M131,26 L136,4 L140,25 Z" fill="#5A4A33"/>
+<path d="M195,50 L182,44 C166,34 142,21 120,21 C106,21 92,30 78,38 C68,43 60,47 54,49 L49,50 L54,51 C60,53 68,57 78,62 C92,70 106,79 120,79 C142,79 166,66 182,56 Z" fill="#CDB88F"/>
+<path d="M195,50 L182,56 C166,66 142,79 120,79 C106,79 92,70 78,62 C68,57 60,53 54,51 C74,54 98,57 122,57 C150,57 176,54 195,50 Z" fill="#EFE5D0"/>
+<g class="eye" fill="#6B5A3E" opacity=".38"><circle cx="104" cy="36" r="3.2"/><circle cx="122" cy="32" r="2.6"/><circle cx="138" cy="40" r="3"/><circle cx="92" cy="46" r="2.4"/><circle cx="114" cy="47" r="3.4"/><circle cx="150" cy="49" r="2.4"/><circle cx="84" cy="55" r="2"/><circle cx="130" cy="56" r="2.6"/></g>
+<path d="M160,50 C154,46 148,47 144,51 C149,54 155,54 160,52 Z" fill="#A98F62"/>${EYE(168,40,4.6,'#fff','#2B2418')}`;break;
+ case 'aori': {const sp2=[[40,46,1.6],[52,54,1.3],[64,44,1.8],[76,52,1.4],[88,42,1.5],[98,56,1.7],[110,46,1.3],[120,53,1.5],[46,52,1],[70,58,1.1],[84,48,1.2],[104,40,1.1],[30,50,1.2],[58,40,1]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join('');
+  b=`<g class="tail"><path d="M18,50 C28,21 70,13 113,21 C121,23 125,30 127,36 L127,64 C125,70 121,77 113,79 C70,87 28,79 18,50 Z" fill="#F6E4D8" fill-opacity=".85" stroke="#D9B9A6" stroke-width="1"/><path class="ln0" d="M24,48 C34,27 72,20 110,26" stroke="#fff" stroke-opacity=".7" fill="none" stroke-width="1.5"/></g>
+<g class="arms" fill="none" stroke="#E6BCA5" stroke-linecap="round"><path d="M151,44 C165,40 178,38 192,40" stroke-width="3.2"/><path d="M151,48 C166,46 180,46 194,47" stroke-width="3.2"/><path d="M151,52 C166,54 180,55 194,54" stroke-width="3.2"/><path d="M151,56 C165,60 178,62 192,61" stroke-width="3.2"/><path d="M151,50 C170,49 186,50 199,49" stroke-width="1.6"/></g>
+<path d="M16,50 C20,38 50,32 90,33 C113,34 129,38 135,44 L135,56 C129,62 113,66 90,67 C50,68 20,62 16,50 Z" fill="#F1D6C6"/>
+<g class="eye" fill="#C08A70" opacity=".5">${sp2}</g>
+<ellipse cx="143" cy="50" rx="10" ry="12" fill="#EECDBB"/>
+<g class="eye"><circle cx="143" cy="47" r="6.2" fill="#19364A"/><circle cx="143" cy="47" r="6.2" fill="none" stroke="#3FC1B0" stroke-width="1.8"/><circle cx="145" cy="45" r="1.4" fill="#fff"/></g>`;}break;
+ }
+ return `<svg class="fsvg sp-${sp} ${cls}" viewBox="0 0 200 100" aria-hidden="true" focusable="false">${b}</svg>`;
+}
+const PIV={aji:[44,50],inada:[48,50],mejina:[50,50],kurodai:[46,50],ishidai:[46,50],kawahagi:[50,50],aori:[70,50]};
+
+/* ───── MOTION STATE ───── */
+const mqReduce=matchMedia('(prefers-reduced-motion: reduce)');
+let motion=!mqReduce.matches;
+const root=document.documentElement;
+function applyMotion(){
+ root.classList.toggle('still',!motion);
+ $$('[data-motion]').forEach(b=>{b.setAttribute('aria-pressed',String(!motion));$('[data-motion-label]',b).textContent=motion?'アニメーション停止':'アニメーション再生';});
+ if(motion) startLoop(); else { stopLoop(); renderStill(); }
+}
+$$('[data-motion]').forEach(b=>b.addEventListener('click',()=>{motion=!motion;applyMotion();}));
+
+/* ───── TIDE MODEL ───── */
+const EXT=[{t:165,h:31,k:'干潮'},{t:659,h:121,k:'満潮'},{t:808,h:119,k:'干潮'},{t:1155,h:142,k:'満潮'}];
+const SUNRISE=337,SUNSET=1044,T0=165,T1=1155;
+function tideAt(m){
+ m=clamp(m,T0,T1);
+ for(let i=0;i<EXT.length-1;i++){const a=EXT[i],b=EXT[i+1];
+  if(m>=a.t&&m<=b.t){const f=(m-a.t)/(b.t-a.t);const h=a.h+(b.h-a.h)*(1-Math.cos(Math.PI*f))/2;
+   const r=(b.h-a.h)*Math.PI/(2*(b.t-a.t))*Math.sin(Math.PI*f)*60;return {h,r};}}
+ return {h:EXT[EXT.length-1].h,r:0};
+}
+function tideState(r){
+ const a=Math.abs(r);
+ if(a<3.5) return {s:'slack',t:'潮止まりに近い',arr:'・',d:`ほとんど動かない（${r>=0?'+':'−'}${a.toFixed(1)}cm/時）`};
+ const up=r>0, str=a>=10?'よく動く':'ゆるやか';
+ return {s:up?'up':'down',t:up?'上げ潮':'下げ潮',arr:'↑',d:`${up?'+':'−'}${Math.round(a)}cm/時・${str}`};
+}
+function winOf(m){ if(m>=300&&m<=540) return 'am'; if(m>=660&&m<=840) return 'noon'; if(m>=960&&m<=1080) return 'pm'; return null; }
+function lightOf(m){ if(m<312) return '夜明け前'; if(m<400) return '朝マズメ'; if(m<980) return '日中'; if(m<1069) return '夕マズメ'; return '日没後'; }
+
+/* ───── CHART ───── */
+const chartBox=$('#tideChart'); let CH=null;
+function buildChart(){
+ const W=Math.max(280,Math.round(chartBox.clientWidth)), H=W<560?240:300, wide=W>=640;
+ const m={l:34,r:14,t:40,b:28};
+ const X=t=>m.l+(t-T0)/(T1-T0)*(W-m.l-m.r), Y=h=>m.t+(1-h/160)*(H-m.t-m.b);
+ let s=`<svg viewBox="0 0 ${W} ${H}" width="${W}" height="${H}" role="img" aria-label="10月3日 油壺の潮位曲線。2時45分干潮31cm、10時59分満潮121cm、13時28分干潮119cm、19時15分満潮142cm。">`;
+ s+=`<defs><linearGradient id="tideFill" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#67C9F5" stop-opacity=".55"/><stop offset="1" stop-color="#67C9F5" stop-opacity=".04"/></linearGradient></defs>`;
+ const bands=[[300,540,wide?'朝（本命）':'朝','#67C9F5',.16,'#1167C9'],[660,840,wide?'昼（休憩）':'昼','#8FA3B8',.1,'#5B728C'],[960,1080,wide?'夕マズメ':'夕','#176BFF',.09,'#1156D2']];
+ bands.forEach(([a,b,l,c,o,tc])=>{s+=`<rect x="${X(a)}" y="${m.t-22}" width="${X(b)-X(a)}" height="${H-m.b-m.t+22}" fill="${c}" fill-opacity="${o}" rx="6"/>`;s+=`<text class="tx-band" x="${X(a)+6}" y="${m.t-8}" style="fill:${tc}">${l}</text>`;});
+ [0,50,100,150].forEach(h=>{s+=`<line x1="${m.l}" x2="${W-m.r}" y1="${Y(h)}" y2="${Y(h)}" stroke="#E8EFF6" stroke-width="1"/>`;s+=`<text class="tx-num" x="${m.l-6}" y="${Y(h)+3.5}" text-anchor="end">${h}</text>`;});
+ s+=`<text x="4" y="${m.t-8}" style="font-size:10px">cm</text>`;
+ [[SUNRISE,'日の出 5:37','start',4],[SUNSET,'日の入り 17:24','end',-4]].forEach(([t,l,a,dx])=>{s+=`<line x1="${X(t)}" x2="${X(t)}" y1="${m.t-22}" y2="${H-m.b}" stroke="#E7A33E" stroke-width="1.2" stroke-dasharray="3 3"/><circle cx="${X(t)}" cy="${H-m.b}" r="3.5" fill="#F2B24E"/><text x="${X(t)+dx}" y="${H-m.b-7}" text-anchor="${a}" style="fill:#9A5B00;font-size:10px;font-weight:700">${l}</text>`;});
+ let pts=[];for(let t=T0;t<=T1;t+=4){pts.push([X(t),Y(tideAt(t).h)]);}
+ const line='M'+pts.map(p=>p[0].toFixed(1)+','+p[1].toFixed(1)).join(' L');
+ s+=`<path d="${line} L${X(T1)},${Y(0)} L${X(T0)},${Y(0)} Z" fill="url(#tideFill)"/>`;
+ s+=`<path d="${line}" fill="none" stroke="#176BFF" stroke-width="2.4" stroke-linejoin="round" stroke-linecap="round"/>`;
+ const ex=[[EXT[0],'start',6,-9,wide?'干潮 02:45 31cm':'干 31'],[EXT[1],'middle',0,-11,wide?'満潮 10:59 121cm':'満 121'],[EXT[2],'middle',0,20,wide?'干潮 13:28 119cm':'干 119'],[EXT[3],'end',-6,-9,wide?'満潮 19:15 142cm':'満 142']];
+ ex.forEach(([e,a,dx,dy,l])=>{s+=`<circle cx="${X(e.t)}" cy="${Y(e.h)}" r="4" fill="#fff" stroke="#176BFF" stroke-width="2"/><text class="tx-ext" x="${X(e.t)+dx}" y="${Y(e.h)+dy}" text-anchor="${a}">${l}</text>`;});
+ const step=W<640?2:1;for(let h=3;h<=19;h+=step){s+=`<line x1="${X(h*60)}" x2="${X(h*60)}" y1="${H-m.b}" y2="${H-m.b+4}" stroke="#C6D8EA"/><text class="tx-num" x="${X(h*60)}" y="${H-8}" text-anchor="middle">${pad(h)}</text>`;}
+ s+=`<g id="cur"><line class="cur-line" id="curL" y1="${m.t-22}" y2="${H-m.b}"/><circle class="cur-dot" id="curD" r="7"/><g class="cur-lbl" id="curG"><rect id="curR" rx="7" height="20"/><text id="curT" text-anchor="middle"></text></g></g>`;
+ s+=`<rect id="chartHit" x="0" y="0" width="${W}" height="${H}" fill="transparent"/></svg>`;
+ chartBox.innerHTML=s; CH={X,Y,W,H,m};
+ updateCursor();
+}
+function updateCursor(){
+ if(!CH) return; const {X,Y,W,m}=CH; const x=X(curT), y=Y(tideAt(curT).h);
+ const L=$('#curL'),D=$('#curD'),R=$('#curR'),T=$('#curT');
+ L.setAttribute('x1',x);L.setAttribute('x2',x);D.setAttribute('cx',x);D.setAttribute('cy',y);
+ const label=Math.round(tideAt(curT).h)+'cm'; T.textContent=label;
+ const w=label.length*7.4+14; let lx=clamp(x,m.l+w/2,W-m.r-w/2); let ly=y-34; if(ly<m.t-18) ly=y+16;
+ R.setAttribute('x',lx-w/2);R.setAttribute('y',ly);R.setAttribute('width',w);T.setAttribute('x',lx);T.setAttribute('y',ly+14);
+}
+let dragging=false;
+function chartTime(ev){ const r=chartBox.getBoundingClientRect(); const px=(ev.clientX-r.left)/r.width*CH.W; const t=T0+(px-CH.m.l)/(CH.W-CH.m.l-CH.m.r)*(T1-T0); setTime(Math.round(clamp(t,180,1140)/10)*10,'chart'); }
+chartBox.addEventListener('pointerdown',e=>{if(!CH)return;dragging=true;chartBox.setPointerCapture(e.pointerId);chartTime(e);});
+chartBox.addEventListener('pointermove',e=>{if(dragging)chartTime(e);});
+['pointerup','pointercancel'].forEach(k=>chartBox.addEventListener(k,()=>{dragging=false;}));
+
+/* ───── READOUT ───── */
+let curT=330, isToday=false;
+(function(){ try{ const p=new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Tokyo',year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',hour12:false}).formatToParts(new Date()); const g=k=>+p.find(x=>x.type===k).value;
+  if(g('year')===2026&&g('month')===10&&g('day')===3){const mm=(g('hour')%24)*60+g('minute'); if(mm>=180&&mm<=1140){curT=Math.round(mm/10)*10;isToday=true;}} }catch(e){} })();
+const slider=$('#timeRange');
+const trackBg=()=>{const p=t=>((t-180)/960*100).toFixed(2)+'%';return `linear-gradient(90deg,#EAF1F8 0 ${p(300)},#9EDCF7 ${p(300)} ${p(540)},#EAF1F8 ${p(540)} ${p(660)},#D5DEE8 ${p(660)} ${p(840)},#EAF1F8 ${p(840)} ${p(960)},#9CC0FF ${p(960)} ${p(1080)},#EAF1F8 ${p(1080)} 100%)`;};
+slider.style.setProperty('--track',trackBg());
+slider.addEventListener('input',()=>setTime(+slider.value,'slider'));
+const QUICK=[300,420,600,720,960,1050];
+const quick=$('#quick');
+quick.innerHTML=(isToday?`<button type="button" class="now" data-q="now">いま</button>`:'')+QUICK.map(q=>`<button type="button" data-q="${q}">${fmt(q)}</button>`).join('');
+quick.addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;let q=b.dataset.q;if(q==='now'){const d=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));q=clamp(Math.round((d.getHours()*60+d.getMinutes())/10)*10,180,1140);}setTime(+q,'quick');});
+$$('.tcard').forEach(c=>c.addEventListener('click',()=>setTime(+c.dataset.t,'card')));
+
+function setTime(t,src){
+ curT=t; if(src!=='slider') slider.value=t;
+ slider.setAttribute('aria-valuetext',fmt(t));
+ const {h,r}=tideAt(t), st=tideState(r), w=winOf(t), lt=lightOf(t);
+ $('#roTime').textContent=fmt(t);
+ $('#roLevel').innerHTML=`約${Math.round(h)}<small>cm</small>`;
+ const S=$('#roState'); S.dataset.s=st.s; $('.arr',S).textContent=st.s==='slack'?'—':'↑'; $('#roStateT').textContent=st.t; $('#roRate').textContent=st.d;
+ const wl={am:['本命の時間','solid'],noon:['休憩・移動向き','grey'],pm:['夕マズメ狙い','blue']}[w];
+ $('#roChips').innerHTML=(wl?`<span class="chip ${wl[1]}">${wl[0]}</span>`:'')+`<span class="chip">${lt}</span>`;
+ const list=FISH_ORDER.filter(k=>FISH[k].times.some(([a,b])=>t>=a&&t<=b));
+ $('#roFish').innerHTML=`<span>この時間の狙い目：</span>`+(list.length?list.map(k=>`<button type="button" data-fish="${k}">${FISH[k].name}</button>`).join(''):`<span class="none">${w==='noon'?'潮がほぼ動かないので、休憩・移動に':'—'}</span>`);
+ $$('.tcard').forEach(c=>c.classList.toggle('on',c.dataset.win===w));
+ $$('button',quick).forEach(b=>b.classList.toggle('on',+b.dataset.q===t));
+ updateCursor(); renderWx();
+}
+$('#roFish').addEventListener('click',e=>{const b=e.target.closest('[data-fish]');if(b)openFish(b.dataset.fish);});
+
+/* ───── WIND / WAVE ───── */
+const DIR8=['N','NE','E','SE','S','SW','W','NW'], DIRJ=['北','北東','東','南東','南','南西','西','北西'];
+(function(){ let t='',l=''; for(let i=0;i<16;i++){const a=i*22.5*Math.PI/180, r1=i%2?63:60, r2=67; t+=`<line class="c-tick" x1="${70+Math.sin(a)*r1}" y1="${70-Math.cos(a)*r1}" x2="${70+Math.sin(a)*r2}" y2="${70-Math.cos(a)*r2}"/>`;}
+ DIR8.forEach((d,i)=>{const a=i*45*Math.PI/180;l+=`<text data-d="${i}" x="${70+Math.sin(a)*53}" y="${70-Math.cos(a)*53}" style="font-size:${d.length>1?8.5:10.5}px">${d}</text>`;});
+ $('#cTicks').innerHTML=t; $('#cLabels').innerHTML=l; })();
+let WX={wind:null,wave:null,at:null};
+const LAT=35.138,LON=139.643;
+const URL_F=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=ms&timezone=Asia%2FTokyo&start_date=2026-10-03&end_date=2026-10-03`;
+const URL_M=`https://marine-api.open-meteo.com/v1/marine?latitude=35.125&longitude=139.645&hourly=wave_height,wave_period,swell_wave_height,swell_wave_direction&timezone=Asia%2FTokyo&start_date=2026-10-03&end_date=2026-10-03`;
+async function getJSON(url){ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),10000);
+ try{ const r=await fetch(url,{signal:c.signal}); let j=null; try{j=await r.json();}catch(e){} return {ok:r.ok,j}; } finally{clearTimeout(tm);} }
+function kind(res){ if(res.status!=='fulfilled') return 'net'; const {ok,j}=res.value; if(ok&&j&&j.hourly) return 'ok'; if(j&&j.reason) return 'range'; return 'net'; }
+$('#wxBtn').addEventListener('click',async()=>{
+ const btn=$('#wxBtn'); btn.setAttribute('aria-busy','true'); $('span',btn).textContent='取得中…';
+ const [f,mr]=await Promise.allSettled([getJSON(URL_F),getJSON(URL_M)]);
+ const kf=kind(f),km=kind(mr);
+ if(kf==='ok'){const H=f.value.j.hourly;WX.wind={s:H.wind_speed_10m,d:H.wind_direction_10m,g:H.wind_gusts_10m};}
+ if(km==='ok'){const H=mr.value.j.hourly;WX.wave={h:H.wave_height,p:H.wave_period,sh:H.swell_wave_height,sd:H.swell_wave_direction};}
+ btn.removeAttribute('aria-busy');
+ const msg=$('#wxMsg');
+ const links=`<div class="wx-links"><a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=140000" target="_blank" rel="noopener">気象庁（神奈川県の天気）↗</a><a href="https://www.windy.com/?35.138,139.643,11" target="_blank" rel="noopener">Windy（風・波の予報図）↗</a></div>`;
+ if(kf==='ok'||km==='ok'){
+  const d=new Date(); WX.at=pad(d.getHours())+':'+pad(d.getMinutes());
+  btn.classList.add('ghost'); $('span',btn).textContent='再取得';
+  let t=`${WX.at} に取得（Open-Meteo）。予報は変わるので、出発前と現地で再確認を。沿岸の細かい地形は反映されません。`;
+  if(km!=='ok') t+=` 波の予報は${km==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
+  if(kf!=='ok') t+=` 風の予報は${kf==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
+  msg.innerHTML=`<p class="wx-msg">${t}</p>`;
+ } else if(kf==='range'||km==='range'){
+  $('span',btn).textContent='もう一度取得';
+  msg.innerHTML=`<div class="wx-msg err"><b>10月3日の予報はまだ配信されていません。</b><br>予報は数日〜2週間ほど先までです。日が近づいてから、もう一度取得してください。${links}</div>`;
+ } else {
+  $('span',btn).textContent='もう一度取得';
+  msg.innerHTML=`<div class="wx-msg err"><b>予報を取得できませんでした。</b><br>通信状況を確認してもう一度試すか、下のリンクから予報を確認してください。表示している環境によっては、外部の予報データを読み込めない場合があります。${links}</div>`;
+ }
+ renderWx();
+});
+function renderWx(){
+ const hr=clamp(Math.round(curT/60),0,23), lbl=`${pad(hr)}:00ごろの予報`;
+ const cp=$('#compass');
+ if(WX.wind&&WX.wind.s[hr]!=null){
+  const s=WX.wind.s[hr],d=WX.wind.d[hr],g=WX.wind.g?WX.wind.g[hr]:null, i=Math.round(d/45)%8;
+  cp.classList.add('has'); $('#cArrow').style.transform=`rotate(${d+180}deg)`;
+  $$('#cLabels text').forEach(tx=>tx.classList.toggle('on',+tx.dataset.d===i));
+  $('#windSpd').textContent=s.toFixed(1); $('#windAt').textContent=lbl;
+  const set=(id,v)=>{const e=$(id);e.classList.remove('dash');e.innerHTML=v;};
+  set('#windDir',`${DIRJ[i]}の風 <span class="u" style="font-size:12px;color:var(--ink3)">${DIR8[i]}</span>`);
+  set('#windSpd2',`<span class="u">${s.toFixed(1)}</span> m/s`); set('#windGst',g!=null?`<span class="u">${g.toFixed(1)}</span> m/s`:'—');
+  const lv=s<4?['弱い風','blue']:s<7?['やや強い風','warn']:['強い風・釣りにくい','warn'];
+  let a=`<span class="chip ${lv[1]}">${lv[0]}（目安）</span>`; if([3,4,5].includes(i)) a+=` <span class="chip warn">南寄り：盗人狩は向かい風</span>`;
+  $('#windAssess').innerHTML=a;
+ }
+ if(WX.wave&&WX.wave.h[hr]!=null){
+  const h=WX.wave.h[hr],p=WX.wave.p?WX.wave.p[hr]:null,sh=WX.wave.sh?WX.wave.sh[hr]:null,sd=WX.wave.sd?WX.wave.sd[hr]:null;
+  $('#waveAt').textContent=lbl;
+  const set=(id,v)=>{const e=$(id);e.classList.remove('dash');e.innerHTML=v;};
+  set('#waveH',`<span class="u">${h.toFixed(1)}</span> m`); set('#waveP',p!=null?`<span class="u">${Math.round(p)}</span> 秒`:'—');
+  set('#swellH',sh!=null?`<span class="u">${sh.toFixed(1)}</span> m${sd!=null?`<br><small style="font-size:11px;color:var(--ink3)">${DIRJ[Math.round(sd/45)%8]}から</small>`:''}`:'—');
+  $('#gauge').classList.add('has'); $('#gaugeMk').style.left=clamp(h/3*100,0,100)+'%';
+  const lv=h<1?['比較的穏やか','blue']:h<1.5?['低い磯は注意','warn']:['地磯は危険・中止も検討','warn'];
+  $('#waveAssess').innerHTML=`<span class="chip ${lv[1]}">${lv[0]}（目安）</span>`;
+ }
+}
+
+/* ───── SPOT ───── */
+const ICON={
+ tide:'<path d="M3 17c2 0 2-1.5 4-1.5S9 17 11 17s2-1.5 4-1.5 2 1.5 4 1.5M3 21c2 0 2-1.5 4-1.5S9 21 11 21s2-1.5 4-1.5 2 1.5 4 1.5M12 3v9M8.5 6.5 12 3l3.5 3.5"/>',
+ wave:'<path d="M2 18c3 0 4-3 6-6.5S13 6 16.5 6.5c-2 .8-3 2.3-2.4 4.2.7 2.1 3.5 2.4 5.4 1.3-1 3.6-4 6-8 6H2z"/>',
+ swell:'<path d="M2 8.5c3-3 5-3 8 0s5 3 8 0 M2 13.5c3-3 5-3 8 0s5 3 8 0 M2 18.5c3-3 5-3 8 0s5 3 8 0"/>',
+ rock:'<path d="M3 20.5h18M6 20.5l2.2-5 4.3-1.3 3 3 .9 3.3M13.5 3.5l2.4 1.6-.9 3-3-.8zM18.5 9l1.6 1.2-1 2-1.6-1z"/>',
+ slip:'<path d="M3 16.5h11.5l6.5 2v2H3zM3 16.5V9l4 .8 3 3.2h4.5"/><path d="M5 20.5v1.5M9 20.5v1.5M13 20.5v1.5"/>',
+ dark:'<path d="M9 14.5a5.5 5.5 0 1 1 6 0V17H9zM9.5 20h5"/>',
+ ban:'<circle cx="12" cy="12" r="9"/><path d="M5.6 5.6l12.8 12.8"/>',
+ cast:'<path d="M4 20 18 6M12 6h6v6M4 20l3-12M4 20l12-3"/>',
+ walk:'<path d="M8 3.5c1.6 0 2.2 1.6 2.2 3.6S9.6 11 8 11 5.8 9.3 5.8 7.2 6.4 3.5 8 3.5zM16 12c1.6 0 2.2 1.6 2.2 3.6s-.6 3.9-2.2 3.9-2.2-1.7-2.2-3.8.6-3.7 2.2-3.7z"/>'
+};
+const ico=k=>`<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">${ICON[k]}</svg>`;
+let curSpot='kannon';
+function renderSpot(id,anim){
+ const S=SPOTS[id], el=$('#spotDetail');
+ const tags=S.tags.map((t,i)=>`<span class="chip ${t.includes('初心者')?'warn':i===0?'blue':''}">${t}</span>`).join('');
+ el.innerHTML=`
+  <div class="sd-head"><span class="sd-no">${S.no}</span><div><h3>${S.name}</h3><div class="sd-tags"><span class="chip solid">${S.type}</span>${tags}</div></div></div>
+  ${S.alert?`<div class="alert">${ico('ban')}<span><b>ヤギ島には渡りません</b>${S.alert}</span></div>`:''}
+  <p class="sd-desc">${S.desc}</p>
+  <dl class="facts">${S.facts.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+  <div><p class="sub-h"><span class="u">FISH</span>狙える魚</p>
+   <div class="fishgrid">${S.fish.map(k=>`<button class="fg" type="button" data-fish="${k}">${fishSVG(k)}<span>${FISH[k].name}</span><small>${FISH[k].method.replace(/（.*?）/,'')}</small></button>`).join('')}</div>
+   ${S.extra?`<p class="sd-extra">${S.extra}</p>`:''}</div>
+  <div class="safety"><p class="sub-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.2"/></svg>安全情報</p>
+   <ul>${S.safety.map(([k,t,x])=>`<li><span class="si">${ico(k)}</span><span><span class="st">${t}</span><br><span class="sx">${x}</span></span></li>`).join('')}</ul></div>
+  <div class="sd-actions"><button class="btn" type="button" data-gofish="${id}">この場所の魚を見る</button><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=${S.lat},${S.lon}" target="_blank" rel="noopener">Googleマップで開く ↗</a></div>`;
+ if(anim){el.classList.remove('swap');void el.offsetWidth;el.classList.add('swap');}
+}
+function setSpot(id,opts={}){
+ curSpot=id;
+ $$('.pin').forEach(p=>p.classList.toggle('on',p.dataset.spot===id));
+ $$('.tab').forEach(t=>t.setAttribute('aria-selected',String(t.dataset.spot===id)));
+ $$('.route').forEach(r=>{const k=r.dataset.r;r.classList.toggle('on',k==='all'||(k==='kannon'&&id==='kannon')||(k==='east'&&id!=='kannon'));});
+ renderSpot(id,opts.anim);
+ if(!opts.noFilter) setFilter(id,{noSpot:true});
+}
+$$('.pin').forEach(p=>p.addEventListener('click',()=>{const r=document.createElement('span');r.className='rp';p.appendChild(r);setTimeout(()=>r.remove(),850);setSpot(p.dataset.spot,{anim:true});const sp=$('.spot-panel');if(innerWidth<1000&&sp.getBoundingClientRect().top>innerHeight*.72){setTimeout(()=>sp.scrollIntoView({behavior:motion?'smooth':'auto',block:'start'}),260);}}));
+$$('.tab').forEach(t=>t.addEventListener('click',()=>setSpot(t.dataset.spot,{anim:true})));
+$('.tabs').addEventListener('keydown',e=>{if(!['ArrowLeft','ArrowRight'].includes(e.key))return;const i=SPOT_ORDER.indexOf(curSpot);const n=SPOT_ORDER[(i+(e.key==='ArrowRight'?1:2))%3];setSpot(n,{anim:true});$(`.tab[data-spot="${n}"]`).focus();});
+$('#spotDetail').addEventListener('click',e=>{const f=e.target.closest('[data-fish]');if(f){openFish(f.dataset.fish);return;}const g=e.target.closest('[data-gofish]');if(g){setFilter(g.dataset.gofish,{noSpot:true});$('#fish').scrollIntoView({behavior:motion?'smooth':'auto'});}});
+
+/* ───── FISH LIST & FILTER ───── */
+$('#fishList').innerHTML=FISH_ORDER.map(k=>{const F=FISH[k];return `<button class="fcard" type="button" data-fish="${k}" data-spots="${F.spots.join(' ')}">${fishSVG(k)}<span><span class="fc-name">${F.name}</span><span class="fc-sub">${F.sub}・${F.method}</span><span class="fc-spots">${F.spots.map(s=>`<span>${SPOTS[s].name}</span>`).join('')}</span></span><span class="fc-go" aria-hidden="true">→</span></button>`;}).join('');
+$('#fishList').addEventListener('click',e=>{const b=e.target.closest('[data-fish]');if(b)openFish(b.dataset.fish);});
+let curFilter='all';
+function setFilter(f,opts={}){
+ curFilter=f;
+ $$('#filters button').forEach(b=>b.setAttribute('aria-pressed',String(b.dataset.f===f)));
+ const ok=k=>f==='all'||FISH[k].spots.includes(f);
+ $$('.fcard').forEach(c=>{const o=ok(c.dataset.fish);c.classList.toggle('is-out',!o);c.setAttribute('aria-description',o?'':'この場所では対象外');});
+ ACTORS.forEach(a=>a.el.classList.toggle('is-out',!ok(a.sp)));
+ if(f!=='all'&&!opts.noSpot) setSpot(f,{noFilter:true,anim:true});
+}
+$('#filters').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;setFilter(b.dataset.f);});
+
+/* ───── SWIMMERS ───── */
+const ACTORS=[]; const GROUPS=[];
+function makeActor(host,sp,w,{interactive=false,sil=false,opacity=1}={}){
+ const el=document.createElement(interactive?'button':'div');
+ el.className='fa'; if(interactive){el.type='button';el.tabIndex=-1;el.setAttribute('aria-hidden','true');}
+ el.style.width=w+'px'; if(opacity<1) el.style.opacity=opacity;
+ el.innerHTML=`<span class="fa-d"><span class="fa-s">${fishSVG(sp,sil?'sil':'')}</span></span>`;
+ host.appendChild(el);
+ const a={el,d:el.firstChild,tail:$('.tail',el),arms:$('.arms',el),sp,w,h:w/2,piv:PIV[sp]};
+ if(interactive){ el.addEventListener('click',()=>{el.classList.add('tap');setTimeout(()=>{el.classList.remove('tap');openFish(sp);},200);}); ACTORS.push(a); }
+ return a;
+}
+function place(a,x,y,dir,pitch){ a.el.style.transform=`translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`; a.d.style.transform=`scaleX(${dir}) rotate(${pitch.toFixed(2)}deg)`; }
+function Group(host,cfg){
+ const g={host,cfg,W:host.clientWidth,H:host.clientHeight,visible:true,members:[]};
+ const k=cfg.scale||1; const w=cfg.w*k;
+ const n=cfg.school||1;
+ for(let i=0;i<n;i++){ const a=makeActor(host,cfg.sp,cfg.school?w*rand(.88,1.08):w,cfg.opt||{}); a.ox=cfg.school?rand(-70,70)*k:0; a.oy=cfg.school?rand(-26,26)*k:0; a.f=rand(.8,1.6); a.p=rand(0,6.28); a.wp=rand(0,6.28); g.members.push(a); }
+ g.p1=rand(0,6.28);g.p2=rand(0,6.28);g.f1=rand(.25,.5);g.f2=rand(.7,1.2);
+ g.spawn=function(first){ const W=g.W,H=g.H; g.dir=Math.random()<.5?1:-1;
+  g.x=first?rand(.1,.8)*W:(g.dir>0?-w-rand(20,120):W+rand(20,120));
+  g.baseY=g.ty=rand(cfg.band[0],cfg.band[1])*H; g.tyT=0; g.state='swim'; g.cv=cfg.v*.6; g.nb=0; g.y=g.baseY; };
+ g.spawn(true);
+ g.update=function(dt,t){
+  const W=g.W,H=g.H,c=cfg;
+  if(g.state==='wait'){ if(t>=g.resume) g.spawn(false); else return; }
+  let sp;
+  if(c.kind==='squid'){ sp=c.v*.35*g.dir+c.osc*Math.sin(t*c.of+g.p1); g.x+=sp*dt; sp=Math.abs(sp); }
+  else if(c.kind==='dart'){ if(t>g.nb){g.tv=c.v*rand(.05,1.9);g.nb=t+rand(.35,1.3);if(Math.random()<.1&&g.x>W*.15&&g.x<W*.85)g.dir*=-1;} g.cv+=(g.tv-g.cv)*Math.min(1,dt*7); sp=g.cv; g.x+=g.dir*sp*dt; }
+  else { const n=Math.sin(t*g.f1+g.p1)*.6+Math.sin(t*g.f2+g.p2)*.4; sp=c.v*(1+c.vv*n); g.x+=g.dir*sp*dt; }
+  if(t>g.tyT){ g.ty=rand(c.band[0],c.band[1])*H; g.tyT=t+rand(3,7); }
+  g.baseY+=(g.ty-g.baseY)*Math.min(1,dt*.35);
+  const y=g.baseY+c.bob*Math.sin(t*c.bf+g.p1); const vy=dt>0?(y-g.y)/dt:0; g.y=y;
+  const pitch=clamp(Math.atan2(vy,Math.max(sp,8))*57.3*.9,-14,14);
+  const rel=sp/c.v;
+  g.members.forEach(a=>{
+   let x=g.x,yy=g.y;
+   if(c.school){ x+=a.ox*g.dir+6*Math.sin(t*a.f+a.p); yy+=a.oy+4*Math.sin(t*a.f*1.3+a.p); }
+   a.wp+=dt*c.wf*(.5+.7*rel)*(c.school?a.f:1);
+   if(c.kind==='squid'){ const s=1+.07*Math.sin(t*4.2+a.p); a.tail&&a.tail.setAttribute('transform',`translate(0 50) scale(1 ${s.toFixed(3)}) translate(0 -50)`); a.arms&&a.arms.setAttribute('transform',`rotate(${(2.5*Math.sin(t*1.8+a.p)).toFixed(2)} 150 50)`); }
+   else { const ang=c.wa*Math.sin(a.wp)*(.55+.45*Math.min(rel,1.6)); a.tail&&a.tail.setAttribute('transform',`rotate(${ang.toFixed(2)} ${a.piv[0]} ${a.piv[1]})`); }
+   place(a,x-a.w/2,yy-a.h/2,g.dir,c.kind==='squid'?pitch*.3:pitch);
+  });
+  const m=w+(c.school?100:40);
+  if((g.dir>0&&g.x>W+m)||(g.dir<0&&g.x<-m)||(c.kind==='squid'&&(g.x>W+m||g.x<-m))){ g.state='wait'; g.resume=t+rand(.8,4.5); g.members.forEach(a=>place(a,-9999,0,1,0)); }
+ };
+ GROUPS.push(g); return g;
+}
+const tankHost=$('#tankFish'), heroHost=$('#heroFish');
+function buildSwimmers(){
+ const k=clamp(tankHost.clientWidth/1000,.66,1);
+ const T=(sp,o)=>Group(tankHost,Object.assign({sp,scale:k,opt:{interactive:true}},o));
+ T('inada',{w:156,band:[.1,.26],v:120,vv:.35,bob:6,bf:.8,wa:12,wf:9});
+ T('inada',{w:118,band:[.14,.3],v:95,vv:.4,bob:5,bf:.7,wa:12,wf:9});
+ T('aji',{w:58,school:7,band:[.28,.4],v:52,vv:.3,bob:5,bf:.9,wa:16,wf:12});
+ T('aori',{w:126,kind:'squid',band:[.38,.5],v:14,osc:24,of:.42,bob:7,bf:.5,wa:0,wf:0});
+ T('mejina',{w:114,band:[.44,.58],v:32,vv:.3,bob:5,bf:.6,wa:11,wf:5});
+ T('mejina',{w:96,band:[.46,.6],v:26,vv:.3,bob:4,bf:.5,wa:11,wf:5});
+ T('kurodai',{w:124,band:[.6,.7],v:24,vv:.3,bob:4,bf:.45,wa:10,wf:4});
+ T('ishidai',{w:118,band:[.66,.76],v:20,vv:.25,bob:3,bf:.4,wa:10,wf:4});
+ T('kawahagi',{w:66,kind:'dart',band:[.78,.84],v:34,bob:3,bf:2.6,wa:14,wf:18});
+ const kh=clamp(heroHost.clientWidth/1000,.7,1.1);
+ const Hh=(sp,o)=>Group(heroHost,Object.assign({sp,scale:kh,opt:{sil:true}},o));
+ Hh('inada',{w:180,band:[.62,.76],v:95,vv:.4,bob:6,bf:.7,wa:12,wf:8});
+ Hh('mejina',{w:120,band:[.7,.86],v:28,vv:.3,bob:5,bf:.5,wa:11,wf:5});
+ Hh('aji',{w:44,school:6,band:[.4,.55],v:44,vv:.3,bob:5,bf:.8,wa:16,wf:12});
+ Hh('kurodai',{w:84,band:[.8,.92],v:18,vv:.25,bob:3,bf:.4,wa:10,wf:4,opt:{sil:true,opacity:.55}});
+}
+
+/* ───── PARTICLES ───── */
+function Particles(cv,count,getOff){
+ const ctx=cv.getContext('2d'); const P=[]; let W=0,H=0,dpr=1;
+ function size(){ dpr=Math.min(2,devicePixelRatio||1); W=cv.clientWidth;H=cv.clientHeight; cv.width=W*dpr;cv.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+ size(); for(let i=0;i<count;i++){ const z=Math.random(); P.push({x:Math.random()*W,y:Math.random()*H,z,r:.6+z*2.2,a:.25+z*.55,vy:-(3+z*12),ph:rand(0,6.28),b:Math.random()<.08}); }
+ function draw(dt,t){ ctx.clearRect(0,0,W,H); const off=getOff();
+  for(const p of P){ p.y+=p.vy*dt; p.x+=Math.sin(t*.4+p.ph)*dt*5*p.z; if(p.y<-10)p.y+=H+20; if(p.x<-10)p.x+=W+20; if(p.x>W+10)p.x-=W+20;
+   let y=((p.y-off*(.15+p.z*.45))%(H+20)+H+20)%(H+20)-10;
+   ctx.beginPath(); ctx.arc(p.x,y,p.b?p.r*2.4:p.r,0,6.283);
+   if(p.b){ctx.strokeStyle=`rgba(255,255,255,${p.a})`;ctx.lineWidth=1;ctx.stroke();} else {ctx.fillStyle=`rgba(255,255,255,${p.a})`;ctx.fill();} } }
+ return {draw,size};
+}
+const heroP=Particles($('#heroFx'),70,()=>scrollY);
+const fishP=Particles($('#fishFx'),90,()=>{const r=$('#fish').getBoundingClientRect();return -r.top;});
+
+/* ───── LOOP & VISIBILITY ───── */
+const vis={hero:true,fish:false};
+const io=new IntersectionObserver(es=>es.forEach(e=>{vis[e.target.dataset.v]=e.isIntersecting;}),{rootMargin:'80px'});
+$('#home').dataset.v='hero'; $('#fish').dataset.v='fish'; io.observe($('#home')); io.observe($('#fish'));
+let raf=0,last=0;
+function frame(ts){
+ const t=ts/1000; const dt=Math.min(.05,last?t-last:.016); last=t;
+ GROUPS.forEach(g=>{ const onHero=g.host===heroHost; if(onHero?vis.hero:vis.fish) g.update(dt,t); });
+ if(vis.hero) heroP.draw(dt,t); if(vis.fish) fishP.draw(dt,t);
+ raf=requestAnimationFrame(frame);
+}
+function startLoop(){ if(!raf){ last=0; raf=requestAnimationFrame(frame);} }
+function stopLoop(){ if(raf){cancelAnimationFrame(raf);raf=0;} }
+function renderStill(){ const t=performance.now()/1000; GROUPS.forEach(g=>g.update(0,t)); heroP.draw(0,t); fishP.draw(0,t); }
+
+/* ───── SCROLL ───── */
+const hero=$('#home'), fishSec=$('#fish'), dockLinks=$$('.dock a'), ind=$('#dockInd');
+const NAV=[['home','#home'],['home','#tide'],['spot','#spot'],['fish','#fish'],['tackle','#tackle']];
+let navCur='home', ticking=false;
+function onScroll(){
+ ticking=false; const vh=innerHeight;
+ const hh=hero.offsetHeight; hero.style.setProperty('--dive',clamp(scrollY/hh,0,1).toFixed(3));
+ const r=fishSec.getBoundingClientRect(); fishSec.style.setProperty('--q',clamp((vh-r.top)/(r.height+vh),0,1).toFixed(3));
+ let cur='home'; for(const [k,s] of NAV){ if($(s).getBoundingClientRect().top<=vh*.45) cur=k; }
+ if(cur!==navCur){ navCur=cur; setNav(); }
+ if(!motion){ if(vis.hero) heroP.draw(0,performance.now()/1000); if(vis.fish) fishP.draw(0,performance.now()/1000); }
+}
+function setNav(){ dockLinks.forEach((a,i)=>{const on=a.dataset.nav===navCur;a.setAttribute('aria-current',String(on)); if(on) ind.style.transform=`translateX(${i*100}%)`;}); }
+addEventListener('scroll',()=>{ if(!ticking){ticking=true;requestAnimationFrame(onScroll);} },{passive:true});
+
+/* ───── DIALOG ───── */
+const dlg=$('#fishSheet'); let dlgFish=null;
+function openFish(k){
+ const F=FISH[k]; dlgFish=k;
+ $('#fsArt').innerHTML=fishSVG(k); $('#fsName').textContent=F.name; $('#fsSub').textContent=F.sub;
+ $('#fsEy').textContent='FISH ／ 10月上旬';
+ $('#fsSeason').innerHTML=`<b>今の時期（10月上旬）</b>${F.season}`;
+ $('#fsDl').innerHTML=[
+  ['狙える場所',F.spots.map(s=>`<span class="chip blue">${SPOTS[s].no} ${SPOTS[s].name}</span>`).join('')],
+  ['おすすめ時間',F.timeText],['釣り方',F.method],['仕掛け',F.rig],[k==='aori'||k==='inada'?'ルアー・餌':'餌',F.bait]
+ ].map(([a,b])=>`<div><dt>${a}</dt><dd>${b}</dd></div>`).join('');
+ $('#fsTip').innerHTML=`<b>釣り方のコツ</b>${F.tip}`;
+ $('#fsTackle').textContent=`仕掛けを見る（${$('#tk-'+F.tk+' .acc-t b').childNodes[0].textContent.trim()}）`;
+ if(!dlg.open){ dlg.showModal(); root.classList.add('modal-open'); }
+ dlg.scrollTop=0;
+}
+function closeFish(then){
+ if(!dlg.open) return; dlg.classList.add('closing');
+ setTimeout(()=>{ dlg.classList.remove('closing'); dlg.style.transform=''; dlg.close(); root.classList.remove('modal-open'); then&&then(); }, motion&&!mqReduce.matches?230:0);
+}
+$('#fsClose').addEventListener('click',()=>closeFish());
+dlg.addEventListener('click',e=>{ if(e.target===dlg){ const r=dlg.getBoundingClientRect(); if(e.clientY<r.top||e.clientY>r.bottom||e.clientX<r.left||e.clientX>r.right) closeFish(); } });
+dlg.addEventListener('cancel',e=>{ e.preventDefault(); closeFish(); });
+dlg.addEventListener('close',()=>root.classList.remove('modal-open'));
+$('#fsTackle').addEventListener('click',()=>{ const tk=FISH[dlgFish].tk; closeFish(()=>{ const it=$('#tk-'+tk); setAcc(it,true); it.classList.remove('flash'); void it.offsetWidth; it.classList.add('flash'); setTimeout(()=>it.scrollIntoView({behavior:motion?'smooth':'auto',block:'start'}),60); }); });
+(function(){ const g=$('#fsGrab'); let y0=null,dy=0;
+ g.addEventListener('pointerdown',e=>{y0=e.clientY;dy=0;g.setPointerCapture(e.pointerId);dlg.style.transition='none';});
+ g.addEventListener('pointermove',e=>{if(y0==null)return;dy=Math.max(0,e.clientY-y0);dlg.style.transform=`translateY(${dy}px)`;});
+ const end=()=>{ if(y0==null)return; y0=null; dlg.style.transition='transform .25s var(--ease)'; if(dy>90){closeFish();} else dlg.style.transform=''; setTimeout(()=>dlg.style.transition='',260); };
+ g.addEventListener('pointerup',end); g.addEventListener('pointercancel',end); })();
+
+/* ───── ACCORDION ───── */
+function setAcc(item,open){ item.classList.toggle('open',open); $('.acc-btn',item).setAttribute('aria-expanded',String(open)); $('.acc-panel',item).inert=!open; }
+$$('.acc-item').forEach(it=>$('.acc-btn',it).addEventListener('click',()=>setAcc(it,!it.classList.contains('open'))));
+
+/* ───── REVEAL ───── */
+const rvIO=new IntersectionObserver(es=>es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.remove('pre'); rvIO.unobserve(e.target);} }),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+if(motion){ $$('.rv').forEach(el=>{ if(el.getBoundingClientRect().top>innerHeight){ el.classList.add('pre'); rvIO.observe(el);} }); }
+const mapEl=$('#map');
+if(motion&&mapEl.getBoundingClientRect().top>innerHeight*.9){ const mio=new IntersectionObserver(es=>{ if(es[0].isIntersecting){ setTimeout(()=>mapEl.classList.remove('pre'),250); mio.disconnect(); } },{threshold:.35}); mio.observe(mapEl); } else mapEl.classList.remove('pre');
+
+/* ───── INIT ───── */
+buildChart(); setTime(curT,'init'); setSpot('kannon',{noFilter:true}); buildSwimmers(); renderStill(); setFilter('all');
+const ro=new ResizeObserver(()=>{ buildChart(); GROUPS.forEach(g=>{g.W=g.host.clientWidth;g.H=g.host.clientHeight;}); heroP.size(); fishP.size(); if(!motion) renderStill(); });
+ro.observe(chartBox); ro.observe(tankHost); ro.observe(heroHost);
+onScroll(); setNav(); applyMotion();
+mqReduce.addEventListener&&mqReduce.addEventListener('change',()=>{ motion=!mqReduce.matches; applyMotion(); });
+})();
+</script>
+
+</body>
+</html>

@@ -1,4 +1,8 @@
-<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>三浦半島爆釣作戦</title>
 <meta name="description" content="2026年10月3日、三浦半島（観音山・ヤギ島周辺・盗人狩）の潮・釣り場・魚・仕掛けをまとめたフィールドガイド。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -115,8 +119,12 @@ html.still .rv.pre{opacity:1;transform:none}
 .times{grid-area:times}
 .wx{grid-area:wx}
 @media (min-width:1000px){
-  .tide-grid{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);grid-template-areas:"tide wx" "times times";align-items:start}
+  .tide-grid{grid-template-columns:minmax(0,1.65fr) minmax(300px,1fr);grid-template-areas:"tide times" "wx wx";align-items:start}
   .tide-card{padding:26px 26px 22px}
+  .times .tcards{grid-template-columns:1fr}
+  .times-h{margin-top:0}
+  .wx{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-areas:"h h" "tbl cards" "msg cards" "src cards" "hint cards" ". cards";grid-template-rows:auto auto auto auto auto 1fr;column-gap:16px;align-items:start;margin-top:16px}
+  .wx-h{grid-area:h} .wxt{grid-area:tbl} .wx-cards{grid-area:cards} #wxMsg{grid-area:msg} .wx-src{grid-area:src} .wx-hint{grid-area:hint}
 }
 .ro{display:grid;gap:14px;margin-bottom:14px}
 .ro-top{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -243,6 +251,48 @@ input[type=range].tr:active::-webkit-slider-thumb{transform:scale(1.12)}
 .wx-links a{font-size:12.5px;font-weight:700;text-decoration:none;padding:6px 12px;border-radius:999px;background:#fff;border:1px solid var(--line)}
 .wx-hint{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.65;color:var(--ink2);padding:12px 14px;border-radius:14px;background:linear-gradient(135deg,#F4FAFF,#EAF7FE);border:1px solid var(--line)}
 .wx-hint svg{flex:none;width:18px;height:18px;margin-top:2px;color:var(--blue)}
+.wx-ht{display:grid;gap:2px}
+.wx-sub{font-size:12.5px;font-weight:700;color:var(--ink2)}
+.wxt{padding:6px 8px 12px}
+.wxt-tb{width:100%;border-collapse:collapse;font-size:13px}
+.wxt-tb th,.wxt-tb td{padding:7px 3px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap;vertical-align:middle}
+.wxt-tb thead th{font-size:11px;font-weight:700;color:var(--ink3);padding-top:8px}
+.wxt-tb thead small{font-family:var(--f-num);font-size:9px;font-weight:500;margin-left:2px}
+.wxt-tb tbody tr{cursor:pointer;transition:background .2s}
+.wxt-tb tbody tr:hover{background:var(--bg2)}
+.wxt-tb tbody tr.on{background:var(--blue-50)}
+.wxt-tb tbody tr.on th button{color:var(--blue-d)}
+.wxt-tb tbody tr:last-child th,.wxt-tb tbody tr:last-child td{border-bottom:0}
+.wxt-tb th button{border:0;background:none;padding:6px 4px;margin:-6px -4px;border-radius:8px;cursor:pointer;font-family:var(--f-num);font-size:13px;font-weight:600;color:var(--ink);min-height:36px}
+.wxt-tb th button small{display:block;font-family:var(--f-body);font-size:9.5px;font-weight:700;color:var(--blue);line-height:1;margin-top:1px}
+.wxt-tb td.n{font-family:var(--f-num);font-weight:600;color:var(--ink)}
+.wxt-tb td.na{color:var(--ink3)}
+.wd{display:inline-flex;align-items:center;gap:4px;font-size:12.5px;font-weight:700;color:var(--ink)}
+.wd svg{flex:none;width:14px;height:14px;color:var(--blue)}
+.ws{display:grid;gap:3px;min-width:48px}
+.ws b{font-family:var(--f-num);font-size:13.5px;font-weight:600;color:var(--ink);line-height:1.1}
+.ws i{display:block;position:relative;height:4px;border-radius:4px;background:#E8EFF6;overflow:hidden}
+.ws i::after{content:"";position:absolute;inset:0 auto 0 0;width:var(--w,0);border-radius:4px;background:var(--c,var(--sky));transition:width .8s var(--ease)}
+.wxt-lg{display:flex;flex-wrap:wrap;gap:4px 12px;font-size:11px;color:var(--ink3);margin:10px 4px 0}
+.wxt-lg i{display:inline-block;width:14px;height:4px;border-radius:4px;margin-right:5px;vertical-align:2px}
+.wxt-tap{font-size:11.5px;color:var(--ink3);margin:4px 4px 0}
+.gx{color:var(--warn-ic);font-weight:700}
+.spw{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line)}
+.spw:empty{display:none}
+.spw-h{font-size:11.5px;font-weight:700;color:var(--ink3);margin-bottom:6px}
+.spw ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.spw li{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:13.5px;font-weight:700;color:var(--ink)}
+.spw .nm{display:flex;align-items:baseline;gap:6px}
+.spw .nm .u{font-size:10.5px;font-weight:600;color:var(--blue)}
+.spw .chip small{font-size:10.5px;font-weight:500;opacity:.85}
+.spw-note{font-size:11.5px;line-height:1.6;color:var(--ink3);margin-top:8px}
+.wx-src{padding:14px;border-radius:16px;border:1px solid var(--line);background:#fff;display:grid;gap:8px}
+.wx-src-h{font-size:12.5px;font-weight:700;color:var(--ink2);letter-spacing:.04em}
+.wx-src dl{margin:0;display:grid;border-top:1px solid var(--line)}
+.wx-src dl div{display:grid;grid-template-columns:5.6em 1fr;gap:8px;padding:7px 2px;border-bottom:1px solid var(--line);font-size:12.5px;line-height:1.6}
+.wx-src dt{font-weight:700;color:var(--ink3)}
+.wx-src dd{margin:0;color:var(--ink)}
+.wx-src .wx-links{margin-top:2px}
 
 /* ───────── SPOT / MAP ───────── */
 .spot-grid{display:grid;gap:16px}
@@ -306,6 +356,8 @@ input[type=range].tr:active::-webkit-slider-thumb{transform:scale(1.12)}
 .facts{margin:0;display:grid;gap:0;border-top:1px solid var(--line)}
 .facts div{display:grid;grid-template-columns:4em 1fr;gap:10px;padding:10px 2px;border-bottom:1px solid var(--line);font-size:13.5px}
 .facts dt{font-weight:700;color:var(--ink3)}
+.sd-wind dd{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px}
+.sd-wind dd a{font-size:12.5px;font-weight:700}
 .facts dd{margin:0;color:var(--ink)}
 .sub-h{font-size:13px;font-weight:700;color:var(--ink2);letter-spacing:.06em;display:flex;align-items:center;gap:8px;margin-bottom:10px}
 .sub-h .u{font-size:10px;color:var(--blue);letter-spacing:.18em}
@@ -425,6 +477,7 @@ input[type=range].tr:active::-webkit-slider-thumb{transform:scale(1.12)}
 .bp .sea{fill:none;stroke:var(--sky);stroke-width:1.6}
 .bp .seabed{fill:rgba(21,46,73,.05);stroke:#9DB6CC;stroke-width:1.2}
 .bp .tgt{fill:rgba(23,107,255,.06);stroke:var(--blue);stroke-width:1.2;stroke-dasharray:4 3}
+.bp .mk{transform:none}
 .bp .mk circle{fill:#fff;stroke:var(--blue);stroke-width:1.4}
 .bp .mk text{font-family:var(--f-num);font-size:9px;font-weight:700;fill:var(--blue);text-anchor:middle;dominant-baseline:central}
 .tk-info{display:grid;gap:16px;align-content:start}
@@ -443,6 +496,55 @@ input[type=range].tr:active::-webkit-slider-thumb{transform:scale(1.12)}
 .pro{display:flex;gap:12px;align-items:flex-start;padding:14px;border-radius:16px;background:var(--warn-bg);border:1px solid var(--warn-line);color:#5E3300;font-size:13.5px;line-height:1.7}
 .pro svg{flex:none;width:22px;height:22px;color:var(--warn-ic);margin-top:1px}
 .pro b{display:block;color:var(--warn);font-size:14.5px}
+.chip.ng{background:#FFF1EE;border-color:#F5C9BF;color:#A8331C}
+.acc-t b .chip{font-size:11px;padding:3px 9px}
+/* my rod */
+.myrod{padding:18px 16px;display:grid;gap:14px;margin-bottom:12px}
+.mr-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:6px 16px}
+.mr-top h3{font-size:18px;font-weight:700;line-height:1.35;margin-top:4px}
+.mr-name{font-size:13px;font-weight:700;color:var(--ink2)}
+.mr-spec{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.mr-spec li{display:grid;gap:0;padding:9px 10px;border-radius:14px;background:var(--bg2);border:1px solid var(--line)}
+.mr-spec span{font-size:11px;font-weight:700;color:var(--ink3)}
+.mr-spec b{font-size:16px;font-weight:600;color:var(--ink);line-height:1.3;white-space:nowrap}
+.mr-spec b small{font-family:var(--f-body);font-size:11px;font-weight:700;margin-left:1px}
+@media (max-width:400px){.mr-spec li{padding:9px 8px}.mr-spec b{font-size:15px}}
+.mr-chart{display:grid;gap:8px}
+.mr-axis,.mr-row{display:grid;grid-template-columns:6.6em 1fr 5.4em;gap:10px;align-items:center}
+.mr-ax{position:relative;height:16px;font-family:var(--f-num);font-size:10px;color:var(--ink3)}
+.mr-ax i{position:absolute;top:0;font-style:normal;transform:translateX(-50%);white-space:nowrap}
+.mr-ax i:first-child{transform:none}
+.mr-ax i:last-child{transform:translateX(-100%)}
+.mr-ax i.lim{color:var(--blue-d);font-family:var(--f-body);font-weight:700}
+.mr-l{font-size:13px;font-weight:700;color:var(--ink);line-height:1.25}
+.mr-l small{display:block;font-size:10.5px;font-weight:500;color:var(--ink3)}
+.mr-tr{position:relative;height:22px;border-radius:7px;background:linear-gradient(90deg,transparent 10%,#DDF0FC 10% 50%,transparent 50%),#F4F7FA}
+.mr-tr::after{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;border-left:1.5px dashed var(--blue)}
+.mr-tr i{position:absolute;left:0;top:7px;height:8px;width:var(--w);border-radius:8px;background:var(--blue)}
+.mr-row.over .mr-tr i{background:linear-gradient(90deg,var(--blue) 0 83.3%,#F5A43B 83.3%)}
+.mr-row.ng .mr-tr i{background:linear-gradient(90deg,var(--blue) 0 50%,#E0661F 50%);border-radius:8px 0 0 8px}
+.mr-row.ng .mr-tr::before{content:"";position:absolute;right:-7px;top:4px;border:7px solid transparent;border-left:8px solid #E0661F;border-right:0}
+.mr-row .chip{justify-self:start}
+.mr-note{font-size:12px;line-height:1.7;color:var(--ink2)}
+@media (min-width:900px){.myrod{padding:22px 24px}.mr-axis,.mr-row{grid-template-columns:8em 1fr 6em}}
+/* color guide */
+.cg{display:grid;gap:8px}
+.cg-list{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+.cg-list li{position:relative;display:grid;grid-template-columns:7.4em 1fr;gap:10px;align-items:center;padding:9px 12px;border-radius:14px;border:1px solid var(--line);background:#fff;transition:background .3s,border-color .3s}
+.cg-list li.on{background:var(--blue-50);border-color:#BCD3F6}
+.cg-t{font-size:13px;font-weight:700;color:var(--ink);line-height:1.3}
+.cg-t small{display:block;font-size:10.5px;font-weight:500;color:var(--ink3)}
+.cg-c{display:flex;flex-wrap:wrap;align-items:center;gap:4px 10px;font-size:13px;font-weight:700;color:var(--ink2)}
+.cg-i{display:inline-flex;align-items:center;gap:5px;white-space:nowrap}
+.cg-sw{display:inline-block;width:14px;height:14px;border-radius:50%;background:var(--c);border:1px solid rgba(21,46,73,.18)}
+.cg-now{position:absolute;top:-8px;right:10px;font-size:10px;font-weight:600;color:#fff;background:var(--blue);padding:1px 7px;border-radius:999px}
+/* bait wrap */
+.esa{display:grid;gap:10px;padding-top:2px}
+.esa-steps{list-style:none;margin:0;padding:0;display:grid;gap:8px;counter-reset:e}
+.esa-steps li{counter-increment:e;position:relative;padding-left:30px;font-size:13px;line-height:1.6;color:var(--ink2)}
+.esa-steps li::before{content:counter(e);position:absolute;left:0;top:1px;width:20px;height:20px;border-radius:50%;background:var(--blue);color:#fff;font-family:var(--f-num);font-size:9.5px;display:grid;place-items:center}
+.esa-steps b{display:block;font-size:13.5px;color:var(--ink)}
+.esa-note{font-size:12.5px;line-height:1.7;color:var(--ink2);padding:10px 12px;border-radius:12px;background:var(--bg2);border:1px solid var(--line)}
 .foot{padding-block:48px 16px;display:grid;gap:14px;font-size:12px;color:var(--ink3);line-height:1.75}
 .foot h4{font-size:12.5px;color:var(--ink2)}
 .foot ul{margin:0;padding-left:1.2em}
@@ -507,7 +609,8 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
 }
 </style>
-
+</head>
+<body>
 <main>
 <!-- ═════════ HERO ═════════ -->
 <section class="hero" id="home" aria-label="トップ">
@@ -631,12 +734,23 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
 
     <div class="wx rv" id="wx">
       <div class="wx-h">
-        <h3>風・波</h3>
+        <div class="wx-ht">
+          <h3>10/3 朝の風・波</h3>
+          <p class="wx-sub">10月3日（土）4:00〜10:00の予報・1時間ごと</p>
+        </div>
         <button class="btn" type="button" id="wxBtn">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg>
           <span>予報を取得</span>
         </button>
       </div>
+      <article class="card wxt" aria-label="10月3日 4時から10時の1時間ごとの予報">
+        <table class="wxt-tb">
+          <thead><tr><th scope="col">時刻</th><th scope="col">風向</th><th scope="col">風速<small>m/s</small></th><th scope="col">瞬間<small>m/s</small><span class="gx" id="gx"></span></th><th scope="col">波<small>m</small></th><th scope="col">うねり<small>m</small></th></tr></thead>
+          <tbody id="wxRows"></tbody>
+        </table>
+        <div class="wxt-lg" aria-hidden="true"><span><i style="background:var(--sky)"></i>〜4m/s 釣りやすい</span><span><i style="background:#F5BF5A"></i>4〜7m/s やや強い</span><span><i style="background:#E0661F"></i>7m/s〜 釣りにくい</span></div>
+        <p class="wxt-tap">時刻をタップすると、その時間の潮・風・波に切り替わります。<span id="gxNote"></span></p>
+      </article>
       <div class="wx-cards">
         <article class="card wxc" aria-label="風">
           <div class="wxc-h"><h4>風</h4><span id="windAt">—</span></div>
@@ -654,10 +768,11 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <dl class="kv">
               <div><dt>風向</dt><dd id="windDir" class="dash">未取得</dd></div>
               <div><dt>風速</dt><dd id="windSpd2" class="dash">—</dd></div>
-              <div><dt>最大瞬間</dt><dd id="windGst" class="dash">—</dd></div>
+              <div><dt>最大瞬間<span class="gx" id="gx2"></span></dt><dd id="windGst" class="dash">—</dd></div>
             </dl>
           </div>
           <div class="wx-assess" id="windAssess"></div>
+          <div class="spw" id="spotWind"></div>
         </article>
         <article class="card wxc" aria-label="波">
           <div class="wxc-h"><h4>波</h4><span id="waveAt">—</span></div>
@@ -675,6 +790,17 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
         </article>
       </div>
       <div id="wxMsg" role="status"></div>
+      <div class="wx-src">
+        <p class="wx-src-h">予報のデータ</p>
+        <dl>
+          <div><dt>風速・風向</dt><dd id="srcWind">気象庁モデル（MSM・約5km格子。先の時間はGSM）</dd></div>
+          <div><dt>最大瞬間</dt><dd>Open-Meteo 標準モデル（best match）</dd></div>
+          <div><dt>波・うねり</dt><dd>Open-Meteo Marine（全球の波浪モデル）</dd></div>
+          <div><dt>取得時刻</dt><dd id="srcAt">未取得</dd></div>
+        </dl>
+        <p class="note">どれも数km四方の格子の平均値です。海を含む格子では、tenki.jpなどの地点ごとの予報より風が強めに出ることがあります。<span id="srcGustNote">気象庁モデルには瞬間風速がないため、最大瞬間だけ別のモデルの値です。</span></p>
+        <div class="wx-links"><a href="https://tenki.jp/leisure/fishing/3/17/21028/1hour.html" target="_blank" rel="noopener">tenki.jp 釣り場の天気（三浦）↗</a><a href="https://tenki.jp/forecast/3/17/4610/14210/1hour.html" target="_blank" rel="noopener">tenki.jp 三浦市の1時間天気 ↗</a><a href="https://www.windy.com/?35.138,139.643,11" target="_blank" rel="noopener">Windy（風・波の予報図）↗</a></div>
+      </div>
       <p class="wx-hint"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 16h15a3 3 0 1 1-3 3M3 12h8"/></svg><span>釣りは潮だけでなく、<b>風・波・うねり</b>が重要。磯では特にうねりと波の高さを、出発前と現地で必ず確認してください。数値は磯釣りの一般的な目安です。</span></p>
     </div>
   </div>
@@ -852,15 +978,41 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
   <header class="wrap sec-head rv">
     <p class="eyebrow">TACKLE</p>
     <h2 id="tackle-h">仕掛け・餌・ルアー</h2>
-    <p class="lead">6つの釣り方の基本仕掛け。タップで開きます。号数は目安なので、手持ちの道具と釣具店の情報に合わせて調整してください。</p>
+    <p class="lead">6つの釣り方の基本仕掛け。エギングとショアジギングは、手持ちの竿（ダイワ ルアーニスト 96ML）に合わせた内容です。タップで開きます。</p>
   </header>
+
+  <div class="wrap rv">
+    <article class="card myrod" aria-labelledby="myrod-h">
+      <div class="mr-top">
+        <div>
+          <p class="eyebrow">MY ROD</p>
+          <h3 id="myrod-h">手持ちの竿で投げられる重さ</h3>
+        </div>
+        <p class="mr-name">ダイワ ルアーニスト 96ML</p>
+      </div>
+      <ul class="mr-spec">
+        <li><span>長さ</span><b class="u">2.9m</b></li>
+        <li><span>ルアー重量</span><b class="u">5〜25g</b></li>
+        <li><span>適合PE</span><b class="u">0.6〜1.2<small>号</small></b></li>
+      </ul>
+      <div class="mr-chart" role="img" aria-label="竿の適合範囲5〜25gに対して、エギ3号約15g、エギ3.5号約20g、メタルジグ20gは範囲内。メタルジグ30gは上限を少し超える。遠投カゴの仕掛け70〜100gは大きく超える。">
+        <div class="mr-axis" aria-hidden="true"><span class="mr-l"></span><span class="mr-ax"><i style="left:0">0g</i><i class="lim" style="left:50%">上限 25g</i><i style="left:100%">50g</i></span><span></span></div>
+        <div class="mr-row ok"><span class="mr-l">エギ3号<small>約15g</small></span><span class="mr-tr"><i style="--w:30%"></i></span><span class="chip blue">使える</span></div>
+        <div class="mr-row ok"><span class="mr-l">エギ3.5号<small>約20g</small></span><span class="mr-tr"><i style="--w:40%"></i></span><span class="chip blue">使える</span></div>
+        <div class="mr-row ok"><span class="mr-l">ジグ 20g</span><span class="mr-tr"><i style="--w:40%"></i></span><span class="chip blue">使える</span></div>
+        <div class="mr-row over"><span class="mr-l">ジグ 30g</span><span class="mr-tr"><i style="--w:60%"></i></span><span class="chip warn">力7割で</span></div>
+        <div class="mr-row ng"><span class="mr-l">遠投カゴ<small>70〜100g</small></span><span class="mr-tr"><i style="--w:100%"></i></span><span class="chip ng">使えない</span></div>
+      </div>
+      <p class="mr-note">青い帯が竿の適合範囲（5〜25g）。遠投カゴは専用の竿（遠投磯竿）が必要です。フカセ・胴突き・イシダイ仕掛けも、磯竿などそれぞれ専用の竿を使う釣りです。</p>
+    </article>
+  </div>
 
   <div class="wrap acc" id="acc">
 
     <!-- EGING -->
     <div class="acc-item rv" id="tk-eging">
       <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-eging-p">
-        <span class="acc-t"><b>エギング</b><small>アオリイカ ／ 観音山</small></span><span class="plus" aria-hidden="true"></span>
+        <span class="acc-t"><b>エギング<span class="chip blue">手持ちの竿でOK</span></b><small>アオリイカ ／ 観音山</small></span><span class="plus" aria-hidden="true"></span>
       </button></h3>
       <div class="acc-panel" id="tk-eging-p" role="region" aria-label="エギング" inert><div class="acc-in"><div class="acc-body">
         <figure class="bp">
@@ -870,15 +1022,15 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
             <circle class="gd" cx="44" cy="117" r="3"/><circle class="gd" cx="67" cy="84" r="2.6"/><circle class="gd" cx="88" cy="54" r="2.2"/><circle class="gd" cx="105" cy="31" r="1.8"/>
             <circle class="reel" cx="24" cy="148" r="9"/><path class="ln" d="M24,148 L16,156"/>
-            <text x="130" y="28">ロッド：エギング用 8ft前後</text>
+            <text x="130" y="28">ロッド：ルアーニスト 96ML</text><text x="130" y="43" class="s">2.9m・ルアー重量5〜25g</text>
             <text x="8" y="182" class="s">リール</text><text x="8" y="196" class="s">2500〜3000番</text>
             <path class="ln" d="M112,22 V196"/>
-            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 0.6〜0.8号</text><text x="130" y="129" class="s">メインライン</text>
+            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 0.8〜1.2号</text><text x="130" y="129" class="s">メインライン</text>
             <path class="ln" d="M106,194 L118,206 M106,206 L118,194"/>
             <text x="130" y="204">FGノットなどで結束</text>
             <path class="ln2" d="M112,206 V300"/>
             <path class="dim" d="M96,206 V300 M92,206 H100 M92,300 H100"/>
-            <path class="lnf" d="M114,250 H126"/><text x="130" y="248">リーダー フロロ2〜2.5号</text><text x="130" y="263" class="s">長さ 1〜1.5m</text>
+            <path class="lnf" d="M114,250 H126"/><text x="130" y="248">リーダー フロロ2.5〜3号</text><text x="130" y="263" class="s">長さ 1〜1.5m</text>
             <ellipse class="ln" cx="112" cy="308" rx="3.5" ry="6"/>
             <text x="98" y="312" text-anchor="end" class="s">スナップ</text>
             <path class="soft" d="M112,322 C124,312 184,311 226,320 C238,323 240,333 228,337 C188,347 126,345 112,334 Z"/>
@@ -888,16 +1040,18 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <path class="ln" d="M232,329 L252,314 M232,329 L256,322 M232,329 L256,336 M232,329 L252,344"/>
             <text x="262" y="318" class="s">カンナ</text>
             <text x="98" y="356" text-anchor="end" class="s">シンカー</text>
-            <text x="112" y="378">エギ 2.5〜3号（中心）</text>
+            <text x="112" y="378">エギ 3〜3.5号（約15〜20g）</text>
           </svg>
         </figure>
         <div class="tk-info">
           <dl class="tk-dl">
             <div><dt>対象</dt><dd>アオリイカ</dd></div>
             <div><dt>場所</dt><dd>観音山</dd></div>
-            <div><dt>エギ</dt><dd>2.5〜3号を中心に</dd></div>
-            <div><dt>カラー</dt><dd><span class="sw" style="background:#FF7EAD"></span><span class="sw" style="background:#FF9B3F"></span>朝夕はピンク・オレンジ系<br><span class="sw" style="background:#B9A57F"></span>日中はナチュラルカラーも候補</dd></div>
+            <div><dt>竿</dt><dd>ルアーニスト 96ML（3.5号まで無理なく投げられる）</dd></div>
+            <div><dt>エギ</dt><dd>3〜3.5号（3号≒15g、3.5号≒20g）。追い風で糸がふくらむ日は重めの3.5号が扱いやすい</dd></div>
+            <div><dt>ライン</dt><dd>PE 0.8〜1.2号＋リーダー フロロ2.5〜3号。ジグと同じリールなら、PE 1〜1.2号のままでよい</dd></div>
           </dl>
+          <div class="cg"><p class="tk-h">時間帯ごとのカラー</p><ul class="cg-list"><li data-from="180" data-to="390"><span class="cg-t">薄暗い時間<small class="u">〜6:30ごろ</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#FF9B3F"></span>オレンジ</span><span class="cg-i"><span class="cg-sw" style="--c:#FF7EAD"></span>ピンク</span></span></li><li data-from="390" data-to="960"><span class="cg-t">明るい時間<small class="u">6:30ごろ〜</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#8B5E3C"></span>茶</span><span class="cg-i"><span class="cg-sw" style="--c:#B9A57F"></span>ナチュラル</span></span></li><li data-from="960" data-to="1141"><span class="cg-t">夕マズメ<small class="u">16:00ごろ〜</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#FF9B3F"></span>オレンジ</span><span class="cg-i"><span class="cg-sw" style="--c:#FF7EAD"></span>ピンク</span></span></li></ul></div>
           <p class="tk-h">基本動作</p>
           <ol class="flow"><li>投げる</li><li>沈める</li><li>2〜3回しゃくる</li><li>フォール</li><li>繰り返す</li></ol>
           <figure class="bp">
@@ -919,6 +1073,31 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
               <text x="314" y="164" text-anchor="end" class="s">底（根掛かりに注意）</text>
             </svg>
           </figure>
+          <div class="esa">
+            <p class="tk-h">エサ巻きエギ（反応が渋いとき）</p>
+            <figure class="bp">
+              <figcaption><span>ササミを巻いたエギ</span><span class="u">BAIT WRAP</span></figcaption>
+              <svg viewBox="0 0 320 150" role="img" aria-label="エギの胴体の背中側にササミを沿わせ、細い糸で何か所も巻いて留めた図。カンナ（針）にはかけない">
+                <path class="ln" d="M58,90 H34"/><ellipse class="ln" cx="29" cy="90" rx="5" ry="3"/>
+                <path class="soft" d="M58,86 C74,70 196,68 240,78 C254,81 256,95 242,99 C196,110 76,108 58,96 Z"/>
+                <path class="fbs" d="M60,97 L74,113 L92,106 Z"/>
+                <circle class="fb" cx="72" cy="86" r="3"/>
+                <path class="ln" d="M246,88 L266,74 M246,88 L270,82 M246,88 L270,95 M246,88 L266,103"/>
+                <path class="fbs" d="M96,72 C130,61 196,60 230,70 L228,79 C194,70 132,71 98,81 Z"/>
+                <path class="ln" d="M114,64 L106,105 M138,61 L130,106 M162,60 L154,106 M186,61 L178,105 M210,64 L202,103"/>
+                <path class="dim" d="M150,60 V46"/><text x="96" y="40">ササミ（薄く開いて塩で締める）</text>
+                <path class="dim" d="M128,106 L114,124"/><text x="14" y="138" class="s">細い糸でぐるぐる巻いて留める</text>
+                <path class="dim" d="M262,102 L274,124"/><text x="316" y="138" text-anchor="end" class="s">カンナにはかけない</text>
+              </svg>
+            </figure>
+            <ol class="esa-steps">
+              <li><b>ササミを薄く開く</b>細長く切って薄くし、塩をまぶして締めると外れにくい</li>
+              <li><b>エギの胴体に沿わせる</b>カンナ（針）にはかからないようにする</li>
+              <li><b>細い糸で巻いて留める</b>エサ巻き用の伸びる糸で、何か所もぐるぐる巻く</li>
+              <li><b>いつもより長めに沈める</b>エサの分だけ沈むのが遅くなり、ダートも鈍くなる</li>
+            </ol>
+            <p class="esa-note">まずは普通のエギで始め、反応がないときに試す。秋はフグにかじられやすいので、なくなったら巻き直す。使い終わった糸とササミは持ち帰る。</p>
+          </div>
           <p class="tk-tip"><b>コツ：</b>イカが抱くのはフォール中が多いので、沈めている間のラインの動きに集中。底を取りすぎると根掛かりしやすい。</p>
         </div>
       </div></div></div>
@@ -927,7 +1106,7 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
     <!-- JIG -->
     <div class="acc-item rv" id="tk-jig">
       <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-jig-p">
-        <span class="acc-t"><b>ショアジギング</b><small>イナダ・ワラサなどの青物 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
+        <span class="acc-t"><b>ショアジギング<span class="chip blue">手持ちの竿でOK</span></b><small>イナダ・ワラサなどの青物 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
       </button></h3>
       <div class="acc-panel" id="tk-jig-p" role="region" aria-label="ショアジギング" inert><div class="acc-in"><div class="acc-body">
         <figure class="bp">
@@ -937,15 +1116,15 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
             <circle class="gd" cx="44" cy="117" r="3.2"/><circle class="gd" cx="67" cy="84" r="2.8"/><circle class="gd" cx="88" cy="54" r="2.3"/><circle class="gd" cx="105" cy="31" r="1.9"/>
             <circle class="reel" cx="24" cy="148" r="10"/><path class="ln" d="M24,148 L15,157"/>
-            <text x="130" y="28">ロッド：9.6〜10ft前後</text>
-            <text x="8" y="184" class="s">リール</text><text x="8" y="198" class="s">4000〜5000番</text>
+            <text x="130" y="28">ロッド：ルアーニスト 96ML</text><text x="130" y="43" class="s">2.9m・ルアー重量5〜25g</text>
+            <text x="8" y="184" class="s">リール</text><text x="8" y="198" class="s">3000番前後</text>
             <path class="ln" d="M112,22 V196"/>
-            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 1.5〜2号</text><text x="130" y="129" class="s">メインライン</text>
+            <path class="lnf" d="M114,110 H126"/><text x="130" y="114">PE 1〜1.2号</text><text x="130" y="129" class="s">メインライン</text>
             <path class="ln" d="M106,194 L118,206 M106,206 L118,194"/>
             <text x="130" y="204">FGノットなどで結束</text>
             <path class="ln2" d="M112,206 V292"/>
             <path class="dim" d="M96,206 V292 M92,206 H100 M92,292 H100"/>
-            <path class="lnf" d="M114,248 H126"/><text x="130" y="246">リーダー 30〜40lb</text><text x="130" y="261" class="s">長さ 1〜1.5m</text>
+            <path class="lnf" d="M114,248 H126"/><text x="130" y="246">リーダー 4〜5号</text><text x="130" y="261" class="s">16〜20lb・長さ1〜1.5m</text>
             <circle class="ln" cx="112" cy="297" r="4"/><ellipse class="ln" cx="112" cy="306" rx="3" ry="5"/>
             <text x="98" y="303" text-anchor="end" class="s">スナップ＋リング</text>
             <path class="soft" d="M112,313 C121,319 123,347 118,373 C116,379 108,379 106,373 C101,347 103,319 112,313 Z"/>
@@ -953,19 +1132,24 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <circle class="fb" cx="112" cy="323" r="2.4"/>
             <path class="ln" d="M113,313 C123,311 128,321 122,328 C119,331 115,329 116,325"/>
             <path class="lnf" d="M126,322 H132"/><text x="136" y="326" class="s">アシストフック</text>
-            <text x="136" y="350">メタルジグ 20〜40g</text>
-            <rect x="136" y="360" width="16" height="10" rx="2" fill="#E6ECF2" stroke="#9FB3C7"/><text x="156" y="369" class="s">シルバー</text>
-            <rect x="210" y="360" width="16" height="10" rx="2" fill="#176BFF"/><text x="230" y="369" class="s">ブルー系</text>
+            <text x="136" y="350">メタルジグ 20〜30g</text>
+            <text x="136" y="368" class="s">色は時間帯で使い分け</text>
           </svg>
         </figure>
         <div class="tk-info">
           <dl class="tk-dl">
             <div><dt>対象</dt><dd>イナダ・ワラサなどの青物（サバが混じることも）</dd></div>
             <div><dt>場所</dt><dd>観音山・盗人狩</dd></div>
-            <div><dt>ルアー</dt><dd>メタルジグ 20〜40g が基本</dd></div>
-            <div><dt>カラー</dt><dd><span class="sw" style="background:#E6ECF2"></span>シルバー　<span class="sw" style="background:#176BFF"></span>ブルー系</dd></div>
+            <div><dt>竿</dt><dd>ルアーニスト 96ML（上限25g）</dd></div>
+            <div><dt>ルアー</dt><dd>メタルジグ 20〜30g ／ ブレード付きジグ 20〜30g。ブレード付きは投げてただ速く巻くだけで、9月の三浦ではイナダ・ショゴの実績あり</dd></div>
+            <div><dt>ライン</dt><dd>PE 1〜1.2号＋リーダー フロロ4〜5号（16〜20lb）</dd></div>
             <div><dt>探る層</dt><dd>表層〜中層が中心</dd></div>
           </dl>
+          <div class="cg"><p class="tk-h">時間帯ごとのカラー</p><ul class="cg-list"><li data-from="180" data-to="390"><span class="cg-t">薄暗い時間<small class="u">〜6:30ごろ</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#FF7EAD"></span>ピンク</span><span class="cg-i"><span class="cg-sw" style="--c:#D9A520"></span>ゴールド</span><span class="cg-i"><span class="cg-sw" style="--c:#D6F5C0"></span>グロー</span></span></li><li data-from="390" data-to="960"><span class="cg-t">明るい時間<small class="u">6:30ごろ〜</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#E6ECF2"></span>シルバー</span><span class="cg-i"><span class="cg-sw" style="--c:#176BFF"></span>ブルー</span></span></li><li data-from="960" data-to="1141"><span class="cg-t">夕マズメ<small class="u">16:00ごろ〜</small></span><span class="cg-c"><span class="cg-i"><span class="cg-sw" style="--c:#FF7EAD"></span>ピンク</span><span class="cg-i"><span class="cg-sw" style="--c:#D9A520"></span>ゴールド</span></span></li></ul></div>
+          <div class="pro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.2"/></svg>
+            <span><b>30gは竿の上限（25g）より重い</b>全力で振らず、力7割で竿をしならせて押し出すように投げる。竿先からジグまでの糸（垂らし）は50〜80cm。投げる前に毎回、竿先に糸が絡んでいないか確認。根掛かりでなくしやすいので、20gの予備もあると安心。</span>
+          </div>
           <p class="tk-tip"><b>コツ：</b>鳥の群れや水面のざわつき（ナブラ）、潮目を探して投げる。着水後に数秒沈め、速めのただ巻きと時々のジャークで表層〜中層を探る。朝マズメが最優先。</p>
         </div>
       </div></div></div>
@@ -974,7 +1158,7 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
     <!-- KAGO -->
     <div class="acc-item rv" id="tk-kago">
       <h3><button class="acc-btn" type="button" aria-expanded="false" aria-controls="tk-kago-p">
-        <span class="acc-t"><b>カゴ釣り（遠投）</b><small>アジ・回遊魚 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
+        <span class="acc-t"><b>カゴ釣り（遠投）<span class="chip ng">専用の竿が必要</span></b><small>アジ・回遊魚 ／ 観音山・盗人狩</small></span><span class="plus" aria-hidden="true"></span>
       </button></h3>
       <div class="acc-panel" id="tk-kago-p" role="region" aria-label="カゴ釣り" inert><div class="acc-in"><div class="acc-body">
         <figure class="bp">
@@ -984,8 +1168,8 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
             <path class="lnf" d="M26,146 L44,115 L67,83 L88,53 L105,30 L112,22"/>
             <circle class="gd" cx="44" cy="117" r="3"/><circle class="gd" cx="67" cy="84" r="2.6"/><circle class="gd" cx="88" cy="54" r="2.2"/><circle class="gd" cx="105" cy="31" r="1.8"/>
             <circle class="reel" cx="24" cy="148" r="9.5"/><path class="ln" d="M24,148 L16,156"/>
-            <text x="130" y="28">ロッド：磯竿 3〜4号 5.3m</text>
-            <text x="8" y="182" class="s">リール</text><text x="8" y="196" class="s">3000〜4000番</text>
+            <text x="130" y="28">ロッド：遠投磯竿 3〜4号</text><text x="130" y="43" class="s">4.5〜5.3m（専用の竿）</text>
+            <text x="8" y="182" class="s">リール</text><text x="8" y="196" class="s">4000〜5000番</text>
             <path class="ln" d="M112,22 V148"/>
             <path class="lnf" d="M114,96 H126"/><text x="130" y="100">道糸 ナイロン4〜5号</text>
             <path class="ln" d="M106,150 H118" stroke-width="3"/><text x="130" y="154" class="s">ウキ止め</text>
@@ -1013,7 +1197,12 @@ html.still .rays i,html.still .ripples ellipse,html.still .hero-scroll i::after,
           </svg>
         </figure>
         <div class="tk-info">
+          <div class="pro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.2"/></svg>
+            <span><b>手持ちのルアーニスト 96MLでは投げられません</b>遠投カゴの仕掛けは、カゴ・オモリ・ウキ・コマセを合わせて70〜100g前後（目安）。竿の上限25gの3〜4倍で、投げると竿が折れるおそれがあります。</span>
+          </div>
           <dl class="tk-dl">
+            <div><dt>竿</dt><dd><b>専用の遠投磯竿が必要。</b>3〜4号・4.5〜5.3m＋4000〜5000番リール＋道糸ナイロン4〜5号</dd></div>
             <div><dt>対象</dt><dd>アジ、回遊魚（青物・サバなど）</dd></div>
             <div><dt>場所</dt><dd>観音山・盗人狩</dd></div>
             <div><dt>狙う所</dt><dd><b>足元ではなく沖。</b>遠投して沖の潮目や潮の筋を流す</dd></div>
@@ -1262,18 +1451,18 @@ const pad=n=>String(n).padStart(2,'0'), fmt=m=>pad(Math.floor(m/60))+':'+pad(Mat
 /* ───── DATA ───── */
 const SPOT_ORDER=['kannon','yagi','nusu'];
 const SPOTS={
- kannon:{no:'01',name:'観音山',type:'地磯',tags:['駐車場から徒歩 約13分','沖は水深10m前後'],lat:35.13848,lon:139.63974,
+ kannon:{no:'01',name:'観音山',type:'地磯',tags:['駐車場から徒歩 約13分','沖は水深10m前後'],lat:35.13848,lon:139.63974,face:202,
   desc:'宮川港から磯伝いに歩いた先、小さな山（観音山）の先端に広がる地磯。潮通しが良く、沖は水深10m前後まで深くなる。秋はアオリイカ、イナダなどの青物、沖を回るアジが狙え、手前の根まわりではメジナ・クロダイ、底付近ではカワハギも。',
   facts:[['水深','沖は10m前後。沈み根・ハエ根が点在'],['向き','南〜南西。正面に城ヶ島'],['足場','メインの釣り座は足場が良い']],
   fish:['aori','inada','aji','mejina','kurodai','kawahagi'],extra:'サバやソウダガツオなどの回遊魚が回ってくることもある。',
   safety:[['slip','足元','磯は濡れると非常に滑る。スパイクシューズとライフジャケットを着用。'],['tide','満潮・うねり','満潮（10:59／19:15）前後や、うねりがある日は低い釣り座に波が上がる。'],['cast','投げる方向','エギング・ショアジギング・カゴ釣りの人が並ぶ。投げる前に左右を確認。'],['dark','帰り道','日の入りは17:24。夕マズメまで粘るならヘッドライトを必ず用意。']]},
- yagi:{no:'02',name:'ヤギ島周辺',type:'地磯（塩田跡の磯）',tags:['駐車場から徒歩 約14分','水深 3〜5m前後'],lat:35.13813,lon:139.64154,
+ yagi:{no:'02',name:'ヤギ島周辺',type:'地磯（塩田跡の磯）',tags:['駐車場から徒歩 約14分','水深 3〜5m前後'],lat:35.13813,lon:139.64154,face:180,
   alert:'ヤギ島本体には立ち入らず、陸側の磯から釣るポイントです。ヤギ島へ続くパイプは渡らないでください（立入禁止の柵があります）。',
   desc:'観音山の東隣、塩田跡と呼ばれる広い磯。沖にヤギ島（ハナレ磯）が浮かぶ。水深は3〜5m前後で根が多く、足元〜近い距離の根際でメジナ・クロダイを狙う。正面にヤギ島があるので、遠投の釣りには向かない。',
   facts:[['水深','3〜5m前後。根が多く複雑'],['向き','南。沖にヤギ島（ハナレ磯）'],['足場','広い磯。低い所は潮位が上がると波をかぶる']],
   fish:['mejina','kurodai'],extra:'夕方から良くなる釣り座もある。',
   safety:[['ban','立入禁止','ヤギ島へは渡らない。柵の先には入らない。'],['tide','満潮','低い磯は潮位が上がると波をかぶりやすい。夕方は19:15の満潮に向けて潮位が上がり続ける。'],['slip','根の荒い足元','取り込みは足元の根に注意。タモ（玉網）があると安心。'],['dark','帰り道','日没後は磯道が暗い。ヘッドライトを用意。']]},
- nusu:{no:'03',name:'盗人狩',type:'地磯',tags:['駐車場から徒歩 約20分','近場から水深10m以上も','初心者向きではない'],lat:35.13802,lon:139.64649,
+ nusu:{no:'03',name:'盗人狩',type:'地磯',tags:['駐車場から徒歩 約20分','近場から水深10m以上も','初心者向きではない'],lat:35.13802,lon:139.64649,face:180,
   desc:'塩田跡から崖沿いの磯道を東へ進んだ先。三浦半島でもトップクラスの水深と潮通しがある地磯で、かながわの景勝50選にも選ばれた景勝地。青物（イナダ・ワラサ）、アジ、メジナ、クロダイ、イシダイと狙える魚が多い。',
   facts:[['水深','近場から10m以上の釣り座も'],['向き','南。南風の日は向かい風'],['足場','人気の釣り座は平らだが、波が這い上がりやすい']],
   fish:['inada','aji','mejina','kurodai','ishidai'],extra:'サバなどの回遊魚も候補。',
@@ -1284,17 +1473,17 @@ const FISH={
  aori:{name:'アオリイカ',sub:'秋の新子シーズン',method:'エギング',tk:'eging',spots:['kannon'],times:[[300,420],[990,1110]],
   timeText:'朝マズメ（5:00〜7:00頃）・夕マズメ（16:30〜18:30頃）',
   season:'春に生まれた新子が育ち、秋は数が狙える時期。10月上旬は小〜中型の秋イカが中心で、エギへの反応が良い。',
-  rig:'エギングロッド8ft前後、PE0.6〜0.8号、リーダー（フロロ）2〜2.5号',bait:'エギ2.5〜3号。朝夕はピンク・オレンジ系、日中はナチュラルカラーも候補',
+  rig:'ルアーニスト 96ML、PE0.8〜1.2号、リーダー（フロロ）2.5〜3号',bait:'エギ3〜3.5号。朝夕はオレンジ・ピンク、日中は茶などのナチュラル系。反応が渋いときはササミを巻いたエサ巻きエギも',
   tip:'投げて沈め、2〜3回しゃくってフォール。抱くのはフォール中が多いので、ラインの動きに集中する。底を取りすぎると根掛かりしやすい。'},
  inada:{name:'青物',sub:'イナダ・ワラサなど',method:'ショアジギング／カゴ釣り',tk:'jig',spots:['kannon','nusu'],times:[[300,480],[960,1080]],
   timeText:'朝マズメ（5:00〜8:00頃）が最優先。夕マズメも',
   season:'秋は回遊が増える時期。イナダ（ブリの若魚）が中心で、ワラサ級が混じることも。回遊しだいで日によって差が大きい。サバやソウダガツオが一緒に回ることもある。',
-  rig:'ショアジギングロッド9.6〜10ft、PE1.5〜2号、リーダー30〜40lb',bait:'メタルジグ20〜40g（シルバー・ブルー系）。カゴ釣りならオキアミ',
+  rig:'ルアーニスト 96ML、PE1〜1.2号、リーダー4〜5号（16〜20lb）',bait:'メタルジグ・ブレード付きジグ20〜30g。薄暗い時間はピンク・ゴールド、明るくなったらシルバー・ブルー',
   tip:'鳥の群れや水面のざわつき（ナブラ）、潮目を探す。表層〜中層を速めに巻いて探る。'},
  aji:{name:'アジ',sub:'沖を回る群れ',method:'カゴ釣り（遠投）',tk:'kago',spots:['kannon','nusu'],times:[[300,420],[990,1140]],
   timeText:'夕マズメ（16:30〜）と朝マズメ',
   season:'秋は沖の潮目にアジの群れが回ることがある。磯では足元ではなく、沖を回る群れを遠投カゴで狙う。',
-  rig:'磯竿3〜4号、道糸ナイロン4〜5号、遠投ウキ＋天秤カゴ、ハリス2〜3号',bait:'付け餌：オキアミ ／ カゴ：アミエビ・オキアミ',
+  rig:'遠投磯竿3〜4号（手持ちのルアーニストでは投げられない）、道糸ナイロン4〜5号、遠投ウキ＋天秤カゴ、ハリス2〜3号',bait:'付け餌：オキアミ ／ カゴ：アミエビ・オキアミ',
   tip:'沖の潮目まで投げ、同じ場所に投げ続けてコマセを効かせる。アタリがなければタナ（ウキ下）を変える。'},
  mejina:{name:'メジナ',sub:'磯の定番',method:'フカセ釣り',tk:'fukase',spots:['kannon','yagi','nusu'],times:[[300,540],[960,1080]],
   timeText:'朝（5:00〜9:00）と夕方。曇りの日は日中も',
@@ -1478,6 +1667,7 @@ function setTime(t,src){
  $('#roFish').innerHTML=`<span>この時間の狙い目：</span>`+(list.length?list.map(k=>`<button type="button" data-fish="${k}">${FISH[k].name}</button>`).join(''):`<span class="none">${w==='noon'?'潮がほぼ動かないので、休憩・移動に':'—'}</span>`);
  $$('.tcard').forEach(c=>c.classList.toggle('on',c.dataset.win===w));
  $$('button',quick).forEach(b=>b.classList.toggle('on',+b.dataset.q===t));
+ $$('.cg-list li').forEach(li=>{const on=t>=+li.dataset.from&&t<+li.dataset.to;li.classList.toggle('on',on);let b=$('.cg-now',li);if(on){if(!b){b=document.createElement('span');b.className='cg-now u';li.appendChild(b);}b.textContent=fmt(t);}else if(b)b.remove();});
  updateCursor(); renderWx();
 }
 $('#roFish').addEventListener('click',e=>{const b=e.target.closest('[data-fish]');if(b)openFish(b.dataset.fish);});
@@ -1489,41 +1679,80 @@ const DIR8=['N','NE','E','SE','S','SW','W','NW'], DIRJ=['北','北東','東','�
  $('#cTicks').innerHTML=t; $('#cLabels').innerHTML=l; })();
 let WX={wind:null,wave:null,at:null};
 const LAT=35.138,LON=139.643;
-const URL_F=`https://api.open-meteo.com/v1/forecast?latitude=${LAT}&longitude=${LON}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m&wind_speed_unit=ms&timezone=Asia%2FTokyo&start_date=2026-10-03&end_date=2026-10-03`;
+const Q=`latitude=${LAT}&longitude=${LON}&wind_speed_unit=ms&timezone=Asia%2FTokyo&start_date=2026-10-03&end_date=2026-10-03`;
+const URL_J=`https://api.open-meteo.com/v1/forecast?${Q}&hourly=wind_speed_10m,wind_direction_10m&models=jma_seamless`;
+const URL_F=`https://api.open-meteo.com/v1/forecast?${Q}&hourly=wind_speed_10m,wind_direction_10m,wind_gusts_10m`;
 const URL_M=`https://marine-api.open-meteo.com/v1/marine?latitude=35.125&longitude=139.645&hourly=wave_height,wave_period,swell_wave_height,swell_wave_direction&timezone=Asia%2FTokyo&start_date=2026-10-03&end_date=2026-10-03`;
+const HRS=[4,5,6,7,8,9,10];
+const pickH=(H,b)=>H[b]!==undefined?H[b]:H[Object.keys(H).find(k=>k.startsWith(b+'_'))];
 async function getJSON(url){ const c=new AbortController(); const tm=setTimeout(()=>c.abort(),10000);
  try{ const r=await fetch(url,{signal:c.signal}); let j=null; try{j=await r.json();}catch(e){} return {ok:r.ok,j}; } finally{clearTimeout(tm);} }
 function kind(res){ if(res.status!=='fulfilled') return 'net'; const {ok,j}=res.value; if(ok&&j&&j.hourly) return 'ok'; if(j&&j.reason) return 'range'; return 'net'; }
+const LINKS=`<div class="wx-links"><a href="https://tenki.jp/leisure/fishing/3/17/21028/1hour.html" target="_blank" rel="noopener">tenki.jp 釣り場の天気（三浦）↗</a><a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=140000" target="_blank" rel="noopener">気象庁（神奈川県の天気）↗</a><a href="https://www.windy.com/?35.138,139.643,11" target="_blank" rel="noopener">Windy ↗</a></div>`;
 $('#wxBtn').addEventListener('click',async()=>{
  const btn=$('#wxBtn'); btn.setAttribute('aria-busy','true'); $('span',btn).textContent='取得中…';
- const [f,mr]=await Promise.allSettled([getJSON(URL_F),getJSON(URL_M)]);
- const kf=kind(f),km=kind(mr);
- if(kf==='ok'){const H=f.value.j.hourly;WX.wind={s:H.wind_speed_10m,d:H.wind_direction_10m,g:H.wind_gusts_10m};}
- if(km==='ok'){const H=mr.value.j.hourly;WX.wave={h:H.wave_height,p:H.wave_period,sh:H.swell_wave_height,sd:H.swell_wave_direction};}
+ const [rj,rf,rm]=await Promise.allSettled([getJSON(URL_J),getJSON(URL_F),getJSON(URL_M)]);
+ const kj=kind(rj),kf=kind(rf),km=kind(rm);
+ let B=null,J=null;
+ if(kf==='ok'){const H=rf.value.j.hourly;B={s:pickH(H,'wind_speed_10m'),d:pickH(H,'wind_direction_10m'),g:pickH(H,'wind_gusts_10m')};}
+ if(kj==='ok'){const H=rj.value.j.hourly,s=pickH(H,'wind_speed_10m'),d=pickH(H,'wind_direction_10m');if(s&&d&&HRS.every(h=>s[h]!=null&&d[h]!=null))J={s,d};}
+ if(J) WX.wind={s:J.s,d:J.d,g:B&&B.g?B.g:null,src:'jma'};
+ else if(B&&B.s&&B.s[6]!=null) WX.wind={...B,src:'best'};
+ if(km==='ok'){const H=rm.value.j.hourly;WX.wave={h:pickH(H,'wave_height'),p:pickH(H,'wave_period'),sh:pickH(H,'swell_wave_height'),sd:pickH(H,'swell_wave_direction')};}
  btn.removeAttribute('aria-busy');
- const msg=$('#wxMsg');
- const links=`<div class="wx-links"><a href="https://www.jma.go.jp/bosai/forecast/#area_type=offices&area_code=140000" target="_blank" rel="noopener">気象庁（神奈川県の天気）↗</a><a href="https://www.windy.com/?35.138,139.643,11" target="_blank" rel="noopener">Windy（風・波の予報図）↗</a></div>`;
- if(kf==='ok'||km==='ok'){
-  const d=new Date(); WX.at=pad(d.getHours())+':'+pad(d.getMinutes());
+ const msg=$('#wxMsg'), windOk=!!(J||(B&&B.s)), waveOk=km==='ok';
+ if(windOk||waveOk){
+  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'Asia/Tokyo'}));
+  WX.at=`${now.getMonth()+1}/${now.getDate()} ${pad(now.getHours())}:${pad(now.getMinutes())}`;
   btn.classList.add('ghost'); $('span',btn).textContent='再取得';
-  let t=`${WX.at} に取得（Open-Meteo）。予報は変わるので、出発前と現地で再確認を。沿岸の細かい地形は反映されません。`;
-  if(km!=='ok') t+=` 波の予報は${km==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
-  if(kf!=='ok') t+=` 風の予報は${kf==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
+  $('#srcAt').textContent=WX.at;
+  $('#srcGustNote').hidden=!!(WX.wind&&WX.wind.src==='best');
+  $('#srcWind').textContent=WX.wind&&WX.wind.src==='best'?'Open-Meteo 標準モデル（best match）※気象庁モデルを取得できなかったため':'気象庁モデル（MSM・約5km格子。先の時間はGSM）';
+  let t='取得しました。予報は変わるので、出発前と現地で再確認してください。';
+  if(!waveOk) t+=` 波の予報は${km==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
+  if(!windOk) t+=` 風の予報は${kf==='range'||kj==='range'?'まだ配信範囲外でした':'取得できませんでした'}。`;
   msg.innerHTML=`<p class="wx-msg">${t}</p>`;
- } else if(kf==='range'||km==='range'){
+ } else if(kf==='range'||km==='range'||kj==='range'){
   $('span',btn).textContent='もう一度取得';
-  msg.innerHTML=`<div class="wx-msg err"><b>10月3日の予報はまだ配信されていません。</b><br>予報は数日〜2週間ほど先までです。日が近づいてから、もう一度取得してください。${links}</div>`;
+  msg.innerHTML=`<div class="wx-msg err"><b>10月3日の予報はまだ配信されていません。</b><br>予報は数日〜2週間ほど先までです。日が近づいてから、もう一度取得してください。${LINKS}</div>`;
  } else {
   $('span',btn).textContent='もう一度取得';
-  msg.innerHTML=`<div class="wx-msg err"><b>予報を取得できませんでした。</b><br>通信状況を確認してもう一度試すか、下のリンクから予報を確認してください。表示している環境によっては、外部の予報データを読み込めない場合があります。${links}</div>`;
+  msg.innerHTML=`<div class="wx-msg err"><b>予報を取得できませんでした。</b><br>通信状況を確認してもう一度試すか、下のリンクから予報を確認してください。表示している環境によっては、外部の予報データを読み込めない場合があります。${LINKS}</div>`;
  }
  renderWx();
 });
+/* 釣り場の向き（海の方向）と風向きの関係 */
+function windRel(dir,face){ const df=Math.abs(((dir-face)%360+540)%360-180);
+ if(df<=55) return {t:'向かい風',c:'warn',x:'海から'};
+ if(df>=125) return {t:'追い風',c:'blue',x:'陸から'};
+ return {t:'横風',c:'grey',x:'岸と平行'}; }
+const lvC=s=>s<4?'var(--sky)':s<7?'#F5BF5A':'#E0661F';
+function renderWxTable(hr){
+ const W=WX.wind, V=WX.wave;
+ $('#wxRows').innerHTML=HRS.map(h=>{
+  const s=W&&W.s[h]!=null?W.s[h]:null, d=W&&W.d[h]!=null?W.d[h]:null, g=W&&W.g&&W.g[h]!=null?W.g[h]:null;
+  const wh=V&&V.h&&V.h[h]!=null?V.h[h]:null, sh=V&&V.sh&&V.sh[h]!=null?V.sh[h]:null;
+  const dir=d!=null?`<span class="wd"><svg viewBox="0 0 24 24" aria-hidden="true" style="transform:rotate(${Math.round(d+180)}deg)"><path fill="currentColor" d="M12 2.5 18 11h-4v10.5h-4V11H6z"/></svg>${DIRJ[Math.round(d/45)%8]}</span>`:'—';
+  const spd=s!=null?`<span class="ws"><b>${s.toFixed(1)}</b><i style="--w:${Math.min(100,s/12*100).toFixed(0)}%;--c:${lvC(s)}"></i></span>`:'—';
+  const mz=h===5?'<small>日の出</small>':'';
+  return `<tr data-h="${h}" class="${h===hr?'on':''}"><th scope="row"><button type="button" data-h="${h}" aria-label="${h}時の潮・風・波を表示">${pad(h)}:00${mz}</button></th><td class="${d!=null?'':'na'}">${dir}</td><td class="${s!=null?'':'na'}">${spd}</td><td class="${g!=null&&s!=null&&g>=s?'n':'na'}">${g!=null&&s!=null&&g>=s?g.toFixed(1):'—'}</td><td class="${wh!=null?'n':'na'}">${wh!=null?wh.toFixed(1):'—'}</td><td class="${sh!=null?'n':'na'}">${sh!=null?sh.toFixed(1):'—'}</td></tr>`;
+ }).join('');
+}
+$('#wxRows').addEventListener('click',e=>{const r=e.target.closest('tr[data-h]');if(r)setTime(+r.dataset.h*60,'wxrow');});
+function updateSdWind(){
+ const el=$('#sdWind'); if(!el) return;
+ const hr=clamp(Math.round(curT/60),0,23), W=WX.wind;
+ if(!(W&&W.s[hr]!=null&&W.d[hr]!=null)){ el.innerHTML=`<dt>風</dt><dd><a href="#wx">予報を取得すると、この釣り場で追い風か向かい風かを表示します</a></dd>`; return; }
+ const s=W.s[hr],d=W.d[hr],r=windRel(d,SPOTS[curSpot].face);
+ el.innerHTML=`<dt>風</dt><dd><span class="chip ${r.c}">${r.t}</span> 10/3 ${pad(hr)}:00の予報：${DIRJ[Math.round(d/45)%8]}の風 ${s.toFixed(1)}m/s</dd>`;
+}
 function renderWx(){
- const hr=clamp(Math.round(curT/60),0,23), lbl=`${pad(hr)}:00ごろの予報`;
+ const hr=clamp(Math.round(curT/60),0,23), lbl=`10/3 ${pad(hr)}:00の予報`;
+ renderWxTable(hr);
+ const gx=WX.wind&&WX.wind.src==='jma'&&WX.wind.g?'※':''; $('#gx').textContent=gx; $('#gx2').textContent=gx; $('#gxNote').textContent=gx?' ※瞬間は別のモデルの値（気象庁モデルに瞬間風速がないため）。':'';
  const cp=$('#compass');
  if(WX.wind&&WX.wind.s[hr]!=null){
-  const s=WX.wind.s[hr],d=WX.wind.d[hr],g=WX.wind.g?WX.wind.g[hr]:null, i=Math.round(d/45)%8;
+  const s=WX.wind.s[hr],d=WX.wind.d[hr],g0=WX.wind.g?WX.wind.g[hr]:null,g=g0!=null&&g0>=s?g0:null, i=Math.round(d/45)%8;
   cp.classList.add('has'); $('#cArrow').style.transform=`rotate(${d+180}deg)`;
   $$('#cLabels text').forEach(tx=>tx.classList.toggle('on',+tx.dataset.d===i));
   $('#windSpd').textContent=s.toFixed(1); $('#windAt').textContent=lbl;
@@ -1531,10 +1760,10 @@ function renderWx(){
   set('#windDir',`${DIRJ[i]}の風 <span class="u" style="font-size:12px;color:var(--ink3)">${DIR8[i]}</span>`);
   set('#windSpd2',`<span class="u">${s.toFixed(1)}</span> m/s`); set('#windGst',g!=null?`<span class="u">${g.toFixed(1)}</span> m/s`:'—');
   const lv=s<4?['弱い風','blue']:s<7?['やや強い風','warn']:['強い風・釣りにくい','warn'];
-  let a=`<span class="chip ${lv[1]}">${lv[0]}（目安）</span>`; if([3,4,5].includes(i)) a+=` <span class="chip warn">南寄り：盗人狩は向かい風</span>`;
-  $('#windAssess').innerHTML=a;
- }
- if(WX.wave&&WX.wave.h[hr]!=null){
+  $('#windAssess').innerHTML=`<span class="chip ${lv[1]}">${lv[0]}（目安）</span>`;
+  $('#spotWind').innerHTML=`<p class="spw-h">釣り場ごとの風（${pad(hr)}:00）</p><ul>${SPOT_ORDER.map(k=>{const r=windRel(d,SPOTS[k].face);return `<li><span class="nm"><span class="u">${SPOTS[k].no}</span>${SPOTS[k].name}</span><span class="chip ${r.c}">${r.t}<small>${r.x}</small></span></li>`;}).join('')}</ul><p class="spw-note">追い風は遠くまで投げやすいが、糸がふくらみやすい。向かい風は投げにくく、波も寄りやすい。</p>`;
+ } else { $('#windAt').textContent=WX.wind?`${pad(hr)}:00の予報なし`:'—'; }
+ if(WX.wave&&WX.wave.h&&WX.wave.h[hr]!=null){
   const h=WX.wave.h[hr],p=WX.wave.p?WX.wave.p[hr]:null,sh=WX.wave.sh?WX.wave.sh[hr]:null,sd=WX.wave.sd?WX.wave.sd[hr]:null;
   $('#waveAt').textContent=lbl;
   const set=(id,v)=>{const e=$(id);e.classList.remove('dash');e.innerHTML=v;};
@@ -1544,6 +1773,7 @@ function renderWx(){
   const lv=h<1?['比較的穏やか','blue']:h<1.5?['低い磯は注意','warn']:['地磯は危険・中止も検討','warn'];
   $('#waveAssess').innerHTML=`<span class="chip ${lv[1]}">${lv[0]}（目安）</span>`;
  }
+ updateSdWind();
 }
 
 /* ───── SPOT ───── */
@@ -1567,13 +1797,14 @@ function renderSpot(id,anim){
   <div class="sd-head"><span class="sd-no">${S.no}</span><div><h3>${S.name}</h3><div class="sd-tags"><span class="chip solid">${S.type}</span>${tags}</div></div></div>
   ${S.alert?`<div class="alert">${ico('ban')}<span><b>ヤギ島には渡りません</b>${S.alert}</span></div>`:''}
   <p class="sd-desc">${S.desc}</p>
-  <dl class="facts">${S.facts.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}</dl>
+  <dl class="facts">${S.facts.map(([k,v])=>`<div><dt>${k}</dt><dd>${v}</dd></div>`).join('')}<div id="sdWind" class="sd-wind"></div></dl>
   <div><p class="sub-h"><span class="u">FISH</span>狙える魚</p>
    <div class="fishgrid">${S.fish.map(k=>`<button class="fg" type="button" data-fish="${k}">${fishSVG(k)}<span>${FISH[k].name}</span><small>${FISH[k].method.replace(/（.*?）/,'')}</small></button>`).join('')}</div>
    ${S.extra?`<p class="sd-extra">${S.extra}</p>`:''}</div>
   <div class="safety"><p class="sub-h"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 2.5 20h19z"/><path d="M12 10v4.5M12 17.5v.2"/></svg>安全情報</p>
    <ul>${S.safety.map(([k,t,x])=>`<li><span class="si">${ico(k)}</span><span><span class="st">${t}</span><br><span class="sx">${x}</span></span></li>`).join('')}</ul></div>
   <div class="sd-actions"><button class="btn" type="button" data-gofish="${id}">この場所の魚を見る</button><a class="btn ghost" href="https://www.google.com/maps/search/?api=1&query=${S.lat},${S.lon}" target="_blank" rel="noopener">Googleマップで開く ↗</a></div>`;
+ updateSdWind();
  if(anim){el.classList.remove('swap');void el.offsetWidth;el.classList.add('swap');}
 }
 function setSpot(id,opts={}){
@@ -1767,4 +1998,5 @@ mqReduce.addEventListener&&mqReduce.addEventListener('change',()=>{ motion=!mqRe
 })();
 </script>
 
-</body></html>
+</body>
+</html>
